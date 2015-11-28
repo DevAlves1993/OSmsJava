@@ -2,11 +2,12 @@
  * Created by AMANI on 28/11/2015.
  */
 
+import java.io.IOException;
 import java.util.Base64;
 
 import com.squareup.okhttp.*;
-import com.squareup.okhttp.internal.http.HttpMethod;
-import com.squareup.okhttp.internal.http.OkHeaders;
+import com.google.gson.Gson;
+
 
 
 public class GenerateService
@@ -34,14 +35,17 @@ public class GenerateService
     private String encodedCodeBasic;
     private String encodeCodeBearer;
     private OkHttpClient client;
+    private Response response;
+    private Gson gson;
 
     public GenerateService(String id, String secretCode)
     {
         this.id = id;
         this.secretCode = secretCode;
         encode();
-        encodedCodeBasic ="Basic "+encodedCodeBasic;
-        encodeCodeBearer = "Bearer "+encodeCodeBearer;
+        this.encodedCodeBasic ="Basic "+encodedCodeBasic;
+        this.encodeCodeBearer = "Bearer "+encodeCodeBearer;
+        this.gson = new Gson();
     }
     private void encode()
     {
@@ -51,7 +55,7 @@ public class GenerateService
         encodeCodeBearer = encodedCodeBasic;
     }
 
-    public void getToken()
+    public void getToken() throws IOException
     {
         RequestBody body = RequestBody.create(typeCredential,CREDENTIALS);
         Request request = new Request.Builder()
@@ -59,5 +63,11 @@ public class GenerateService
                             .post(body)
                             .addHeader(AUTHORIZATION,encodedCodeBasic)
                             .build();
+        response = client.newCall(request).execute();
+        if(response.isSuccessful())
+        {
+            Token token = gson.fromJson(response.body().charStream(),Token.class);
+        }
+
     }
 }
