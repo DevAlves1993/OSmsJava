@@ -3,17 +3,31 @@
  */
 
 
-
-import java.util.Base64;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-
-
 public class Token
 {
     private String tokenType;
     private String accessToken;
     private long second;
 
+    public Token(String tokenType, String accessToken, long second)
+    {
+        this.tokenType = tokenType;
+        this.accessToken = accessToken;
+        this.second = second;
+    }
+
+    public String getTokenType()
+    {
+        return tokenType;
+    }
+
+    public String getAccessToken()
+    {
+        return accessToken;
+    }
+
+    public long getSecond()
+    {
+        return second;
+    }
 }

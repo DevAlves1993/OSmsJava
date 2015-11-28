@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="httpclient-3.0.1">
+  <library name="okhttp-2.6.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/httpclient-3.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/okhttp-2.6.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
