@@ -1,3 +1,4 @@
+
 /**
  * Created by AMANI on 28/11/2015.
  */
@@ -8,6 +9,7 @@ import java.util.Base64;
 import com.squareup.okhttp.*;
 import com.google.gson.Gson;
 
+import Error.ServiceException;
 
 
 public class GenerateService
@@ -55,7 +57,7 @@ public class GenerateService
         encodeCodeBearer = encodedCodeBasic;
     }
 
-    public void getToken() throws IOException
+    public Token getToken() throws IOException, ServiceException
     {
         RequestBody body = RequestBody.create(typeCredential,CREDENTIALS);
         Request request = new Request.Builder()
@@ -67,7 +69,11 @@ public class GenerateService
         if(response.isSuccessful())
         {
             Token token = gson.fromJson(response.body().charStream(),Token.class);
+            return token;
         }
-
+        else
+        {
+            throw new ServiceException(response.body().string());
+        }
     }
 }
