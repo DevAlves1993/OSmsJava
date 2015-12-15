@@ -9,6 +9,7 @@ import java.util.Base64;
 import com.squareup.okhttp.*;
 import com.google.gson.Gson;
 
+
 import Error.ServiceException;
 
 
@@ -24,18 +25,15 @@ public class GenerateService
     private final String END_POINT_STATISTICS = "https://api.orange.com/sms/admin/v1/statistics";
     private final String END_POINT_HISTORIC = "https://api.orange.com/sms/admin/v1/purchaseorders";
     private final String AUTHORIZATION = "Authorization";
-    private final String CREDENTIALS = "grant_type=client_credentials";
 
-    private static final MediaType typeCredential;
-    static
-    {
-        typeCredential = MediaType.parse("text;charset=utf-8");
-    }
+    private static final MediaType typeJson = MediaType.parse("application/json;charset=utf-8");;
+    private static final RequestBody formBody = new FormEncodingBuilder()
+                                                .add("grant_type","client_credentials")
+                                                .build();
 
     private String id;
     private String secretCode;
     private String encodedCodeBasic;
-    private String encodeCodeBearer;
     private OkHttpClient client;
     private Response response;
     private Gson gson;
@@ -45,24 +43,19 @@ public class GenerateService
         this.id = id;
         this.secretCode = secretCode;
         encode();
-        this.encodedCodeBasic ="Basic "+encodedCodeBasic;
-        this.encodeCodeBearer = "Bearer "+encodeCodeBearer;
         this.gson = new Gson();
+        client = new OkHttpClient();
     }
     private void encode()
     {
-        Base64.Encoder encoder = Base64.getEncoder();
-        encodedCodeBasic = id+":"+secretCode;
-        encodedCodeBasic = encoder.encodeToString(encodedCodeBasic.getBytes());
-        encodeCodeBearer = encodedCodeBasic;
+       encodedCodeBasic = Credentials.basic(id,secretCode);
     }
 
     public Token getToken() throws IOException, ServiceException
     {
-        RequestBody body = RequestBody.create(typeCredential,CREDENTIALS);
         Request request = new Request.Builder()
                             .url(END_POINT_AUTH)
-                            .post(body)
+                            .post(formBody)
                             .addHeader(AUTHORIZATION,encodedCodeBasic)
                             .build();
         response = client.newCall(request).execute();
@@ -76,4 +69,9 @@ public class GenerateService
             throw new ServiceException(response.body().string());
         }
     }
+    public void sendSMS(Token token) throws ServiceException
+    {
+
+    }
+
 }
