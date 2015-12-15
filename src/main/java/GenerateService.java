@@ -64,7 +64,7 @@ public class GenerateService
         else
             throw new ServiceException(response.body().string());
     }
-    public ResponseSMS sendSMS(Token token,SMS sms) throws ServiceException, IOException
+    public ResponseSMS sendSMS(Token token,SMS sms,SMSHeader smsHead) throws ServiceException, IOException
     {
         ResponseSMS responseSms = null;
         jsonBody = gson.toJson(sms);
@@ -80,6 +80,10 @@ public class GenerateService
         Response response = client.newCall(request).execute();
         if(response.isSuccessful())
         {
+            smsHead.contentLength = response.header(CONTENT_LENGTH);
+            smsHead.contentType = response.header(CONTENT_TYPE);
+            smsHead.date = response.header(DATE);
+            smsHead.location = response.header(LOCATION);
             responseSms = gson.fromJson(response.body().charStream(),ResponseSMS.class);
             return responseSms;
         }
