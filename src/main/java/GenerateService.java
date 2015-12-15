@@ -4,13 +4,9 @@
  */
 
 import java.io.IOException;
-
 import com.squareup.okhttp.*;
 import com.google.gson.Gson;
-
-
 import Error.ServiceException;
-
 
 public class GenerateService
 {
@@ -102,5 +98,23 @@ public class GenerateService
     {
         String url = "https://api.orange.com/smsmessaging/v1/outbound/"+senderAddress+"/requests";
         return url;
+    }
+    public StatisticSMS statisticSMS(Token token) throws IOException,ServiceException
+    {
+        StatisticSMS statisticSms = null;
+        Request request = new Request.Builder()
+                            .url(END_POINT_STATISTICS)
+                            .addHeader(AUTHORIZATION,token.createAccess())
+                            .build();
+        Response response = client.newCall(request).execute();
+        if(response.isSuccessful())
+        {
+            statisticSms = gson.fromJson(response.body().charStream(),StatisticSMS.class);
+            return statisticSms;
+        }
+        else
+        {
+            throw new ServiceException(response.body().string());
+        }
     }
 }
