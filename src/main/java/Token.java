@@ -30,4 +30,9 @@ public class Token
     {
         return second;
     }
+
+    public String createAccess()
+    {
+        return tokenType+" "+accessToken;
+    }
 }

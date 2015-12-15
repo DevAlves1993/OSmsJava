@@ -4,7 +4,6 @@
  */
 
 import java.io.IOException;
-import java.util.Base64;
 
 import com.squareup.okhttp.*;
 import com.google.gson.Gson;
@@ -37,6 +36,7 @@ public class GenerateService
     private OkHttpClient client;
     private Response response;
     private Gson gson;
+    private String jsonBody;
 
     public GenerateService(String id, String secretCode)
     {
@@ -45,6 +45,7 @@ public class GenerateService
         encode();
         this.gson = new Gson();
         client = new OkHttpClient();
+        jsonBody = null;
     }
     private void encode()
     {
@@ -69,9 +70,37 @@ public class GenerateService
             throw new ServiceException(response.body().string());
         }
     }
-    public void sendSMS(Token token) throws ServiceException
+    public ResponseSMS sendSMS(Token token,SMS sms) throws ServiceException, IOException
     {
-
+        ResponseSMS responseSms = null;
+        jsonBody = gson.toJson(sms);
+        String senderAddress = encodedSenderAddress(sms.getOutBoundSMSMessageRequest()
+                                                    .getSenderAddress());
+        String url = createEndPointSms(senderAddress);
+        RequestBody bodySms = RequestBody.create(typeJson, jsonBody);
+        Request request = new Request.Builder()
+                            .url(url)
+                            .post(bodySms)
+                            .addHeader(AUTHORIZATION,token.createAccess())
+                            .build();
+        Response response = client.newCall(request).execute();
+        if(response.isSuccessful())
+        {
+            responseSms = gson.fromJson(response.body().charStream(),ResponseSMS.class);
+            return responseSms;
+        }
+        else
+        {
+            throw new ServiceException(response.body().string());
+        }
     }
-
+    private String encodedSenderAddress(String number)
+    {
+        return number.replaceAll(":\\+","%3A%2B");
+    }
+    private String createEndPointSms(String senderAddress)
+    {
+        String url = "https://api.orange.com/smsmessaging/v1/outbound/"+senderAddress+"/requests";
+        return url;
+    }
 }
