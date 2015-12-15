@@ -62,9 +62,7 @@ public class GenerateService
             return token;
         }
         else
-        {
             throw new ServiceException(response.body().string());
-        }
     }
     public ResponseSMS sendSMS(Token token,SMS sms) throws ServiceException, IOException
     {
@@ -86,9 +84,7 @@ public class GenerateService
             return responseSms;
         }
         else
-        {
             throw new ServiceException(response.body().string());
-        }
     }
     private String encodedSenderAddress(String number)
     {
@@ -113,8 +109,38 @@ public class GenerateService
             return statisticSms;
         }
         else
-        {
             throw new ServiceException(response.body().string());
+    }
+    public RemainderSMS remainderSMS(Token token) throws IOException,ServiceException
+    {
+        RemainderSMS remainderSms = null;
+        Request request = new Request.Builder()
+                            .url(END_POINT_REMAINDER)
+                            .addHeader(AUTHORIZATION,token.createAccess())
+                            .build();
+        Response response = client.newCall(request).execute();
+        if(response.isSuccessful())
+        {
+            remainderSms = gson.fromJson(response.body().charStream(),RemainderSMS.class);
+            return remainderSms;
         }
+        else
+            throw new ServiceException(response.body().string());
+    }
+    public HistoricPurchase obtainHistoric(Token token) throws IOException,ServiceException
+    {
+        HistoricPurchase historicpurchase = null;
+        Request request = new Request.Builder()
+                            .url(END_POINT_HISTORIC)
+                            .addHeader(AUTHORIZATION,token.createAccess())
+                            .build();
+        Response response = client.newCall(request).execute();
+        if(response.isSuccessful())
+        {
+            historicpurchase = gson.fromJson(response.body().charStream(),HistoricPurchase.class);
+            return historicpurchase;
+        }
+        else
+            throw new ServiceException(response.body().string());
     }
 }
