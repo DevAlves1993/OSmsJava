@@ -8,10 +8,10 @@ import com.squareup.okhttp.*;
 import com.google.gson.Gson;
 import org.akanza.error.ServiceException;
 import org.akanza.responseSms.HistoricPurchase;
-import org.akanza.responseSms.RemainderBaseResponse;
-import org.akanza.responseSms.ResponseBaseResponse;
+import org.akanza.responseSms.RemainderSMS;
+import org.akanza.responseSms.ResponseSMS;
 import org.akanza.models.SMSHeader;
-import org.akanza.responseSms.StatisticBaseResponse;
+import org.akanza.responseSms.StatisticSMS;
 
 public class ServiceSMS
 {
@@ -69,9 +69,9 @@ public class ServiceSMS
         else
             throw new ServiceException(response.body().string());
     }
-    public ResponseBaseResponse sendSMS(Token token, SMS sms, SMSHeader smsHead) throws ServiceException, IOException
+    public ResponseSMS sendSMS(Token token, SMS sms, SMSHeader smsHead) throws ServiceException, IOException
     {
-        ResponseBaseResponse responseSms = null;
+        ResponseSMS responseSms = null;
         jsonBody = gson.toJson(sms);
         String senderAddress = encodedSenderAddress(sms.getOutBoundSMSMessageRequest()
                                                     .getSenderAddress());
@@ -89,7 +89,7 @@ public class ServiceSMS
             smsHead.contentType = response.header(CONTENT_TYPE);
             smsHead.date = response.header(DATE);
             smsHead.location = response.header(LOCATION);
-            responseSms = gson.fromJson(response.body().charStream(),ResponseBaseResponse.class);
+            responseSms = gson.fromJson(response.body().charStream(),ResponseSMS.class);
             return responseSms;
         }
         else
@@ -104,9 +104,9 @@ public class ServiceSMS
         String url = "https://api.orange.com/smsmessaging/v1/outbound/"+senderAddress+"/requests";
         return url;
     }
-    public StatisticBaseResponse statisticSMS(Token token) throws IOException,ServiceException
+    public StatisticSMS statisticSMS(Token token) throws IOException,ServiceException
     {
-        StatisticBaseResponse statisticSms = null;
+        StatisticSMS statisticSms = null;
         Request request = new Request.Builder()
                             .url(END_POINT_STATISTICS)
                             .addHeader(AUTHORIZATION,token.createAccess())
@@ -114,15 +114,15 @@ public class ServiceSMS
         Response response = client.newCall(request).execute();
         if(response.isSuccessful())
         {
-            statisticSms = gson.fromJson(response.body().charStream(),StatisticBaseResponse.class);
+            statisticSms = gson.fromJson(response.body().charStream(),StatisticSMS.class);
             return statisticSms;
         }
         else
             throw new ServiceException(response.body().string());
     }
-    public RemainderBaseResponse remainderSMS(Token token) throws IOException,ServiceException
+    public RemainderSMS remainderSMS(Token token) throws IOException,ServiceException
     {
-        RemainderBaseResponse remainderSms = null;
+        RemainderSMS remainderSms = null;
         Request request = new Request.Builder()
                             .url(END_POINT_REMAINDER)
                             .addHeader(AUTHORIZATION,token.createAccess())
@@ -130,7 +130,7 @@ public class ServiceSMS
         Response response = client.newCall(request).execute();
         if(response.isSuccessful())
         {
-            remainderSms = gson.fromJson(response.body().charStream(),RemainderBaseResponse.class);
+            remainderSms = gson.fromJson(response.body().charStream(),RemainderSMS.class);
             return remainderSms;
         }
         else

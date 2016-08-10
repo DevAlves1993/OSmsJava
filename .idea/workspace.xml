@@ -2,31 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a781e48a-67e5-4c4f-8aba-344923127c5e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/CallBack.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/error/ServiceException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/models/PartnerContracts.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/models/PartnerStatistics.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/models/PurchaseOrders.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/models/SMSHeader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/models/ServiceContracts.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/models/ServiceStatistics.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/BaseResponse.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Error/ServiceException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Other/PartnerContracts.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Other/PartnerStatistics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Other/PurchaseOrders.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Other/ServiceContracts.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/Other/ServiceStatistics.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/SMSHeader.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/GenerateService.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/HistoricPurchase.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/HistoricPurchase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/RemainderSMS.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderBaseResponse.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ResponseSMS.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseBaseResponse.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/SMS.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/SMS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/StatisticSMS.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticBaseResponse.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/Token.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/Token.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderBaseResponse.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderSMS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseBaseResponse.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseSMS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticBaseResponse.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticSMS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" />
     </list>
     <ignored path="OSmsJava.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,8 +39,8 @@
       <file leaf-file-name="ServiceSMS.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="138" column="27" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="27" />
+            <state relative-caret-position="835">
+              <caret line="127" column="22" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -91,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RemainderBaseResponse.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderBaseResponse.java">
+      <file leaf-file-name="RemainderSMS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderSMS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -111,14 +91,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StatisticBaseResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticBaseResponse.java">
+      <file leaf-file-name="StatisticSMS.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticSMS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
               <folding>
-                <element signature="e#303#304#0" expanded="true" />
-                <element signature="e#361#362#0" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
+                <element signature="e#343#344#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponseBaseResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseBaseResponse.java">
+      <file leaf-file-name="ResponseSMS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseSMS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -201,9 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/MessageRequestTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Compte.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Acompte.java" />
         <option value="$PROJECT_DIR$/src/main/java/Compt.java" />
         <option value="$PROJECT_DIR$/OSmsJava.iml" />
         <option value="$PROJECT_DIR$/src/main/java/MessageRequest.java" />
@@ -247,11 +224,14 @@
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/models/SMSHeader.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/BaseSms.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/HistoricPurchase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderSMS.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseSMS.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticSMS.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/Sms.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/BaseResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderBaseResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderSMS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseBaseResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseSMS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticBaseResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticSMS.java" />
       </list>
     </option>
   </component>
@@ -1367,14 +1347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="138" column="27" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/models/PartnerStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1388,25 +1360,6 @@
         <state relative-caret-position="105">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseBaseResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticBaseResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-          <folding>
-            <element signature="e#303#304#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1426,11 +1379,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderBaseResponse.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="835">
+          <caret line="127" column="22" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/RemainderSMS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseSMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticSMS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
