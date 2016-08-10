@@ -15,7 +15,6 @@ public class FactoryService
     private static final Gson gson = new GsonBuilder()
             .create();
 
-    // TODO : effectuate a research on RequestBody
     public static void getToken(String id,String secretCode,Callback callback)
     {
         String basic = Credentials.basic(id, secretCode);
