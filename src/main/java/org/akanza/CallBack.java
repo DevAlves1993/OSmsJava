@@ -12,7 +12,6 @@ import org.akanza.responseSms.BaseResponse;
 @FunctionalInterface
 public interface Callback
 {
-
     void onSuccess(BaseResponse baseResponse, ResponseHeader responseHeader, int statusCode);
 
     default void onFailure(ResponseError error, String message, int statusCode) {}

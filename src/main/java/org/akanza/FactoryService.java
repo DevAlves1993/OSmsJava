@@ -1,8 +1,8 @@
 package org.akanza;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import okhttp3.*;
+import org.akanza.error.ResponseError;
 import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.Token;
 
@@ -54,9 +54,14 @@ public class FactoryService
             }
             else
             {
-                int i = response.code();
+                JsonParser jsonParser = new JsonParser();
+                JsonElement element = jsonParser.parse(response.body().charStream());
+                JsonObject jsonObject = element.getAsJsonObject();
+                JsonObject jsonError = jsonObject.getAsJsonObject("error");
+                ResponseError responseError = gson.fromJson(jsonError,ResponseError.class);
                 String message = response.message();
-                callback.onFailure(message,i);
+                int i = response.code();
+                callback.onFailure(responseError,message,i);
             }
         }
         catch (Exception e)
