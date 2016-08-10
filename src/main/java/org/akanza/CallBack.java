@@ -1,8 +1,9 @@
 package org.akanza;
 
-import com.squareup.okhttp.Response;
-import org.akanza.models.SMSHeader;
+import okhttp3.Response;
+import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.BaseResponse;
+
 
 /**
  * Created by AMANI on 10/08/2016.
@@ -12,9 +13,9 @@ import org.akanza.responseSms.BaseResponse;
 public interface Callback
 {
 
-    void onSuccess(BaseResponse baseResponse, SMSHeader smsHeader,int statusCode);
+    void onSuccess(BaseResponse baseResponse, ResponseHeader responseHeader, int statusCode);
 
-    default void onFailure(Response errorResponse) {}
+    default void onFailure(String message,int statusCode) {}
 
     default void onThrowable(Throwable throwable)
     {

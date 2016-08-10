@@ -1,11 +1,11 @@
-package org.akanza;
+package org.akanza.responseSms;
 
 /**
  * Created by AMANI CHRISTIAN CYRILLE ALVES on 24/10/2015.
  */
 
 
-public class Token
+public class Token extends BaseResponse
 {
     private String tokenType;
     private String accessToken;

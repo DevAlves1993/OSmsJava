@@ -4,14 +4,11 @@ package org.akanza;
  */
 
 import java.io.IOException;
-import com.squareup.okhttp.*;
+import okhttp3.*;
 import com.google.gson.Gson;
 import org.akanza.error.ServiceException;
-import org.akanza.responseSms.HistoricPurchase;
-import org.akanza.responseSms.RemainderSMS;
-import org.akanza.responseSms.ResponseSMS;
-import org.akanza.models.SMSHeader;
-import org.akanza.responseSms.StatisticSMS;
+import org.akanza.responseSms.*;
+import org.akanza.models.ResponseHeader;
 
 public class ServiceSMS
 {
@@ -27,7 +24,7 @@ public class ServiceSMS
     private final String AUTHORIZATION = "Authorization";
 
     private static final MediaType typeJson = MediaType.parse("application/json;charset=utf-8");;
-    private static final RequestBody formBody = new FormEncodingBuilder()
+    private static final RequestBody formBody = new FormBody.Builder()
                                                 .add("grant_type","client_credentials")
                                                 .build();
 
@@ -39,7 +36,7 @@ public class ServiceSMS
     private Gson gson;
     private String jsonBody;
 
-    public ServiceSMS(String id, String secretCode)
+    private ServiceSMS(String id, String secretCode)
     {
         this.id = id;
         this.secretCode = secretCode;
@@ -69,7 +66,7 @@ public class ServiceSMS
         else
             throw new ServiceException(response.body().string());
     }
-    public ResponseSMS sendSMS(Token token, SMS sms, SMSHeader smsHead) throws ServiceException, IOException
+    public ResponseSMS sendSMS(Token token, SMS sms, ResponseHeader smsHead) throws ServiceException, IOException
     {
         ResponseSMS responseSms = null;
         jsonBody = gson.toJson(sms);

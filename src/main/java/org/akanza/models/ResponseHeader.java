@@ -3,7 +3,7 @@ package org.akanza.models;
 /**
  * Created by AMANI on 15/12/2015.
  */
-public class SMSHeader
+public class ResponseHeader
 {
     public String location;
     public String date;
