@@ -5,11 +5,11 @@ import org.akanza.models.PartnerContracts;
 /**
  * Created by AMANI on 15/12/2015.
  */
-public class RemainderSMS extends BaseResponse
+public class ContractsSMS extends BaseResponse
 {
     private PartnerContracts partnerContracts;
 
-    public RemainderSMS(PartnerContracts partnerContracts)
+    public ContractsSMS(PartnerContracts partnerContracts)
     {
         this.partnerContracts = partnerContracts;
     }

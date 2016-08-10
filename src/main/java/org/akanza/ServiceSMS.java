@@ -104,7 +104,7 @@ public class ServiceSMS
         }
     }
 
-    public void statisticSMS(Token token,Callback callback) throws IOException,ServiceException
+    public void ObtainStatisticSMS(Token token, Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme("http")
@@ -151,36 +151,96 @@ public class ServiceSMS
         }
     }
 
-    public RemainderSMS remainderSMS(Token token) throws IOException,ServiceException
+    public void obtainsContractsSMS(Token token, Callback callback)
     {
-        RemainderSMS remainderSms = null;
+        HttpUrl url = new HttpUrl.Builder()
+               .scheme("http")
+               .host("api.orange.com")
+               .addPathSegment("sms")
+               .addPathSegment("admin")
+               .addPathSegment("v1")
+               .addPathSegment("contracts")
+               .build();
         Request request = new Request.Builder()
-                            .url(END_POINT_REMAINDER)
-                            .addHeader(AUTHORIZATION,token.createAccess())
-                            .build();
-        Response response = httpClient.newCall(request).execute();
-        if(response.isSuccessful())
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .get()
+                .build();
+        Response response = null;
+        Call call = httpClient.newCall(request);
+        try
         {
-            remainderSms = gson.fromJson(response.body().charStream(),RemainderSMS.class);
-            return remainderSms;
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseHeader responseHeader = new ResponseHeader();
+                responseHeader.contentLength = response.header(CONTENT_LENGTH);
+                responseHeader.contentType = response.header(CONTENT_TYPE);
+                responseHeader.location = response.header(LOCATION);
+                responseHeader.date = response.header(DATE);
+                ContractsSMS contractsSMS = gson.fromJson(response.body().charStream(),ContractsSMS.class);
+                int i = response.code();
+                callback.onSuccess(contractsSMS,responseHeader,i);
+            }
+            else
+            {
+                launchOnFailure(callback,response);
+            }
         }
-        else
-            throw new ServiceException(response.body().string());
+        catch(Exception e)
+        {
+            callback.onThrowable(e.getCause());
+        }
+        finally
+        {
+            if(response != null)
+                response.close();
+        }
     }
-    public HistoricPurchase obtainHistoric(Token token) throws IOException,ServiceException
+    public void obtainHistoricSMS(Token token,Callback callback) throws IOException,ServiceException
     {
-        HistoricPurchase historicpurchase = null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("api.orange.com")
+                .addPathSegment("sms")
+                .addPathSegment("admin")
+                .addPathSegment("v1")
+                .addPathSegment("purchaseorders")
+                .build();
         Request request = new Request.Builder()
-                            .url(END_POINT_HISTORIC)
-                            .addHeader(AUTHORIZATION,token.createAccess())
-                            .build();
-        Response response = httpClient.newCall(request).execute();
-        if(response.isSuccessful())
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .get()
+                .build();
+        Response response = null;
+        Call call = httpClient.newCall(request);
+        try
         {
-            historicpurchase = gson.fromJson(response.body().charStream(),HistoricPurchase.class);
-            return historicpurchase;
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseHeader responseHeader = new ResponseHeader();
+                responseHeader.contentLength = response.header(CONTENT_LENGTH);
+                responseHeader.contentType = response.header(CONTENT_TYPE);
+                responseHeader.date = response.header(DATE);
+                responseHeader.location = response.header(LOCATION);
+                int i = response.code();
+                HistoricPurchase historicPurchase = gson.fromJson(response.body().charStream(),HistoricPurchase.class);
+                callback.onSuccess(historicPurchase,responseHeader,i);
+            }
+            else
+            {
+                launchOnFailure(callback,response);
+            }
         }
-        else
-            throw new ServiceException(response.body().string());
+        catch (Exception e)
+        {
+            callback.onThrowable(e.getCause());
+        }
+        finally
+        {
+            if(response != null)
+                response.close();
+        }
     }
 }
