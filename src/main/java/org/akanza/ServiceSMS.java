@@ -48,10 +48,17 @@ public class ServiceSMS
         return url;
     }
 
+    private void launchOnFailure(Callback callback, Response response)
+    {
+        String message = response.message();
+        int i = response.code();
+        callback.onFailure(message,i);
+    }
+
     public void sendSMS(Token token, SMS sms,Callback callback) throws ServiceException, IOException
     {
         HttpUrl url = new HttpUrl.Builder()
-                .scheme("https")
+                .scheme("http")
                 .host("api.orange.com")
                 .addPathSegment("smsmessaging")
                 .addPathSegment("v1")
@@ -83,9 +90,7 @@ public class ServiceSMS
             }
             else
             {
-                String message = response.message();
-                int i = response.code();
-                callback.onFailure(message,i);
+                launchOnFailure(callback, response);
             }
         }
         catch (Exception e)
@@ -99,22 +104,53 @@ public class ServiceSMS
         }
     }
 
-    public StatisticSMS statisticSMS(Token token) throws IOException,ServiceException
+    public void statisticSMS(Token token,Callback callback) throws IOException,ServiceException
     {
-        StatisticSMS statisticSms = null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("http")
+                .host("api.orange.com")
+                .addPathSegment("sms")
+                .addPathSegment("admin")
+                .addPathSegment("v1")
+                .addPathSegment("statistics")
+                .build();
         Request request = new Request.Builder()
-                            .url(END_POINT_STATISTICS)
-                            .addHeader(AUTHORIZATION,token.createAccess())
-                            .build();
-        Response response = httpClient.newCall(request).execute();
-        if(response.isSuccessful())
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .get()
+                .build();
+        Response response = null;
+        Call call = httpClient.newCall(request);
+        try
         {
-            statisticSms = gson.fromJson(response.body().charStream(),StatisticSMS.class);
-            return statisticSms;
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseHeader responseHeader = new ResponseHeader();
+                responseHeader.contentLength = response.header(CONTENT_LENGTH);
+                responseHeader.location = response.header(LOCATION);
+                responseHeader.contentType = response.header(CONTENT_TYPE);
+                responseHeader.date = response.header(DATE);
+                int i = response.code();
+                StatisticSMS statisticSMS = gson.fromJson(response.body().charStream(),StatisticSMS.class);
+                callback.onSuccess(statisticSMS,responseHeader,i);
+            }
+            else
+            {
+                launchOnFailure(callback, response);
+            }
         }
-        else
-            throw new ServiceException(response.body().string());
+        catch(Exception e)
+        {
+            callback.onThrowable(e.getCause());
+        }
+        finally
+        {
+            if(response != null)
+                response.close();
+        }
     }
+
     public RemainderSMS remainderSMS(Token token) throws IOException,ServiceException
     {
         RemainderSMS remainderSms = null;

@@ -1,4 +1,8 @@
 import okhttp3.FormBody;
+import org.akanza.Callback;
+import org.akanza.models.ResponseHeader;
+import org.akanza.responseSms.BaseResponse;
+import org.akanza.responseSms.StatisticSMS;
 import org.junit.Test;
 
 /**
@@ -9,9 +13,6 @@ public class TestCallback
     @Test
     public void testCallback() throws Exception
     {
-        FormBody formBody = new FormBody.Builder()
-                .add("grant_type","client_credentials")
-                .build();
-        System.out.println(formBody.contentType().type());
+
     }
 }
