@@ -19,15 +19,9 @@ public class ServiceSMS
     public static final String CONTENT_LENGTH = "Content-Length";
     public static final String DATE = "Date";
 
-    private final String END_POINT_REMAINDER = "https://api.orange.com/sms/admin/v1/contracts";
-    private final String END_POINT_STATISTICS = "https://api.orange.com/sms/admin/v1/statistics";
-    private final String END_POINT_HISTORIC = "https://api.orange.com/sms/admin/v1/purchaseorders";
-    private final String AUTHORIZATION = "Authorization";
-
     private static final MediaType jsonMedia = MediaType.parse("application/json;charset=utf-8");;
 
     private  OkHttpClient httpClient;
-    private Response response;
     private Gson gson;
 
     public ServiceSMS()
@@ -38,10 +32,12 @@ public class ServiceSMS
                 .build();
     }
 
+    @Deprecated
     private String encodedSenderAddress(String number)
     {
         return number.replaceAll(":\\+","%3A%2B");
     }
+    @Deprecated
     private String createEndPointSms(String senderAddress)
     {
         String url = "https://api.orange.com/smsmessaging/v1/outbound/"+senderAddress+"/requests";

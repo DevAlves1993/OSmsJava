@@ -15,7 +15,7 @@ public interface Callback
 
     void onSuccess(BaseResponse baseResponse, ResponseHeader responseHeader, int statusCode);
 
-    default void onFailure(String message,int statusCode) {}
+    default void onFailure(Error error,String message,int statusCode) {}
 
     default void onThrowable(Throwable throwable)
     {
