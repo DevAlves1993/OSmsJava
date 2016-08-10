@@ -1,3 +1,5 @@
+package org.akanza;
+
 /**
  * Created by AMANI on 15/12/2015.
  */

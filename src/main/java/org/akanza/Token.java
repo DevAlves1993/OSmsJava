@@ -1,3 +1,5 @@
+package org.akanza;
+
 /**
  * Created by AMANI CHRISTIAN CYRILLE ALVES on 24/10/2015.
  */

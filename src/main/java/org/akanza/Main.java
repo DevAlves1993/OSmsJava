@@ -1,5 +1,7 @@
+package org.akanza;
+
 import java.io.IOException;
-import Error.ServiceException;
+import org.akanza.error.ServiceException;
 /**
  * Created by AMANI Christian on 28/11/2015.
  */
@@ -7,7 +9,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        GenerateService service = new GenerateService("353","hdbhzbd");
+        ServiceSMS service = new ServiceSMS("353","hdbhzbd");
         try
         {
             Token token  = service.getToken();

@@ -1,12 +1,14 @@
+package org.akanza.responseSms;
+
 /**
  * Created by AMANI on 15/12/2015.
  */
-public class ResponseSMS
+public class ResponseBaseResponse extends BaseResponse
 {
     private SMSResponse outBoundSMSMessageRequest;
     private String resourceURL;
 
-    public ResponseSMS(SMSResponse outBoundSMSMessageRequest, String resourceURL)
+    public ResponseBaseResponse(SMSResponse outBoundSMSMessageRequest, String resourceURL)
     {
         this.outBoundSMSMessageRequest = outBoundSMSMessageRequest;
         this.resourceURL = resourceURL;

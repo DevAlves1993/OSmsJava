@@ -1,9 +1,11 @@
-import Other.PurchaseOrders;
+package org.akanza.responseSms;
+
+import org.akanza.models.PurchaseOrders;
 
 /**
  * Created by AMANI on 15/12/2015.
  */
-public class HistoricPurchase
+public class HistoricPurchase extends BaseResponse
 {
     private PurchaseOrders[] purchaseOrders;
 

@@ -1,4 +1,4 @@
-
+package org.akanza;
 /**
  * Created by AMANI on 28/11/2015.
  */
@@ -6,9 +6,14 @@
 import java.io.IOException;
 import com.squareup.okhttp.*;
 import com.google.gson.Gson;
-import Error.ServiceException;
+import org.akanza.error.ServiceException;
+import org.akanza.responseSms.HistoricPurchase;
+import org.akanza.responseSms.RemainderBaseResponse;
+import org.akanza.responseSms.ResponseBaseResponse;
+import org.akanza.models.SMSHeader;
+import org.akanza.responseSms.StatisticBaseResponse;
 
-public class GenerateService
+public class ServiceSMS
 {
     public static final String CONTENT_TYPE = "Content-Type";
     public static final String LOCATION = "Location";
@@ -34,7 +39,7 @@ public class GenerateService
     private Gson gson;
     private String jsonBody;
 
-    public GenerateService(String id, String secretCode)
+    public ServiceSMS(String id, String secretCode)
     {
         this.id = id;
         this.secretCode = secretCode;
@@ -58,15 +63,15 @@ public class GenerateService
         response = client.newCall(request).execute();
         if(response.isSuccessful())
         {
-            Token token = gson.fromJson(response.body().charStream(),Token.class);
+            Token token = gson.fromJson(response.body().charStream(), Token.class);
             return token;
         }
         else
             throw new ServiceException(response.body().string());
     }
-    public ResponseSMS sendSMS(Token token,SMS sms,SMSHeader smsHead) throws ServiceException, IOException
+    public ResponseBaseResponse sendSMS(Token token, SMS sms, SMSHeader smsHead) throws ServiceException, IOException
     {
-        ResponseSMS responseSms = null;
+        ResponseBaseResponse responseSms = null;
         jsonBody = gson.toJson(sms);
         String senderAddress = encodedSenderAddress(sms.getOutBoundSMSMessageRequest()
                                                     .getSenderAddress());
@@ -84,7 +89,7 @@ public class GenerateService
             smsHead.contentType = response.header(CONTENT_TYPE);
             smsHead.date = response.header(DATE);
             smsHead.location = response.header(LOCATION);
-            responseSms = gson.fromJson(response.body().charStream(),ResponseSMS.class);
+            responseSms = gson.fromJson(response.body().charStream(),ResponseBaseResponse.class);
             return responseSms;
         }
         else
@@ -99,9 +104,9 @@ public class GenerateService
         String url = "https://api.orange.com/smsmessaging/v1/outbound/"+senderAddress+"/requests";
         return url;
     }
-    public StatisticSMS statisticSMS(Token token) throws IOException,ServiceException
+    public StatisticBaseResponse statisticSMS(Token token) throws IOException,ServiceException
     {
-        StatisticSMS statisticSms = null;
+        StatisticBaseResponse statisticSms = null;
         Request request = new Request.Builder()
                             .url(END_POINT_STATISTICS)
                             .addHeader(AUTHORIZATION,token.createAccess())
@@ -109,15 +114,15 @@ public class GenerateService
         Response response = client.newCall(request).execute();
         if(response.isSuccessful())
         {
-            statisticSms = gson.fromJson(response.body().charStream(),StatisticSMS.class);
+            statisticSms = gson.fromJson(response.body().charStream(),StatisticBaseResponse.class);
             return statisticSms;
         }
         else
             throw new ServiceException(response.body().string());
     }
-    public RemainderSMS remainderSMS(Token token) throws IOException,ServiceException
+    public RemainderBaseResponse remainderSMS(Token token) throws IOException,ServiceException
     {
-        RemainderSMS remainderSms = null;
+        RemainderBaseResponse remainderSms = null;
         Request request = new Request.Builder()
                             .url(END_POINT_REMAINDER)
                             .addHeader(AUTHORIZATION,token.createAccess())
@@ -125,7 +130,7 @@ public class GenerateService
         Response response = client.newCall(request).execute();
         if(response.isSuccessful())
         {
-            remainderSms = gson.fromJson(response.body().charStream(),RemainderSMS.class);
+            remainderSms = gson.fromJson(response.body().charStream(),RemainderBaseResponse.class);
             return remainderSms;
         }
         else

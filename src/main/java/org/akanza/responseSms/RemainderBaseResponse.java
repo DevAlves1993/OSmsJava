@@ -1,13 +1,15 @@
-import Other.PartnerContracts;
+package org.akanza.responseSms;
+
+import org.akanza.models.PartnerContracts;
 
 /**
  * Created by AMANI on 15/12/2015.
  */
-public class RemainderSMS
+public class RemainderBaseResponse extends BaseResponse
 {
     private PartnerContracts partnerContracts;
 
-    public RemainderSMS(PartnerContracts partnerContracts)
+    public RemainderBaseResponse(PartnerContracts partnerContracts)
     {
         this.partnerContracts = partnerContracts;
     }
