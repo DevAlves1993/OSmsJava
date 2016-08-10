@@ -1,19 +1,20 @@
 package org.akanza;
 
+import com.squareup.okhttp.Response;
+import org.akanza.models.SMSHeader;
+import org.akanza.responseSms.BaseResponse;
+
 /**
  * Created by AMANI on 10/08/2016.
  */
 
 @FunctionalInterface
-public interface callback
+public interface Callback
 {
 
-    void onSuccess();
+    void onSuccess(BaseResponse baseResponse, SMSHeader smsHeader,int statusCode);
 
-    default void onFailure(int statusCode)
-    {
-        return;
-    }
+    default void onFailure(Response errorResponse) {}
 
     default void onThrowable(Throwable throwable)
     {
