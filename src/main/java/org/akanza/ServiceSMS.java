@@ -5,9 +5,9 @@ package org.akanza;
 
 import java.io.IOException;
 
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import okhttp3.*;
-import com.google.gson.Gson;
+import org.akanza.error.ResponseError;
 import org.akanza.error.ServiceException;
 import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.*;
@@ -46,9 +46,14 @@ public class ServiceSMS
 
     private void launchOnFailure(Callback callback, Response response)
     {
+        JsonParser jsonParser = new JsonParser();
+        JsonElement element = jsonParser.parse(response.body().charStream());
+        JsonObject jsonObject = element.getAsJsonObject();
+        JsonObject jsonError = jsonObject.getAsJsonObject("error");
+        ResponseError responseError = gson.fromJson(jsonError,ResponseError.class);
         String message = response.message();
         int i = response.code();
-        callback.onFailure(message,i);
+        callback.onFailure(responseError,message,i);
     }
 
     public void sendSMS(Token token, SMS sms,Callback callback) throws ServiceException, IOException
