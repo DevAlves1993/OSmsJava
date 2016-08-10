@@ -4,11 +4,13 @@ package org.akanza;
  */
 
 import java.io.IOException;
+
+import com.google.gson.GsonBuilder;
 import okhttp3.*;
 import com.google.gson.Gson;
 import org.akanza.error.ServiceException;
-import org.akanza.responseSms.*;
 import org.akanza.models.ResponseHeader;
+import org.akanza.responseSms.*;
 
 public class ServiceSMS
 {
@@ -17,81 +19,25 @@ public class ServiceSMS
     public static final String CONTENT_LENGTH = "Content-Length";
     public static final String DATE = "Date";
 
-    private final String END_POINT_AUTH = "https://api.orange.com/oauth/v2/token";
     private final String END_POINT_REMAINDER = "https://api.orange.com/sms/admin/v1/contracts";
     private final String END_POINT_STATISTICS = "https://api.orange.com/sms/admin/v1/statistics";
     private final String END_POINT_HISTORIC = "https://api.orange.com/sms/admin/v1/purchaseorders";
     private final String AUTHORIZATION = "Authorization";
 
-    private static final MediaType typeJson = MediaType.parse("application/json;charset=utf-8");;
-    private static final RequestBody formBody = new FormBody.Builder()
-                                                .add("grant_type","client_credentials")
-                                                .build();
+    private static final MediaType jsonMedia = MediaType.parse("application/json;charset=utf-8");;
 
-    private String id;
-    private String secretCode;
-    private String encodedCodeBasic;
-    private OkHttpClient client;
+    private  OkHttpClient httpClient;
     private Response response;
     private Gson gson;
-    private String jsonBody;
 
-    private ServiceSMS(String id, String secretCode)
+    public ServiceSMS()
     {
-        this.id = id;
-        this.secretCode = secretCode;
-        encode();
-        this.gson = new Gson();
-        client = new OkHttpClient();
-        jsonBody = null;
-    }
-    private void encode()
-    {
-       encodedCodeBasic = Credentials.basic(id,secretCode);
+        this.gson = new GsonBuilder()
+                .create();
+        this.httpClient = new OkHttpClient.Builder()
+                .build();
     }
 
-    public Token getToken() throws IOException, ServiceException
-    {
-        Request request = new Request.Builder()
-                            .url(END_POINT_AUTH)
-                            .post(formBody)
-                            .addHeader(AUTHORIZATION,encodedCodeBasic)
-                            .build();
-        response = client.newCall(request).execute();
-        if(response.isSuccessful())
-        {
-            Token token = gson.fromJson(response.body().charStream(), Token.class);
-            return token;
-        }
-        else
-            throw new ServiceException(response.body().string());
-    }
-    public ResponseSMS sendSMS(Token token, SMS sms, ResponseHeader smsHead) throws ServiceException, IOException
-    {
-        ResponseSMS responseSms = null;
-        jsonBody = gson.toJson(sms);
-        String senderAddress = encodedSenderAddress(sms.getOutBoundSMSMessageRequest()
-                                                    .getSenderAddress());
-        String url = createEndPointSms(senderAddress);
-        RequestBody bodySms = RequestBody.create(typeJson, jsonBody);
-        Request request = new Request.Builder()
-                            .url(url)
-                            .post(bodySms)
-                            .addHeader(AUTHORIZATION,token.createAccess())
-                            .build();
-        Response response = client.newCall(request).execute();
-        if(response.isSuccessful())
-        {
-            smsHead.contentLength = response.header(CONTENT_LENGTH);
-            smsHead.contentType = response.header(CONTENT_TYPE);
-            smsHead.date = response.header(DATE);
-            smsHead.location = response.header(LOCATION);
-            responseSms = gson.fromJson(response.body().charStream(),ResponseSMS.class);
-            return responseSms;
-        }
-        else
-            throw new ServiceException(response.body().string());
-    }
     private String encodedSenderAddress(String number)
     {
         return number.replaceAll(":\\+","%3A%2B");
@@ -101,6 +47,58 @@ public class ServiceSMS
         String url = "https://api.orange.com/smsmessaging/v1/outbound/"+senderAddress+"/requests";
         return url;
     }
+
+    public void sendSMS(Token token, SMS sms,Callback callback) throws ServiceException, IOException
+    {
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("https")
+                .host("api.orange.com")
+                .addPathSegment("smsmessaging")
+                .addPathSegment("v1")
+                .addPathSegment("outbound")
+                .addEncodedPathSegment(sms.getOutBoundSMSMessageRequest().getSenderAddress())
+                .addPathSegment("requests")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .addHeader("Content-Type","application/json")
+                .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
+                .build();
+        Response response = null;
+        Call call = httpClient.newCall(request);
+        try
+        {
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseHeader responseHeader = new ResponseHeader();
+                responseHeader.date = response.header(DATE);
+                responseHeader.contentType = response.header(CONTENT_TYPE);
+                responseHeader.location = response.header(LOCATION);
+                responseHeader.contentLength = response.header(CONTENT_LENGTH);
+                ResponseSMS responseSMS = gson.fromJson(response.body().charStream(),ResponseSMS.class);
+                int i = response.code();
+                callback.onSuccess(responseSMS,responseHeader,i);
+            }
+            else
+            {
+                String message = response.message();
+                int i = response.code();
+                callback.onFailure(message,i);
+            }
+        }
+        catch (Exception e)
+        {
+            callback.onThrowable(e.getCause());
+        }
+        finally
+        {
+            if(response != null)
+                response.close();
+        }
+    }
+
     public StatisticSMS statisticSMS(Token token) throws IOException,ServiceException
     {
         StatisticSMS statisticSms = null;
@@ -108,7 +106,7 @@ public class ServiceSMS
                             .url(END_POINT_STATISTICS)
                             .addHeader(AUTHORIZATION,token.createAccess())
                             .build();
-        Response response = client.newCall(request).execute();
+        Response response = httpClient.newCall(request).execute();
         if(response.isSuccessful())
         {
             statisticSms = gson.fromJson(response.body().charStream(),StatisticSMS.class);
@@ -124,7 +122,7 @@ public class ServiceSMS
                             .url(END_POINT_REMAINDER)
                             .addHeader(AUTHORIZATION,token.createAccess())
                             .build();
-        Response response = client.newCall(request).execute();
+        Response response = httpClient.newCall(request).execute();
         if(response.isSuccessful())
         {
             remainderSms = gson.fromJson(response.body().charStream(),RemainderSMS.class);
@@ -140,7 +138,7 @@ public class ServiceSMS
                             .url(END_POINT_HISTORIC)
                             .addHeader(AUTHORIZATION,token.createAccess())
                             .build();
-        Response response = client.newCall(request).execute();
+        Response response = httpClient.newCall(request).execute();
         if(response.isSuccessful())
         {
             historicpurchase = gson.fromJson(response.body().charStream(),HistoricPurchase.class);

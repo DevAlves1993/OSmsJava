@@ -1,3 +1,4 @@
+import okhttp3.FormBody;
 import org.junit.Test;
 
 /**
@@ -8,6 +9,9 @@ public class TestCallback
     @Test
     public void testCallback() throws Exception
     {
-
+        FormBody formBody = new FormBody.Builder()
+                .add("grant_type","client_credentials")
+                .build();
+        System.out.println(formBody.contentType().type());
     }
 }

@@ -3,11 +3,8 @@ package org.akanza;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.*;
-import okio.BufferedSink;
 import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.Token;
-
-import java.io.IOException;
 
 /**
  * Created by AMANI on 10/08/2016.
@@ -21,6 +18,7 @@ public class FactoryService
     // TODO : effectuate a research on RequestBody
     public static void getToken(String id,String secretCode,Callback callback)
     {
+        String basic = Credentials.basic(id, secretCode);
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .build();
         HttpUrl url = new HttpUrl.Builder()
@@ -35,7 +33,7 @@ public class FactoryService
                 .build();
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("Authorization","") // TODO : See Doc [ encoded Authorisation  = id + secretCode
+                .addHeader("Authorization",basic)
                 .post(formBody)
                 .build();
         Response response = null;
