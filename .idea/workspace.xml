@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a781e48a-67e5-4c4f-8aba-344923127c5e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/error/Error.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/error/ResponseError.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/CallBack.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/CallBack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" afterPath="$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" />
-    </list>
+    <list default="true" id="a781e48a-67e5-4c4f-8aba-344923127c5e" name="Default" comment="" />
     <ignored path="OSmsJava.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -48,7 +43,7 @@
       <file leaf-file-name="ServiceSMS.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
+            <state relative-caret-position="966">
               <caret line="55" column="52" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1493,7 +1488,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
+        <state relative-caret-position="966">
           <caret line="55" column="52" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
