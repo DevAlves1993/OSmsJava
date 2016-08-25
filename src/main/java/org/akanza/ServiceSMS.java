@@ -53,7 +53,7 @@ public class ServiceSMS
         ResponseError responseError = gson.fromJson(jsonError,ResponseError.class);
         String message = response.message();
         int i = response.code();
-        callback.onFailure(responseError,message,i);
+        callback.failure(responseError,message,i);
     }
 
     public void sendSMS(Token token, SMS sms,Callback callback) throws ServiceException, IOException
@@ -87,7 +87,7 @@ public class ServiceSMS
                 responseHeader.contentLength = response.header(CONTENT_LENGTH);
                 ResponseSMS responseSMS = gson.fromJson(response.body().charStream(),ResponseSMS.class);
                 int i = response.code();
-                callback.onSuccess(responseSMS,responseHeader,i);
+                callback.success(responseSMS,responseHeader,i);
             }
             else
             {
@@ -96,7 +96,7 @@ public class ServiceSMS
         }
         catch (Exception e)
         {
-            callback.onThrowable(e.getCause());
+            callback.throwable(e.getCause());
         }
         finally
         {
@@ -133,7 +133,7 @@ public class ServiceSMS
                 responseHeader.date = response.header(DATE);
                 int i = response.code();
                 ResponseSubscription responseSubscription = gson.fromJson(response.body().charStream(),ResponseSubscription.class);
-                callback.onSuccess(responseSubscription,responseHeader,i);
+                callback.success(responseSubscription,responseHeader,i);
             }
             else
             {
@@ -142,7 +142,7 @@ public class ServiceSMS
         }
         catch (Exception e)
         {
-            callback.onThrowable(e.getCause());
+           callback.throwable(e.getCause());
         }
         finally
         {
@@ -180,7 +180,7 @@ public class ServiceSMS
                 responseHeader.date = response.header(DATE);
                 int i = response.code();
                 StatisticSMS statisticSMS = gson.fromJson(response.body().charStream(),StatisticSMS.class);
-                callback.onSuccess(statisticSMS,responseHeader,i);
+                callback.success(statisticSMS,responseHeader,i);
             }
             else
             {
@@ -189,7 +189,7 @@ public class ServiceSMS
         }
         catch(Exception e)
         {
-            callback.onThrowable(e.getCause());
+            callback.throwable(e.getCause());
         }
         finally
         {
@@ -227,7 +227,7 @@ public class ServiceSMS
                 responseHeader.date = response.header(DATE);
                 ContractsSMS contractsSMS = gson.fromJson(response.body().charStream(),ContractsSMS.class);
                 int i = response.code();
-                callback.onSuccess(contractsSMS,responseHeader,i);
+                callback.success(contractsSMS,responseHeader,i);
             }
             else
             {
@@ -236,7 +236,7 @@ public class ServiceSMS
         }
         catch(Exception e)
         {
-            callback.onThrowable(e.getCause());
+           callback.throwable(e.getCause());
         }
         finally
         {
@@ -273,7 +273,7 @@ public class ServiceSMS
                 responseHeader.location = response.header(LOCATION);
                 int i = response.code();
                 HistoricPurchase historicPurchase = gson.fromJson(response.body().charStream(),HistoricPurchase.class);
-                callback.onSuccess(historicPurchase,responseHeader,i);
+                callback.success(historicPurchase,responseHeader,i);
             }
             else
             {
@@ -282,7 +282,7 @@ public class ServiceSMS
         }
         catch (Exception e)
         {
-            callback.onThrowable(e.getCause());
+           callback.throwable(e.getCause());
         }
         finally
         {

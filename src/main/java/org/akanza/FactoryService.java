@@ -49,7 +49,7 @@ public class FactoryService
                 responseHeader.location = response.header("Location");
                 responseHeader.date = response.header("Date");
                 int i = response.code();
-                callback.onSuccess(token,responseHeader,i);
+                callback.success(token,responseHeader,i);
             }
             else
             {
@@ -60,12 +60,12 @@ public class FactoryService
                 ResponseError responseError = gson.fromJson(jsonError,ResponseError.class);
                 String message = response.message();
                 int i = response.code();
-                callback.onFailure(responseError,message,i);
+                callback.failure(responseError,message,i);
             }
         }
         catch (Exception e)
         {
-            callback.onThrowable(e.getCause());
+            callback.throwable(e.getCause());
         }
         finally
         {
