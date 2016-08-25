@@ -105,6 +105,47 @@ public class ServiceSMS
         }
     }
 
+    public void sendSubscription(Token token,Callback callback,String senderAddress)
+    {
+        HttpUrl httpUrl = new HttpUrl.Builder()
+                .scheme("http")
+                .host("api.orange.com")
+                .addPathSegment("smsmessaging")
+                .addPathSegment("v1")
+                .addPathSegment("outbound")
+                .addPathSegment(senderAddress)
+                .addPathSegment("subscriptions")
+                .build();
+        Request request = new Request.Builder()
+                .url(httpUrl)
+                .build();
+        Response response = null;
+        Call call = httpClient.newCall(request);
+        try
+        {
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseHeader responseHeader = new ResponseHeader();
+                responseHeader.contentLength = response.header(CONTENT_LENGTH);
+                responseHeader.contentType = response.header(CONTENT_TYPE);
+                responseHeader.location = response.header(LOCATION);
+                responseHeader.date = response.header(DATE);
+                int i = response.code();
+                ResponseSubscription responseSubscription = gson.fromJson(response.body().charStream(),ResponseSubscription.class);
+                callback.onSuccess(responseSubscription,responseHeader,i);
+            }
+            else
+            {
+                launchOnFailure(callback,response);
+            }
+        }
+        catch (Exception e)
+        {
+            callback.onThrowable(e.getCause());
+        }
+    }
+
     public void ObtainStatisticSMS(Token token, Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
