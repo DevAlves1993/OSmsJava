@@ -144,6 +144,11 @@ public class ServiceSMS
         {
             callback.onThrowable(e.getCause());
         }
+        finally
+        {
+            if(response != null)
+                response.close();
+        }
     }
 
     public void ObtainStatisticSMS(Token token, Callback callback)
