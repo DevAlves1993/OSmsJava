@@ -56,7 +56,7 @@ public class ServiceSMS
         callback.failure(responseError,message,i);
     }
 
-    public void sendSMS(Token token, SMS sms,Callback callback) throws ServiceException, IOException
+    public void sendSMS(Token token, SMS sms,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme("http")
@@ -151,7 +151,7 @@ public class ServiceSMS
         }
     }
 
-    public void ObtainStatisticSMS(Token token, Callback callback)
+    public void obtainStatisticSMS(Token token, Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme("http")
@@ -244,7 +244,7 @@ public class ServiceSMS
                 response.close();
         }
     }
-    public void obtainHistoricSMS(Token token,Callback callback) throws IOException,ServiceException
+    public void obtainHistoricSMS(Token token,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme("http")
