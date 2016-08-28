@@ -73,6 +73,11 @@
             <artifactId>gson</artifactId>
             <version>2.7</version>
         </dependency>
+        <dependency>
+            <groupId>io.reactivex</groupId>
+            <artifactId>rxjava</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
 </project>
