@@ -3,33 +3,24 @@ package org.akanza;
  * Created by AMANI on 28/11/2015.
  */
 
-import java.io.IOException;
 
 import com.google.gson.*;
 import okhttp3.*;
 import org.akanza.error.ResponseError;
-import org.akanza.error.ServiceException;
 import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.*;
 
+import static org.akanza.Resource.*;
+
 public class ServiceSMS
 {
-    public static final String CONTENT_TYPE = "Content-Type";
-    public static final String LOCATION = "Location";
-    public static final String CONTENT_LENGTH = "Content-Length";
-    public static final String DATE = "Date";
 
-    private static final MediaType jsonMedia = MediaType.parse("application/json;charset=utf-8");;
-
-    private  OkHttpClient httpClient;
     private Gson gson;
 
     public ServiceSMS()
     {
         this.gson = new GsonBuilder()
                 .create();
-        this.httpClient = new OkHttpClient.Builder()
-                .build();
     }
 
     @Deprecated
