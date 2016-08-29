@@ -1,5 +1,5 @@
 # Usage
-Do not use this bookshop in production. It is under development. It will be available very soon.
+Do not use this library in production. It is under development. It will be available very soon.
 
 # OSmsJava
 OSmsJava is a library allowing you to consume easily [API REST SmsApi of orange Ivory Coast (zone AMEA)] (https://www.orangepartner.com/SMS-CI-API) .
