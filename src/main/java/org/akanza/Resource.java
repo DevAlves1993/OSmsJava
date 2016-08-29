@@ -13,6 +13,9 @@ public interface Resource
     String CONTENT_LENGTH = "Content-Length";
     String DATE = "Date";
 
+    String HOST = "api.orange.com";
+    String SCHEME = "http";
+
     MediaType jsonMedia = MediaType.parse("application/json;charset=utf-8");
 
     OkHttpClient httpClient = new OkHttpClient.Builder()
