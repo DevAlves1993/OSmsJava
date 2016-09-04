@@ -105,118 +105,152 @@ public class ServiceSMSAsync
 
     private ResponseSMS sendSMS(Token token,SMS sms) throws IOException
     {
-        HttpUrl url = new HttpUrl.Builder()
-                .scheme(SCHEME)
-                .host(HOST)
-                .addPathSegment("smsmessaging")
-                .addPathSegment("v1")
-                .addPathSegment("outbound")
-                .addEncodedPathSegment(sms.getOutBoundSMSMessageRequest().getSenderAddress())
-                .addPathSegment("requests")
-                .build();
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("Authorization",token.getAccess_token())
-                .addHeader("Content-Type","application/json")
-                .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
-                .build();
-        Response response;
-        Call call = httpClient.newCall(request);
-        response = call.execute();
-        if(response.isSuccessful())
-            return gson.fromJson(response.body().charStream(), ResponseSMS.class);
+        if(token != null && sms != null)
+        {
+            HttpUrl url = new HttpUrl.Builder()
+                    .scheme(SCHEME)
+                    .host(HOST)
+                    .addPathSegment("smsmessaging")
+                    .addPathSegment("v1")
+                    .addPathSegment("outbound")
+                    .addEncodedPathSegment(sms.getOutBoundSMSMessageRequest().getSenderAddress())
+                    .addPathSegment("requests")
+                    .build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .addHeader("Authorization",token.getAccess_token())
+                    .addHeader("Content-Type","application/json")
+                    .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
+                    .build();
+            Response response;
+            Call call = httpClient.newCall(request);
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseSMS responseSMS = gson.fromJson(response.body().charStream(), ResponseSMS.class);
+                response.close();
+                return responseSMS;
+            }
+        }
         return null;
     }
 
     private ResponseSubscription sendSubscription(Token token,String senderAddress) throws IOException
     {
-        HttpUrl httpUrl = new HttpUrl.Builder()
-                .scheme(SCHEME)
-                .host(HOST)
-                .addPathSegment("smsmessaging")
-                .addPathSegment("v1")
-                .addPathSegment("outbound")
-                .addPathSegment(senderAddress)
-                .addPathSegment("subscriptions")
-                .build();
-        Request request = new Request.Builder()
-                .url(httpUrl)
-                .build();
-        Response response;
-        Call call = httpClient.newCall(request);
-        response = call.execute();
-        if(response.isSuccessful())
-            return gson.fromJson(response.body().charStream(),ResponseSubscription.class);
+        if(token != null && senderAddress !=  null)
+        {
+            HttpUrl httpUrl = new HttpUrl.Builder()
+                    .scheme(SCHEME)
+                    .host(HOST)
+                    .addPathSegment("smsmessaging")
+                    .addPathSegment("v1")
+                    .addPathSegment("outbound")
+                    .addPathSegment(senderAddress)
+                    .addPathSegment("subscriptions")
+                    .build();
+            Request request = new Request.Builder()
+                    .url(httpUrl)
+                    .build();
+            Response response;
+            Call call = httpClient.newCall(request);
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ResponseSubscription responseSubscription = gson.fromJson(response.body().charStream(), ResponseSubscription.class);
+                response.close();
+                return responseSubscription;
+            }
+        }
         return null;
     }
 
     private StatisticSMS obtainStatisticSMS(Token token) throws IOException
     {
-        HttpUrl url = new HttpUrl.Builder()
-                .scheme(SCHEME)
-                .host(HOST)
-                .addPathSegment("sms")
-                .addPathSegment("admin")
-                .addPathSegment("v1")
-                .addPathSegment("statistics")
-                .build();
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("Authorization",token.getAccess_token())
-                .get()
-                .build();
-        Response response;
-        Call call = httpClient.newCall(request);
-        response = call.execute();
-        if(response.isSuccessful())
-            return gson.fromJson(response.body().charStream(),StatisticSMS.class);
-        else
-            return null;
+        if(token != null)
+        {
+            HttpUrl url = new HttpUrl.Builder()
+                    .scheme(SCHEME)
+                    .host(HOST)
+                    .addPathSegment("sms")
+                    .addPathSegment("admin")
+                    .addPathSegment("v1")
+                    .addPathSegment("statistics")
+                    .build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .addHeader("Authorization",token.getAccess_token())
+                    .get()
+                    .build();
+            Response response;
+            Call call = httpClient.newCall(request);
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                StatisticSMS statisticSMS = gson.fromJson(response.body().charStream(), StatisticSMS.class);
+                response.close();
+                return statisticSMS;
+            }
+        }
+        return null;
     }
 
     public ContractsSMS obtainsContractsSMS(Token token) throws IOException
     {
-        HttpUrl url = new HttpUrl.Builder()
-                .scheme(SCHEME)
-                .host(HOST)
-                .addPathSegment("sms")
-                .addPathSegment("admin")
-                .addPathSegment("v1")
-                .addPathSegment("contracts")
-                .build();
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("Authorization",token.getAccess_token())
-                .get()
-                .build();
-        Response response;
-        Call call = httpClient.newCall(request);
-        response = call.execute();
-        if(response.isSuccessful())
-            return gson.fromJson(response.body().charStream(),ContractsSMS.class);
+        if(token != null)
+        {
+            HttpUrl url = new HttpUrl.Builder()
+                    .scheme(SCHEME)
+                    .host(HOST)
+                    .addPathSegment("sms")
+                    .addPathSegment("admin")
+                    .addPathSegment("v1")
+                    .addPathSegment("contracts")
+                    .build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .addHeader("Authorization",token.getAccess_token())
+                    .get()
+                    .build();
+            Response response;
+            Call call = httpClient.newCall(request);
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                ContractsSMS contractsSMS = gson.fromJson(response.body().charStream(), ContractsSMS.class);
+                response.close();
+                return contractsSMS;
+            }
+        }
         return null;
     }
 
     public HistoricPurchase obtainHistoric(Token token) throws IOException
     {
-        HttpUrl url = new HttpUrl.Builder()
-                .scheme(SCHEME)
-                .host(HOST)
-                .addPathSegment("sms")
-                .addPathSegment("admin")
-                .addPathSegment("v1")
-                .addPathSegment("purchaseorders")
-                .build();
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("Authorization",token.getAccess_token())
-                .get()
-                .build();
-        Response response;
-        Call call = httpClient.newCall(request);
-        response = call.execute();
-        if(response.isSuccessful())
-            return gson.fromJson(response.body().charStream(),HistoricPurchase.class);
+        if(token != null)
+        {
+            HttpUrl url = new HttpUrl.Builder()
+                    .scheme(SCHEME)
+                    .host(HOST)
+                    .addPathSegment("sms")
+                    .addPathSegment("admin")
+                    .addPathSegment("v1")
+                    .addPathSegment("purchaseorders")
+                    .build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .addHeader("Authorization",token.getAccess_token())
+                    .get()
+                    .build();
+            Response response;
+            Call call = httpClient.newCall(request);
+            response = call.execute();
+            if(response.isSuccessful())
+            {
+                HistoricPurchase historicPurchase = gson.fromJson(response.body().charStream(), HistoricPurchase.class);
+                response.close();
+                return historicPurchase;
+            }
+        }
         return null;
     }
 }
