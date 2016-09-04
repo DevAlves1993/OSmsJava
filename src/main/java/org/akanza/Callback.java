@@ -9,7 +9,7 @@ import org.akanza.responseSms.BaseResponse;
 
 
 /**
- * Created by AMANI on 10/08/2016.
+ * Created by Christian Amani on 10/08/2016.
  */
 
 public class Callback

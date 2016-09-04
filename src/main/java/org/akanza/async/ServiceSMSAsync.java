@@ -14,7 +14,7 @@ import java.util.concurrent.*;
 import static org.akanza.Resource.*;
 
 /**
- * Created by user on 26/08/2016.
+ * Created by Christian Amani on 26/08/2016.
  */
 public class ServiceSMSAsync
 {

@@ -1,7 +1,7 @@
 package org.akanza.responseSms;
 
 /**
- * Created by AMANI on 15/12/2015.
+ * Created by Christian Amani on 15/12/2015.
  */
 public class ResponseSMS extends BaseResponse
 {

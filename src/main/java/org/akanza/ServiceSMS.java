@@ -1,7 +1,4 @@
 package org.akanza;
-/**
- * Created by AMANI on 28/11/2015.
- */
 
 
 import com.google.gson.*;
@@ -12,6 +9,9 @@ import org.akanza.responseSms.*;
 
 import static org.akanza.Resource.*;
 
+/**
+ * Created by Christian Amani on 28/11/2015.
+ */
 public class ServiceSMS
 {
 

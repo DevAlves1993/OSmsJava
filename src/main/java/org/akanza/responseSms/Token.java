@@ -1,7 +1,7 @@
 package org.akanza.responseSms;
 
 /**
- * Created by AMANI CHRISTIAN CYRILLE ALVES on 24/10/2015.
+ * Created by Christian Amani on 24/10/2015.
  */
 
 

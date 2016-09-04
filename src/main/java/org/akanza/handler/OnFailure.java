@@ -3,7 +3,7 @@ package org.akanza.handler;
 import org.akanza.error.ResponseError;
 
 /**
- * Created by user on 25/08/2016.
+ * Created by Christian Amani on 25/08/2016.
  */
 @FunctionalInterface
 public interface OnFailure

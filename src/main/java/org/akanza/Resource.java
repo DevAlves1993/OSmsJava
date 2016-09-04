@@ -4,7 +4,7 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 
 /**
- * Created by user on 28/08/2016.
+ * Created by Christian Amani on 28/08/2016.
  */
 public interface Resource
 {

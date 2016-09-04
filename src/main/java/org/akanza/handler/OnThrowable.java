@@ -1,7 +1,7 @@
 package org.akanza.handler;
 
 /**
- * Created by user on 25/08/2016.
+ * Created by Christian Amani on 25/08/2016.
  */
 @FunctionalInterface
 public interface OnThrowable

@@ -4,7 +4,7 @@ import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.BaseResponse;
 
 /**
- * Created by user on 25/08/2016.
+ * Created by Christian Amani on 25/08/2016.
  */
 @FunctionalInterface
 public interface OnSuccess

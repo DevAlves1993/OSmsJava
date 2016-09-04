@@ -1,7 +1,7 @@
 package org.akanza.error;
 
 /**
- * Created by AMANI on 10/08/2016.
+ * Created by Christian Amani on 10/08/2016.
  */
 public class ResponseError
 {
