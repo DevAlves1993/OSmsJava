@@ -2,16 +2,13 @@ package org.akanza.async;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import okhttp3.OkHttpClient;
 import org.akanza.SMS;
-import org.akanza.responseSms.ResponseSMS;
-import org.akanza.responseSms.Token;
+import org.akanza.responseSms.*;
 import rx.Observable;
-import rx.functions.Action1;
-import rx.functions.Func0;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
+
+
+import java.io.IOException;
 
 import static org.akanza.Resource.*;
 
@@ -29,31 +26,39 @@ public class RxServiceSMS
                 .create();
     }
 
-    public Observable<ResponseSMS> ResponseSMSObservable(Token token,SMS sms)
+    public Observable<Object> responseSMSObservable(Token token,SMS sms)
+    {
+        // TODO :
+        return null;
+    }
+
+    public Observable<ResponseSubscription> responseSubscriptionObservable(Token token,String senderAddress)
+    {
+        // TODO :
+        return null;
+    }
+
+    public Observable<StatisticSMS> statisticSMSObservable(Token token)
+    {
+        // TODO :
+        return null;
+    }
+
+    public Observable<ContractsSMS> contractsSMSObservable(Token token)
+    {
+        // TODO :
+        return null;
+    }
+
+    public Observable<HistoricPurchase> historicPurchaseObservable(Token token)
+    {
+        // TODO :
+        return null;
+    }
+
+    private Void createResponseResource(Token token,SMS sms) throws IOException
     {
         // TODO : using other library for the IO
-        return Observable.using(new Func0<OkHttpClient>()
-        {
-            @Override
-            public OkHttpClient call()
-            {
-                return null;
-            }
-        }, new Func1<OkHttpClient, Observable<ResponseSMS>>()
-        {
-            @Override
-            public Observable<ResponseSMS> call(OkHttpClient okHttpClient)
-            {
-                return null;
-            }
-        }, new Action1<OkHttpClient>()
-        {
-            @Override
-            public void call(OkHttpClient okHttpClient)
-            {
-
-            }
-        })
-        .subscribeOn(Schedulers.io());
+        return null;
     }
 }
