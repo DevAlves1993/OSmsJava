@@ -29,7 +29,14 @@ public class Callback
     {
         this.success = onSuccess;
         this.failure = onFailure;
-        this.throwable = (e -> e.printStackTrace());
+        this.throwable = (Throwable::printStackTrace);
+    }
+
+    public Callback(OnFailure onFailure,OnThrowable onThrowable)
+    {
+        this.success = null;
+        this.failure = onFailure;
+        this.throwable = onThrowable;
     }
 
     public Callback(OnSuccess onSuccess)
@@ -45,7 +52,7 @@ public class Callback
                 System.out.println("The response code : "+i);
             }
         );
-        this.throwable = (e -> e.printStackTrace());
+        this.throwable = (Throwable::printStackTrace);
     }
 
     public void success(BaseResponse baseResponse,ResponseHeader responseHeader,int statusCode)

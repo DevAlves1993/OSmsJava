@@ -2,10 +2,16 @@ package org.akanza.async;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import okhttp3.*;
 import org.akanza.SMS;
+import org.akanza.error.ResponseError;
+import org.akanza.error.ServiceException;
 import org.akanza.responseSms.*;
-import rx.Observable;
+import org.akanza.Callback;
 
+import rx.Observable;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 
 import java.io.IOException;
@@ -26,39 +32,278 @@ public class RxServiceSMS
                 .create();
     }
 
-    public Observable<Object> responseSMSObservable(Token token,SMS sms)
+    public Observable<ResponseSMS> responseSMSObservable(Token token,SMS sms,Callback callback)
     {
-        // TODO :
-        return null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme(SCHEME)
+                .host(HOST)
+                .addPathSegment("smsmessaging")
+                .addPathSegment("v1")
+                .addPathSegment("outbound")
+                .addEncodedPathSegment(sms.getOutBoundSMSMessageRequest().getSenderAddress())
+                .addPathSegment("requests")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .addHeader("Content-Type","application/json")
+                .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
+                .build();
+        Call call = httpClient.newCall(request);
+        return Observable.just(call)
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<Call, Observable<ResponseSMS>>()
+                {
+                    @Override
+                    public Observable<ResponseSMS> call(Call call)
+                    {
+                        Response response = null;
+                        try
+                        {
+                            response = call.execute();
+                            if(response.isSuccessful())
+                            {
+                                ResponseSMS responseSMS = gson.fromJson(response.body().charStream(),ResponseSMS.class);
+                                return Observable.just(responseSMS);
+                            }
+                            else
+                            {
+                                ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+                                throw new ServiceException(responseError);
+                            }
+                        }
+                        catch (IOException | ServiceException e)
+                        {
+                            return Observable.error(e);
+                        }
+                        finally
+                        {
+                            if(response != null)
+                                response.close();
+                        }
+                    }
+                })
+                .doOnError(throwable -> manageError(throwable, callback));
     }
 
-    public Observable<ResponseSubscription> responseSubscriptionObservable(Token token,String senderAddress)
+    public Observable<ResponseSubscription> responseSubscriptionObservable(Token token,String senderAddress,Callback callback)
     {
-        // TODO :
-        return null;
+        HttpUrl httpUrl = new HttpUrl.Builder()
+                .scheme(SCHEME)
+                .host(HOST)
+                .addPathSegment("smsmessaging")
+                .addPathSegment("v1")
+                .addPathSegment("outbound")
+                .addPathSegment(senderAddress)
+                .addPathSegment("subscriptions")
+                .build();
+        Request request = new Request.Builder()
+                .url(httpUrl)
+                .build();
+        Call call = httpClient.newCall(request);
+        return Observable.just(call)
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<Call, Observable<ResponseSubscription>>()
+                {
+                    @Override
+                    public Observable<ResponseSubscription> call(Call call)
+                    {
+                        Response response = null;
+                        try
+                        {
+                            response = call.execute();
+                            if(response.isSuccessful())
+                            {
+                                ResponseSubscription responseSubscription = gson.fromJson(response.body().charStream()
+                                        ,ResponseSubscription.class);
+                                return Observable.just(responseSubscription);
+                            }
+                            else
+                            {
+                                ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+                                throw new ServiceException(responseError);
+                            }
+                        }
+                        catch(IOException | ServiceException e)
+                        {
+                            return Observable.error(e);
+                        }
+                        finally
+                        {
+                            if(response != null)
+                                response.close();
+                        }
+                    }
+                })
+                .doOnError(throwable -> manageError(throwable, callback));
     }
 
-    public Observable<StatisticSMS> statisticSMSObservable(Token token)
+    public Observable<StatisticSMS> statisticSMSObservable(Token token,Callback callback)
     {
-        // TODO :
-        return null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme(SCHEME)
+                .host(HOST)
+                .addPathSegment("sms")
+                .addPathSegment("admin")
+                .addPathSegment("v1")
+                .addPathSegment("statistics")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .get()
+                .build();
+        Call call = httpClient.newCall(request);
+        return Observable.just(call)
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<Call, Observable<StatisticSMS>>()
+                {
+                    @Override
+                    public Observable<StatisticSMS> call(Call call)
+                    {
+                        Response response = null;
+                        try
+                        {
+                            response = call.execute();
+                            if(response.isSuccessful())
+                            {
+                                StatisticSMS statisticSMS = gson.fromJson(response.body().charStream(),StatisticSMS.class);
+                                return Observable.just(statisticSMS);
+                            }
+                            else
+                            {
+                                ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+                                throw new ServiceException(responseError);
+                            }
+                        }
+                        catch (IOException | ServiceException e)
+                        {
+                            return Observable.error(e);
+                        }
+                        finally
+                        {
+                            if(response != null)
+                                response.close();
+                        }
+                    }
+                })
+                .doOnError(throwable -> manageError(throwable,callback));
     }
 
-    public Observable<ContractsSMS> contractsSMSObservable(Token token)
+    public Observable<ContractsSMS> contractsSMSObservable(Token token,Callback callback)
     {
-        // TODO :
-        return null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme(SCHEME)
+                .host(HOST)
+                .addPathSegment("sms")
+                .addPathSegment("admin")
+                .addPathSegment("v1")
+                .addPathSegment("contracts")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .get()
+                .build();
+        Call call = httpClient.newCall(request);
+        return Observable.just(call)
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<Call, Observable<ContractsSMS>>()
+                {
+                    @Override
+                    public Observable<ContractsSMS> call(Call call)
+                    {
+                        Response response = null;
+                        try
+                        {
+                            response = call.execute();
+                            if(response.isSuccessful())
+                            {
+                                ContractsSMS contractsSMS = gson.fromJson(response.body().charStream(),ContractsSMS.class);
+                                return Observable.just(contractsSMS);
+                            }
+                            else
+                            {
+                                ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+                                throw new ServiceException(responseError);
+                            }
+                        }
+                        catch (IOException | ServiceException e)
+                        {
+                            return Observable.error(e);
+                        }
+                        finally
+                        {
+                            if(response != null)
+                                response.close();
+                        }
+                    }
+                })
+                .doOnError(throwable -> manageError(throwable,callback));
     }
 
-    public Observable<HistoricPurchase> historicPurchaseObservable(Token token)
+    public Observable<HistoricPurchase> historicPurchaseObservable(Token token,Callback callback)
     {
-        // TODO :
-        return null;
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme(SCHEME)
+                .host(HOST)
+                .addPathSegment("sms")
+                .addPathSegment("admin")
+                .addPathSegment("v1")
+                .addPathSegment("purchaseorders")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization",token.getAccess_token())
+                .get()
+                .build();
+        Call call = httpClient.newCall(request);
+        return Observable.just(call)
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<Call, Observable<HistoricPurchase>>()
+                {
+                    @Override
+                    public Observable<HistoricPurchase> call(Call call)
+                    {
+                        Response response = null;
+                        try
+                        {
+                            response = call.execute();
+                            if(response.isSuccessful())
+                            {
+                                HistoricPurchase historicPurchase = gson.fromJson(response.body().charStream(),HistoricPurchase.class);
+                                return Observable.just(historicPurchase);
+                            }
+                            else
+                            {
+                                ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+                                throw new ServiceException(responseError);
+                            }
+                        }
+                        catch (IOException | ServiceException e)
+                        {
+                            return Observable.error(e);
+                        }
+                        finally
+                        {
+                            if(response != null)
+                                response.close();
+                        }
+                    }
+                })
+                .doOnError(throwable -> manageError(throwable,callback));
     }
 
-    private Void createResponseResource(Token token,SMS sms) throws IOException
+    private void manageError(Throwable throwable, Callback callback)
     {
-        // TODO : using other library for the IO
-        return null;
+        if(throwable instanceof IOException)
+            callback.throwable(throwable);
+        else if(throwable instanceof ServiceException)
+        {
+            ResponseError detailError = ((ServiceException) throwable).getDetailError();
+            String message = detailError.getMessage();
+            int statusCode = detailError.getCode();
+            callback.failure(detailError,message,statusCode);
+        }
     }
 }
