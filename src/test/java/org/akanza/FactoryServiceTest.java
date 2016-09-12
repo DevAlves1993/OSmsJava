@@ -16,27 +16,4 @@ public class FactoryServiceTest
     {
 
     }
-
-    @Test
-    public void testRequest() throws Exception
-    {
-        OkHttpClient httpClient = new OkHttpClient.Builder()
-                .build();
-        HttpUrl url = new HttpUrl.Builder()
-                .scheme("https")
-                .host("api.orange.com")
-                .addPathSegment("oauth")
-                .addPathSegment("v2")
-                .addPathSegment("token")
-                .build();
-        FormBody formBody = new FormBody.Builder()
-                .add("grant_type","client_credentials")
-                .build();
-        Request request = new Request.Builder()
-                .url(url)
-                .addHeader("Authorization","") // TODO : See Doc [ encoded Authorisation  = id + secretCode
-                .post(formBody)
-                .build();
-    }
-
 }
