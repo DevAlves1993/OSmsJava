@@ -22,7 +22,7 @@ public class FactoryService
     private static final Gson gson = new GsonBuilder()
             .create();
 
-    public static void getToken(String id,String secretCode,Callback callback)
+    public static void setToken(String id,String secretCode,Callback callback)
     {
         String basic = Credentials.basic(id, secretCode);
 
