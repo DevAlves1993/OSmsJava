@@ -36,5 +36,6 @@ public class Token extends BaseResponse
     public String createAccess()
     {
         return token_type +" "+ access_token;
+        // TODO: see a doc concerning Access
     }
 }

@@ -1,7 +1,5 @@
 package org.akanza;
 
-import org.akanza.responseSms.BaseResponse;
-import org.akanza.responseSms.ResponseSMS;
 import org.akanza.responseSms.Token;
 import org.junit.Before;
 import org.junit.Test;
