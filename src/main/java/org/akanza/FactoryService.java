@@ -3,6 +3,7 @@ package org.akanza;
 import com.google.gson.*;
 import okhttp3.*;
 import org.akanza.error.ResponseError;
+import org.akanza.error.ServiceException;
 import org.akanza.models.ResponseHeader;
 import org.akanza.responseSms.Token;
 import static org.akanza.Resource.*;
@@ -78,6 +79,47 @@ public class FactoryService
             if(response != null)
                 response.close();
         }
+    }
+
+
+    public static Token getToken(String id,String secretCode) throws ServiceException
+    {
+        String basic = Credentials.basic(id, secretCode);
+
+        HttpUrl url = new HttpUrl.Builder()
+                .scheme("https")
+                .host("api.orange.com")
+                .addPathSegment("oauth")
+                .addPathSegment("v2")
+                .addPathSegment("token")
+                .build();
+        FormBody formBody = new FormBody.Builder()
+                .add("grant_type","client_credentials")
+                .build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("Authorization",basic)
+                .post(formBody)
+                .build();
+        Response response = null;
+        Call call = httpClient.newCall(request);
+        try
+        {
+            response =  call.execute();
+            if(response.isSuccessful())
+                return gson.fromJson(response.body().charStream(), Token.class);
+            else
+            {
+                ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+                throw new ServiceException(responseError);
+            }
+        }
+        catch (Exception e)
+        {
+            if(response != null)
+                response.close();
+        }
+        return null;
     }
 
     public static Future<Token> getFutureToken(String id,String secretCode) throws IOException
