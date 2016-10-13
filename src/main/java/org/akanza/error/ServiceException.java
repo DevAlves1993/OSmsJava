@@ -17,7 +17,7 @@ public class ServiceException extends Exception
         this.detailError = responseError;
     }
 
-    public ResponseError getDetailError()
+    public ResponseError getResponseError()
     {
         return detailError;
     }

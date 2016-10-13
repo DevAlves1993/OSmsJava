@@ -118,7 +118,7 @@ public class ServiceSMSAsync
                     .build();
             Request request = new Request.Builder()
                     .url(url)
-                    .addHeader("Authorization",token.getAccess_token())
+                    .addHeader("Authorization",token.getAccessToken())
                     .addHeader("Content-Type","application/json")
                     .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
                     .build();
@@ -178,7 +178,7 @@ public class ServiceSMSAsync
                     .build();
             Request request = new Request.Builder()
                     .url(url)
-                    .addHeader("Authorization",token.getAccess_token())
+                    .addHeader("Authorization",token.getAccessToken())
                     .get()
                     .build();
             Response response;
@@ -208,7 +208,7 @@ public class ServiceSMSAsync
                     .build();
             Request request = new Request.Builder()
                     .url(url)
-                    .addHeader("Authorization",token.getAccess_token())
+                    .addHeader("Authorization",token.getAccessToken())
                     .get()
                     .build();
             Response response;
@@ -238,7 +238,7 @@ public class ServiceSMSAsync
                     .build();
             Request request = new Request.Builder()
                     .url(url)
-                    .addHeader("Authorization",token.getAccess_token())
+                    .addHeader("Authorization",token.getAccessToken())
                     .get()
                     .build();
             Response response;

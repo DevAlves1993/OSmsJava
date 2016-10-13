@@ -45,7 +45,7 @@ public class RxServiceSMS
                 .build();
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("Authorization",token.getAccess_token())
+                .addHeader("Authorization",token.getAccessToken())
                 .addHeader("Content-Type","application/json")
                 .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
                 .build();
@@ -150,7 +150,7 @@ public class RxServiceSMS
                 .build();
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("Authorization",token.getAccess_token())
+                .addHeader("Authorization",token.getAccessToken())
                 .get()
                 .build();
         Call call = httpClient.newCall(request);
@@ -202,7 +202,7 @@ public class RxServiceSMS
                 .build();
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("Authorization",token.getAccess_token())
+                .addHeader("Authorization",token.getAccessToken())
                 .get()
                 .build();
         Call call = httpClient.newCall(request);
@@ -254,7 +254,7 @@ public class RxServiceSMS
                 .build();
         Request request = new Request.Builder()
                 .url(url)
-                .addHeader("Authorization",token.getAccess_token())
+                .addHeader("Authorization",token.getAccessToken())
                 .get()
                 .build();
         Call call = httpClient.newCall(request);
@@ -300,7 +300,7 @@ public class RxServiceSMS
             callback.throwable(throwable);
         else if(throwable instanceof ServiceException)
         {
-            ResponseError detailError = ((ServiceException) throwable).getDetailError();
+            ResponseError detailError = ((ServiceException) throwable).getResponseError();
             String message = detailError.getMessage();
             int statusCode = detailError.getCode();
             callback.failure(detailError,message,statusCode);

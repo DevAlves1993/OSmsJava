@@ -7,35 +7,35 @@ package org.akanza.responseSms;
 
 public class Token extends BaseResponse
 {
-    private String token_type;
-    private String access_token;
-    private long expires_in;
+    private String tokenType;
+    private String accessToken;
+    private long expiresIn;
 
-    public Token(String token_type, String access_token, long expires_in)
+    public Token(String tokenType, String accessToken, long expiresIn)
     {
-        this.token_type = token_type;
-        this.access_token = access_token;
-        this.expires_in = expires_in;
+        this.tokenType = tokenType;
+        this.accessToken = accessToken;
+        this.expiresIn = expiresIn;
     }
 
-    public String getToken_type()
+    public String getTokenType()
     {
-        return token_type;
+        return tokenType;
     }
 
-    public String getAccess_token()
+    public String getAccessToken()
     {
-        return access_token;
+        return accessToken;
     }
 
-    public long getExpires_in()
+    public long getExpiresIn()
     {
-        return expires_in;
+        return expiresIn;
     }
 
     public String createAccess()
     {
-        return token_type +" "+ access_token;
+        return tokenType +" "+ accessToken;
         // TODO: see a doc concerning Access
     }
 }

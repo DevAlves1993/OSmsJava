@@ -116,6 +116,10 @@ public class FactoryService
         }
         catch (Exception e)
         {
+            e.printStackTrace();
+        }
+        finally
+        {
             if(response != null)
                 response.close();
         }
@@ -130,7 +134,7 @@ public class FactoryService
         return future;
     }
 
-    private static Token executeFutureToken(String id, String secretCode) throws IOException
+    private static Token executeFutureToken(String id, String secretCode) throws IOException,ServiceException
     {
         String basic = Credentials.basic(id, secretCode);
 
@@ -154,7 +158,8 @@ public class FactoryService
         response = call.execute();
         if(response.isSuccessful())
             return gson.fromJson(response.body().charStream(),Token.class);
-        return null;
+        ResponseError responseError = gson.fromJson(response.body().charStream(),ResponseError.class);
+        throw new ServiceException(responseError);
     }
 
 }

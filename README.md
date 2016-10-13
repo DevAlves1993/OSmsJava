@@ -3,37 +3,118 @@ Do not use this library in production. It is under development. It will be avail
 
 # OSmsJava
 OSmsJava is a library allowing you to consume easily [API REST SmsApi of orange Ivory Coast (zone AMEA)] (https://www.orangepartner.com/SMS-CI-API) .
-It is based on the library [okhttp] (https://github.com/square/okhttp).
 
 ## Usage
 
+
+### Download 
+
+Download via Maven
+
+    <dependency>
+        <groupId>org.Akanza</groupId>
+        <artifactId>OSmsJava</artifactId>
+        <version>0.1.9</version>
+    </dependency>
+
+or Gradle
+
+    compile 'org.Akanza:OSmsJava:0.1.9
+
 #### How generate a token
 
-The Token object it is the representation object of the JSon response returned by the orange smsAPI.
-For generate a Token object, create a object GenerateService.Then call the method `generatedToken()` of
-object GenerateService.
-For Example:
+The Token object it is the representation object of the Json response returned by the orange smsAPI.
+For generate a Token object, used one of the static methods of Class abstract **`FactoryService`**.
 
+* **`FactoryService.getToken(String id,String secretCode)`** : return a simple Token object
+* **`FactoryService.setToken(String id,String secretCode,Callback callback)`** : Instantiate an Token object
+* **`FactoryService.getFutureToken(String id,String secretCode)`** : return a Token Future.
+
+Example with **`FactoryService.getToken()`** :
+
+    
+    String secretCode = "secretCode";
+    String id = "id";
     public static void main(String... args)
     {
-        GenerateService service = new GenerateService("id","secret code");
         try
         {
-            Token token  = service.getToken();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+            Token token  = FactoryService.getToken();
         }
         catch (ServiceException e)
         {
+            ResponseError responseError = e.getResponseError();
+            ...................................................
+            ...................................................
             e.printStackTrace();
         }
     }
+
+
+Example with **`FactoryService.setToken(String id,String secretCode,Callback callback)`** :
+
+    String secretCode = "secretCode";
+    String id = "id";
+    Token token = null;
+    public static void main(String... args)
+    {
+        Callback callback = new Callback((baseResponse, responseHeader, statusCode) ->
+            {
+                token = (Token) baseResponse;
+                ............
+                ............
+            });
+        Token token = null;
+        FactoryService.setToken(id,secretCode,callback);
+        if(token != null)
+        {
+            String accessToken = token.getAccessToken();
+            String tokenType = token.getTokenType();
+            ..........................................
+        }
+    }
+
+
+Example with **`FactoryService.getFutureToken(String id,String secretCode)`** :
+
+    String secretCode = "secretCode";
+    String id = "id";
+    public static void main(String... args)
+    {
+        try
+        {
+            Future<Token>  futureToken =  FactoryService.getFutureToken(id,secretCode);
+            ..........................................................................
+            ..........................................................................
+            ..........................................................................
+            Token token = futureToken.get();
+            if(token != null)
+            {
+                String accessToken = token.getAccessToken();
+                String tokenType = token.getTokenType();
+                ........................................
+            }
+            ..........................................................................
+            ..........................................................................
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch(ServiceException es)
+        {
+            ResponseError responseError = e.getResponseError();
+            ...................................................
+            ...................................................
+            e.printStackTrace();
+        }
+    }
+
 #### How Send a SMS :
 
 The SMS object it is the representation object of your SMS have send.
 It is composed of three fields (`String address`, `String senderAddress`,`String content`).
+
 * the field address it is your number phone.
 * the field senderAddress it is the number phone recipient
 * the field content it is content of message
