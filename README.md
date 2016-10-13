@@ -110,7 +110,7 @@ Example with **`FactoryService.getFutureToken(String id,String secretCode)`** :
         }
     }
 
-#### How Send a SMS :
+#### How Send a SMS (DEPRECATED) : 
 
 The SMS object it is the representation object of your SMS have send.
 It is composed of three fields (`String address`, `String senderAddress`,`String content`).
@@ -165,7 +165,7 @@ For example:
 Mark:In order to send SMS since our API, you must first of all buy a bundle SMS with Orange.In order to
 to facilitate the integration of API, you have the possibility to buy a bundle "starter".
 
-#### How consulted numbers sms remainder :
+#### How consulted numbers sms remainder (DEPRECATED) :
 
 The RemainderSMS object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of remaining SMS.
 At first you have to be interested in the object PartnerContracts. I invite you to glance on the source code.
@@ -191,7 +191,7 @@ For example :
         }
     }
 
-#### How consulted the statistics of use of the application :
+#### How consulted the statistics of use of the application (DEPRECATED) :
 
 The StatisticSMS object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of statistics ussage.
 At first you have to be interested in the object PartnerStatistics. I invite you to glance on the source code.
@@ -217,7 +217,7 @@ For example :
         }
     }
 
-#### How consulted the historic purchase :
+#### How consulted the historic purchase (DEPRECATED) :
 
 The HistoricPurchase object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of purchase historic.
 At first you have to be interested in the object PurchaseOrders. I invite you to glance on the source code.
@@ -245,8 +245,6 @@ For example :
     }
 the method `getPurchaseOrders()` return a table of PurchaseOrders.
 
-### Use with RxJava
-
 ## Authors and Contributors
 In 2015, Amani Christian Cyrille Alves (@DevAlves1993) founded OSmsJava.
 
@@ -257,3 +255,7 @@ In 2015, Amani Christian Cyrille Alves (@DevAlves1993) founded OSmsJava.
 
 ## Contributing
 If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.
+The list of the contributions which would be welcome.
+
+* Documentation : Participated in the writing of the documentation.
+* Example : Creation of several examples of implementations
