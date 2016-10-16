@@ -16,6 +16,7 @@ import java.util.concurrent.Future;
 
 /**
  * Created by Christian Amani on 10/08/2016.
+ * <p>FactoryService it is factory which generate a Token of different way.</p>
  */
 public class FactoryService
 {
@@ -23,6 +24,13 @@ public class FactoryService
     private static final Gson gson = new GsonBuilder()
             .create();
 
+
+    /**
+     * <p>Instantiate Token through Callback</p>
+     * @param id Id Client
+     * @param secretCode Secret Client
+     * @param callback Callback which manages the events
+     */
     public static void setToken(String id,String secretCode,Callback callback)
     {
         String basic = Credentials.basic(id, secretCode);
@@ -81,7 +89,14 @@ public class FactoryService
         }
     }
 
-
+    /**
+     * <p>Return  a simple token.</p>
+     * @param id Id Client
+     * @param secretCode Secret Client
+     * @return Token
+     * @throws IOException
+     * @throws ServiceException
+     */
     public static Token getToken(String id,String secretCode) throws ServiceException
     {
         String basic = Credentials.basic(id, secretCode);
@@ -126,6 +141,14 @@ public class FactoryService
         return null;
     }
 
+
+    /**
+     * <p>Return a Token Future.</p>
+     * @param id Id Client
+     * @param secretCode Secret Client
+     * @return Token Future
+     * @throws IOException
+     */
     public static Future<Token> getFutureToken(String id,String secretCode) throws IOException
     {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -133,6 +156,7 @@ public class FactoryService
         executorService.shutdown();
         return future;
     }
+
 
     private static Token executeFutureToken(String id, String secretCode) throws IOException,ServiceException
     {

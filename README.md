@@ -1,8 +1,6 @@
-# Usage
-Do not use this library in production. It is under development. It will be available very soon.
-
 # OSmsJava
-OSmsJava is a library allowing you to consume easily [API REST SmsApi of orange Ivory Coast (zone AMEA)] (https://www.orangepartner.com/SMS-CI-API) .
+OSmsJava is a library allowing you to consume easily [API REST SmsApi of orange Ivory Coast (zone AMEA)](https://www.orangepartner.com/SMS-CI-API) .
+Do not use this library in production. It is under development. It will be available very soon.
 
 ## Usage
 
@@ -110,7 +108,7 @@ Example with **`FactoryService.getFutureToken(String id,String secretCode)`** :
         }
     }
 
-#### How Send a SMS (DEPRECATED) : 
+#### How Send a SMS (DEPRECATED! Don't Use) : 
 
 The SMS object it is the representation object of your SMS have send.
 It is composed of three fields (`String address`, `String senderAddress`,`String content`).
@@ -165,7 +163,7 @@ For example:
 Mark:In order to send SMS since our API, you must first of all buy a bundle SMS with Orange.In order to
 to facilitate the integration of API, you have the possibility to buy a bundle "starter".
 
-#### How consulted numbers sms remainder (DEPRECATED) :
+#### How consulted numbers sms remainder (DEPRECATED! Don't Use) :
 
 The RemainderSMS object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of remaining SMS.
 At first you have to be interested in the object PartnerContracts. I invite you to glance on the source code.
@@ -191,7 +189,7 @@ For example :
         }
     }
 
-#### How consulted the statistics of use of the application (DEPRECATED) :
+#### How consulted the statistics of use of the application (DEPRECATED! Don't Use) :
 
 The StatisticSMS object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of statistics ussage.
 At first you have to be interested in the object PartnerStatistics. I invite you to glance on the source code.
@@ -217,7 +215,7 @@ For example :
         }
     }
 
-#### How consulted the historic purchase (DEPRECATED) :
+#### How consulted the historic purchase (DEPRECATED! Don't Use) :
 
 The HistoricPurchase object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of purchase historic.
 At first you have to be interested in the object PurchaseOrders. I invite you to glance on the source code.
@@ -253,9 +251,17 @@ In 2015, Amani Christian Cyrille Alves (@DevAlves1993) founded OSmsJava.
 * Gmail : [alvesamani@gmail.com] (mailto:alvesamani@gmail.com)
 * Twitter [@cyrilleamani] (https://twitter.com/cyrilleamani)
 
+## License
+
+[MIT License](http://www.opensource.org/licenses/mit-license.php) 
+[Introduction to the MIT License](https://opensource.org/osd-annotated)
+
 ## Contributing
 If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.
+Please also make sure your code compiles by running `mvn clean verify`
+
 The list of the contributions which would be welcome.
 
 * Documentation : Participated in the writing of the documentation.
-* Example : Creation of several examples of implementations
+* Example : Creating several examples showing the use of the library.
+* Bugs : Report bugs with of issues.

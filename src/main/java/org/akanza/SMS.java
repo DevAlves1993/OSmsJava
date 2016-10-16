@@ -2,11 +2,18 @@ package org.akanza;
 
 /**
  * Created by Christian Amani on 15/12/2015.
+ * <p>A Class which contain the information of SMS</p>
  */
 public class SMS
 {
     private SMSMessage outBoundSMSMessageRequest;
 
+
+    /**
+     * @param address The Sender address
+     * @param senderAddress The current address
+     * @param content The content of SMS
+     */
     public SMS(String address , String senderAddress,String content)
     {
         outBoundSMSMessageRequest = new SMSMessage(address,senderAddress,content);
@@ -23,6 +30,9 @@ public class SMS
     }
 
 
+    /**
+     * <p>Class which contains a elements a base of SMS</p>
+     */
     public class SMSMessage
     {
         private String address;

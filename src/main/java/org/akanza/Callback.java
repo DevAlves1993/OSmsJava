@@ -10,6 +10,7 @@ import org.akanza.responseSms.BaseResponse;
 
 /**
  * Created by Christian Amani on 10/08/2016.
+ * <p>The class Callback manage the various events which intervene during the call of the SMS API.</p>
  */
 
 public class Callback
@@ -18,6 +19,11 @@ public class Callback
     private OnFailure failure;
     private OnThrowable throwable;
 
+    /**
+     * @param onSuccess
+     * @param onFailure
+     * @param onThrowable
+     */
     public Callback(OnSuccess onSuccess,OnFailure onFailure,OnThrowable onThrowable)
     {
         this.success = onSuccess;
@@ -25,6 +31,10 @@ public class Callback
         this.throwable = onThrowable;
     }
 
+    /**
+     * @param onSuccess
+     * @param onFailure
+     */
     public Callback(OnSuccess onSuccess,OnFailure onFailure)
     {
         this.success = onSuccess;
@@ -32,6 +42,10 @@ public class Callback
         this.throwable = (Throwable::printStackTrace);
     }
 
+    /**
+     * @param onFailure
+     * @param onThrowable
+     */
     public Callback(OnFailure onFailure,OnThrowable onThrowable)
     {
         this.success = null;
@@ -39,6 +53,9 @@ public class Callback
         this.throwable = onThrowable;
     }
 
+    /**
+     * @param onSuccess
+     */
     public Callback(OnSuccess onSuccess)
     {
         this.success = onSuccess;

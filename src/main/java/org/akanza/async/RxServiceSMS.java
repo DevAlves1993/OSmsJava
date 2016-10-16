@@ -20,6 +20,7 @@ import static org.akanza.Resource.*;
 
 /**
  * Created by Christian Amani on 27/08/2016.
+ * <p>The class RxServiceSMS it is version Rx of Class ServiceSMS.</p>
  */
 public class RxServiceSMS
 {
@@ -32,6 +33,13 @@ public class RxServiceSMS
                 .create();
     }
 
+    /**
+     * <p>Send a SMS</p>
+     * @param token
+     * @param sms
+     * @param callback
+     * @return Observable
+     */
     public Observable<ResponseSMS> responseSMSObservable(Token token,SMS sms,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
@@ -86,6 +94,13 @@ public class RxServiceSMS
                 .doOnError(throwable -> manageError(throwable, callback));
     }
 
+    /**
+     * <p>Subscribe to SMS delivery receipt notification</p>
+     * @param token
+     * @param senderAddress
+     * @param callback
+     * @return Observable
+     */
     public Observable<ResponseSubscription> responseSubscriptionObservable(Token token,String senderAddress,Callback callback)
     {
         HttpUrl httpUrl = new HttpUrl.Builder()
@@ -138,6 +153,12 @@ public class RxServiceSMS
                 .doOnError(throwable -> manageError(throwable, callback));
     }
 
+    /**
+     * <p>Obtain usage statistics of your account SMS API.</p>
+     * @param token
+     * @param callback
+     * @return Observable
+     */
     public Observable<StatisticSMS> statisticSMSObservable(Token token,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
@@ -190,6 +211,12 @@ public class RxServiceSMS
                 .doOnError(throwable -> manageError(throwable,callback));
     }
 
+    /**
+     * <p>Obtains the remaining amount of SMS and the others information.</p>
+     * @param token
+     * @param callback
+     * @return Observable
+     */
     public Observable<ContractsSMS> contractsSMSObservable(Token token,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
@@ -242,6 +269,12 @@ public class RxServiceSMS
                 .doOnError(throwable -> manageError(throwable,callback));
     }
 
+    /**
+     * <p>Obtain purchase history associated with your account.</p>
+     * @param token
+     * @param callback
+     * @return a Observable
+     */
     public Observable<HistoricPurchase> historicPurchaseObservable(Token token,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()

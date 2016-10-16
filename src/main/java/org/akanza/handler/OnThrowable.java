@@ -6,5 +6,10 @@ package org.akanza.handler;
 @FunctionalInterface
 public interface OnThrowable
 {
+
+    /**
+     * <p>This method runs when the call of the SMS API throws an exception.</p>
+     * @param throwable
+     */
     void onThrowable(Throwable throwable);
 }

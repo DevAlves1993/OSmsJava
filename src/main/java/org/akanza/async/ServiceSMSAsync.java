@@ -15,6 +15,7 @@ import static org.akanza.Resource.*;
 
 /**
  * Created by Christian Amani on 26/08/2016.
+ * <p>The class ServiceSMSAsync it is version which implement a API asynchronous of JAVA 7 and and JAVA 8.</p>
  */
 public class ServiceSMSAsync
 {

@@ -11,6 +11,7 @@ import static org.akanza.Resource.*;
 
 /**
  * Created by Christian Amani on 28/11/2015.
+ * <p>The class ServiceSMS includes all the various interactions with the SMS API of Orange.</p>
  */
 public class ServiceSMS
 {
@@ -47,6 +48,12 @@ public class ServiceSMS
         callback.failure(responseError,message,i);
     }
 
+    /**
+     *
+     * @param token
+     * @param sms
+     * @param callback
+     */
     public void sendSMS(Token token, SMS sms,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
@@ -96,6 +103,11 @@ public class ServiceSMS
         }
     }
 
+    /**
+     * @param token
+     * @param callback
+     * @param senderAddress
+     */
     public void sendSubscription(Token token,Callback callback,String senderAddress)
     {
         HttpUrl httpUrl = new HttpUrl.Builder()
@@ -142,6 +154,10 @@ public class ServiceSMS
         }
     }
 
+    /**
+     * @param token
+     * @param callback
+     */
     public void obtainStatisticSMS(Token token, Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
@@ -189,6 +205,10 @@ public class ServiceSMS
         }
     }
 
+    /**
+     * @param token
+     * @param callback
+     */
     public void obtainsContractsSMS(Token token, Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
@@ -235,6 +255,11 @@ public class ServiceSMS
                 response.close();
         }
     }
+
+    /**
+     * @param token
+     * @param callback
+     */
     public void obtainHistoricSMS(Token token,Callback callback)
     {
         HttpUrl url = new HttpUrl.Builder()
