@@ -16,9 +16,9 @@ import java.util.concurrent.Future;
 
 /**
  * Created by Christian Amani on 10/08/2016.
- * <p>FactoryService it is factory which generate a Token of different way.</p>
+ * <p>FactoryToken it is factory which generate a Token of different way.</p>
  */
-public class FactoryService
+public class FactoryToken  // TODO : rename class
 {
 
     private static final Gson gson = new GsonBuilder()

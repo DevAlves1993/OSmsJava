@@ -13,7 +13,7 @@ import org.junit.Test;
 /**
  * Created by AMANI on 10/08/2016.
  */
-public class FactoryServiceTest
+public class FactoryTokenTest
 {
     final String id = "";
     final String secretCode = "";
@@ -55,7 +55,7 @@ public class FactoryServiceTest
     @Test
     public void setToken() throws Exception
     {
-        FactoryService.setToken(id,secretCode,callback);
+        FactoryToken.setToken(id,secretCode,callback);
         String access_token = token.getAccessToken();
         long expires_in = token.getExpiresIn();
         String create_access = token.createAccess();
@@ -64,6 +64,6 @@ public class FactoryServiceTest
     @Test
     public void obtainToken() throws ServiceException
     {
-        Token token = FactoryService.getToken(id,secretCode);
+        Token token = FactoryToken.getToken(id,secretCode);
     }
 }

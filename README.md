@@ -22,13 +22,13 @@ or Gradle
 #### How generate a token
 
 The Token object it is the representation object of the Json response returned by the orange smsAPI.
-For generate a Token object, used one of the static methods of Class abstract **`FactoryService`**.
+For generate a Token object, used one of the static methods of Class abstract **`FactoryToken`**.
 
-* **`FactoryService.getToken(String id,String secretCode)`** : return a simple Token object
-* **`FactoryService.setToken(String id,String secretCode,Callback callback)`** : Instantiate an Token object
-* **`FactoryService.getFutureToken(String id,String secretCode)`** : return a Token Future.
+* **`FactoryToken.getToken(String id,String secretCode)`** : return a simple Token object
+* **`FactoryToken.setToken(String id,String secretCode,Callback callback)`** : Instantiate an Token object
+* **`FactoryToken.getFutureToken(String id,String secretCode)`** : return a Token Future.
 
-Example with **`FactoryService.getToken()`** :
+Example with **`FactoryToken.getToken()`** :
 
     
     String secretCode = "secretCode";
@@ -37,7 +37,7 @@ Example with **`FactoryService.getToken()`** :
     {
         try
         {
-            Token token  = FactoryService.getToken();
+            Token token  = FactoryToken.getToken();
         }
         catch (ServiceException e)
         {
@@ -49,7 +49,7 @@ Example with **`FactoryService.getToken()`** :
     }
 
 
-Example with **`FactoryService.setToken(String id,String secretCode,Callback callback)`** :
+Example with **`FactoryToken.setToken(String id,String secretCode,Callback callback)`** :
 
     String secretCode = "secretCode";
     String id = "id";
@@ -63,7 +63,7 @@ Example with **`FactoryService.setToken(String id,String secretCode,Callback cal
                 ............
             });
         Token token = null;
-        FactoryService.setToken(id,secretCode,callback);
+        FactoryToken.setToken(id,secretCode,callback);
         if(token != null)
         {
             String accessToken = token.getAccessToken();
@@ -73,7 +73,7 @@ Example with **`FactoryService.setToken(String id,String secretCode,Callback cal
     }
 
 
-Example with **`FactoryService.getFutureToken(String id,String secretCode)`** :
+Example with **`FactoryToken.getFutureToken(String id,String secretCode)`** :
 
     String secretCode = "secretCode";
     String id = "id";
@@ -81,7 +81,7 @@ Example with **`FactoryService.getFutureToken(String id,String secretCode)`** :
     {
         try
         {
-            Future<Token>  futureToken =  FactoryService.getFutureToken(id,secretCode);
+            Future<Token>  futureToken =  FactoryToken.getFutureToken(id,secretCode);
             ..........................................................................
             ..........................................................................
             ..........................................................................
@@ -108,7 +108,12 @@ Example with **`FactoryService.getFutureToken(String id,String secretCode)`** :
         }
     }
 
-#### How Send a SMS (DEPRECATED! Don't Use) : 
+
+### The Callback
+
+
+
+#### How Send a SMS : 
 
 The SMS object it is the representation object of your SMS have send.
 It is composed of three fields (`String address`, `String senderAddress`,`String content`).
@@ -116,52 +121,60 @@ It is composed of three fields (`String address`, `String senderAddress`,`String
 * the field address it is your number phone.
 * the field senderAddress it is the number phone recipient
 * the field content it is content of message
+
 The ResponseSMS object it is the representation of the JSon response returned by  orange smsAPI after having sent a message.
-For send a sms Call method `sendSMS(SMS sms ,,SMSHeader smsHead)` of object GenerateService.
-* The SMSHeader parameter is used to store the data heading returned by the apiSMS.
+For send a sms Call method `sendSMS(Token token, SMS sms, Callback callback)` of object ServiceSMS.
+
+* The parameter token it is your Token
+* The parameter sms it is your sms
+* The parameter callback (contient les actions à executés après la reception de la réponse)
 
 For example:
 
     public static void main(String... args)
     {
-        try
-        {
-            SMSHeader smsHeader;
-            ResponseSMS responseSMS
-
-            // the address and the senderAddress must be written on this form.
-            // the Iso code of the country concatenated to the number
-            // +XXXxxxxxxxx
-            String address = "+22500000000";
-            String senderAddress = "+22511111111";
-            String content = "my content";
-            SMS sms = new SMS(address,senderAddress,content);
-            GenerateService service = new GenerateService("5454656","mon code secret");
-            Token token = service.generatedToken();
-            responseSMS = service.sendSMS(token,sms,smsHeader);
-
-            String contentMessage = responseSMS.getOutBoundSMSMessageRequest().getOutboundSMSTextMessage();
-            String senderAddress = responseSMS.getOutBoundSMSMessageRequest().getSenderAddress();
-            String ResourceUrl = responseSMS.getResourceUrl();
-
-            // recuperation of information of  headers
-            String contentType = smsHeader.contentType;
-            String contentLength = smsHeader.contentLength;
-            String location = smsHeader.location;
-            String date = smsHeader.date;
+        // Action which perform (en cas de) success
+        OnSuccess onSuccess = (b,r,i) -> {
+            ResponseSMS responseSMS = (ResponseSMS) b;
+            String outBoundSMSMessageRequest = responseSMS.getOutBoundSMSMessageRequest();
+            String resourceURL = responseSMS.getResourceURL();
+            System.out.println("My out bound SMS message request is : "+outBoundSMSMessageRequest);
+            System.out.println("My url resource is : "+resourceURL);
+            ResponseHeader responseHeader = (ResponseHeader) r;
+            ....................................................
+            ....................................................
+            System.out.println("The status code is : "+i);
         }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+        
+        // Action which perform (en cas d'echec)
+        OnFailure onFailure = (r,m,i,) -> {
+            String message = r.getMessage();
+            String description = r.getDescription();
+            int code = r.getCode();
+            System.out.println("Error message is : "+message);
+            System.out.println("Error description is : "+description);
+            System.out.println("The status code is : "+code):
         }
-        catch (ServiceException e)
-        {
-            e.printStackTrace();
+        
+        // Action which perform (en cas d'exception)
+        OnThrowable onThrowable = (t) -> {
+            String message = t.getMessage();
+            ................................
+            ................................
+            ................................
         }
+        
+        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
+        
+        Token token = FactoryToken.getToken();
+        ServiceSMS serviceSMS = new Service();
+        
+        SMS sms = new SMS("Your number phone","Number phone of recipient","Hello world");
+        
+        serviceSMS.sendSMS(token,sms,callback);
+
     }
 
-Mark:In order to send SMS since our API, you must first of all buy a bundle SMS with Orange.In order to
-to facilitate the integration of API, you have the possibility to buy a bundle "starter".
 
 #### How consulted numbers sms remainder (DEPRECATED! Don't Use) :
 

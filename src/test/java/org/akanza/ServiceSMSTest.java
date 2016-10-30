@@ -43,7 +43,7 @@ public class ServiceSMSTest
             System.out.println("The Date it is : "+h.date);
             // supply others operations on b (BaseResponse)
         });
-        FactoryService.setToken(id,secretCode,callback);
+        FactoryToken.setToken(id,secretCode,callback);
         serviceSMS = new ServiceSMS();
     }
 
