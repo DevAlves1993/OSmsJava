@@ -6,12 +6,10 @@ package org.akanza.responseSms;
 public class ResponseSMS extends BaseResponse
 {
     private SMSResponse outBoundSMSMessageRequest;
-    private String resourceURL;
 
-    public ResponseSMS(SMSResponse outBoundSMSMessageRequest, String resourceURL)
+    public ResponseSMS(SMSResponse outBoundSMSMessageRequest)
     {
         this.outBoundSMSMessageRequest = outBoundSMSMessageRequest;
-        this.resourceURL = resourceURL;
     }
 
     public SMSResponse getOutBoundSMSMessageRequest()
@@ -19,24 +17,31 @@ public class ResponseSMS extends BaseResponse
         return outBoundSMSMessageRequest;
     }
 
-    public String getResourceURL()
-    {
-        return resourceURL;
-    }
-
     public class SMSResponse
     {
-        private String senderAddress;
+        private String address;
         private SMSContent outboundSMSTextMessage;
+        private String senderAddress;
+        private String senderName;
+
+        public String getAddress()
+        {
+            return address;
+        }
+
+        public String getOutboundSMSTextMessage()
+        {
+            return outboundSMSTextMessage.getMessage();
+        }
 
         public String getSenderAddress()
         {
             return senderAddress;
         }
 
-        public String getOutboundSMSTextMessage()
+        public String getSenderName()
         {
-            return outboundSMSTextMessage.getMessage();
+            return senderName;
         }
 
         private class SMSContent

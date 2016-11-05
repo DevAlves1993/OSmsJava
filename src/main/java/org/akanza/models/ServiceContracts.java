@@ -8,14 +8,14 @@ public class ServiceContracts
     private String country;
     private String service;
     private String contractId;
-    private String availableUnits;
+    private int availableUnits;
     private String expires;
     private String scDescription;
 
     public ServiceContracts(String country,
                             String service,
                             String contractId,
-                            String availableUnits,
+                            int availableUnits,
                             String expires, String scDescription)
     {
         this.country = country;
@@ -41,7 +41,7 @@ public class ServiceContracts
         return contractId;
     }
 
-    public String getAvailableUnits()
+    public int getAvailableUnits()
     {
         return availableUnits;
     }

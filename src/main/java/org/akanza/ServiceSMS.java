@@ -49,10 +49,10 @@ public class ServiceSMS
     }
 
     /**
-     *
-     * @param token
-     * @param sms
-     * @param callback
+     * <p>Send a SMS.</p>
+     * @param token Your Token
+     * @param sms Content of SMS elements
+     * @param callback Callback which perform the actions
      */
     public void sendSMS(Token token, SMS sms,Callback callback)
     {
