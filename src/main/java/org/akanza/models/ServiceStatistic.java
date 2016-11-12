@@ -3,12 +3,12 @@ package org.akanza.models;
 /**
  * Created by Christian Amani on 15/12/2015.
  */
-public class ServiceStatistics
+public class ServiceStatistic
 {
     private String country;
-    private  CountyStatistics[] countryStatistics;
+    private  CountyStatistic[] countryStatistics;
 
-    public ServiceStatistics(String country, CountyStatistics[] countryStatistics)
+    public ServiceStatistic(String country, CountyStatistic[] countryStatistics)
     {
         this.country = country;
         this.countryStatistics = countryStatistics;
@@ -18,17 +18,17 @@ public class ServiceStatistics
     {
         return country;
     }
-    public CountyStatistics[] getCountyStatistics()
+    public CountyStatistic[] getCountyStatistics()
     {
         return countryStatistics;
     }
 
-    public class CountyStatistics
+    public class CountyStatistic
     {
-        private  String applicationId;
-        private  String usage;
+        private  String applicationId; // TODO : verify name later.
+        private int usage;
 
-        public CountyStatistics(String applicationId, String usage)
+        public CountyStatistic(String applicationId, int usage)
         {
             this.applicationId = applicationId;
             this.usage = usage;
@@ -38,7 +38,7 @@ public class ServiceStatistics
         {
             return this.applicationId;
         }
-        public String getUsage()
+        public int getUsage()
         {
             return this.usage;
         }

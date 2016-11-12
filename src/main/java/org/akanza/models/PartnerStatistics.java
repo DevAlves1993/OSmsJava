@@ -6,9 +6,9 @@ package org.akanza.models;
 public class PartnerStatistics
 {
     private String partnerId;
-    private Statistics[] statistics;
+    private Statistic[] statistics;
 
-    public PartnerStatistics(String partnerId, Statistics[] statistics)
+    public PartnerStatistics(String partnerId, Statistic[] statistics)
     {
         this.partnerId = partnerId;
         this.statistics = statistics;
@@ -18,17 +18,17 @@ public class PartnerStatistics
     {
         return partnerId;
     }
-    public  Statistics[] getStatistics()
+    public  Statistic[] getStatistics()
     {
         return statistics;
     }
 
-    public class Statistics
+    public class Statistic
     {
         private String service;
-        private ServiceStatistics[] serviceStatistics;
+        private ServiceStatistic[] serviceStatistics;
 
-        public Statistics(String service, ServiceStatistics[] serviceStatistics)
+        public Statistic(String service, ServiceStatistic[] serviceStatistics)
         {
             this.service = service;
             this.serviceStatistics = serviceStatistics;
@@ -38,7 +38,7 @@ public class PartnerStatistics
         {
             return service;
         }
-        public ServiceStatistics[]  getServiceStatistics()
+        public ServiceStatistic[]  getServiceStatistics()
         {
             return serviceStatistics;
         }

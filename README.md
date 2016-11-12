@@ -308,12 +308,12 @@ The PartnerContracts Object contains some information.
 The PartnerContracts Object contains two Object : 
 
 * String partnerId : Partner Identifier provided by Orange Partner
-* Contracts contracts : List of contracts associated to the partner
+* Contract[] contracts : List of contracts associated to the partner
 
-###### Contracts 
+###### Contract
 
-The Contracts Object contain some information of contract associated to the partner.
-The Contracts Object contains three Object : 
+The Contract Object contain some information of contract associated to the partner.
+The Contract Object contains three Object : 
 
 * String service : Technical name of the subscribed service 
 * String contractDescription : Overall service contract description
@@ -333,31 +333,135 @@ The ServiceContracts Object contain several Object :
 
 
 
-#### How consulted the statistics of use of the application (DEPRECATED! Don't Use) :
+#### How consulted the statistics of use of the application 
 
-The StatisticSMS object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of statistics ussage.
+The StatisticSMS object it is the representation object of Json response returned by orange smsAPI having sent a request of consultation of statistics usage.
+For obtain statistics sms, call method `obtainStatisticSMS(Token token, Callback callback)` of object ServiceSMS.
+
+* The parameter token it is your Token
+* The parameter callback contains the action in executed after the reception of http response
+
 At first you have to be interested in the object PartnerStatistics. I invite you to glance on the source code.
 
 For example :
 
     public static void main(String... args)
     {
-        try
-        {
-            StatisticSMS statistics;
-            GenerateService service = new GenerateService("5454656","my secret code");
-            Token token = service.generatedToken();
-            statistics = service.statisticSMS(token);
+        // Action which perform if response return successful
+        OnSuccess onSuccess = (b,r,i) -> {
+            // get StatisticSMS
+            StatisticSMS statisticSMS = (StatisticSMS) b;
+             
+            // get Partner Statistics
+            PartnerStatistics partnerStatistics = statisticSMS.getPartnerStatistics();
+            
+            // get partner id
+            String partnerId = partnerStatistics.getPartnerId();
+            
+            // get array of Statistic
+            Statistic[] statistics = partnerStatistics.getStatistics();
+            // obtain first element of Contract array
+            Statistic statistic = statistics[0];
+            
+            // get Service
+            String service = statistic.getService();
+            
+            // get array of Statistic service
+            ServiceStatistic[] serviceStatistics = statistic.getServiceStatistics();
+            
+            // get first element of ServiceStatistic array
+            ServiceStatistic  serviceStatistic = serviceStatistics[0];
+            
+            // get country 
+            String country = serviceStatistic.getCountry();
+            
+            // get array of County Statistic
+            CountyStatistic[] countyStatistics = serviceStatistic.getCountyStatistics();
+            
+            // get first element of Statistic country
+            CountyStatistic countyStatistic = CountyStatistic[0];
+            
+            // get application id
+            String applicationId = countyStatistic.getApplicationId();
+            
+            // get usage
+            int usage = countryStatistic.getUsage();
+            ..............................................
+            ..............................................
+            ..............................................
+            
         }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+                
+        // Action which perform if response failed
+        OnFailure onFailure = (r,m,i,) -> {
+            // get message error
+            String message = r.getMessage();
+            
+            // get description error
+            String description = r.getDescription();
+            
+            // get status code error
+            int code = r.getCode();
+            System.out.println("Error message is : "+message);
+            System.out.println("Error description is : "+description);
+            System.out.println("The status code is : "+code):
         }
-        catch (ServiceException e)
-        {
-            e.printStackTrace();
+        
+        // Action which perform if execution throw exception
+        OnThrowable onThrowable = (t) -> {
+            // get message of throwable
+            String message = t.getMessage();
+            ................................
+            ................................
+            ................................
         }
+        
+        String id = "";
+        String secretCode = "";
+        
+        // create a callback
+        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
+        
+        // obtain a token
+        Token token = FactoryToken.getToken(id,secretCode);
+        
+        // create a Service SMS
+        ServiceSMS serviceSMS = new Service();
+        serviceSMS.obtainStatisticSMS(token,callback); 
     }
+
+##### PartnerStatistics
+
+The PartnerStatistics Object contains some information. 
+The PartnerStatistics Object contains two Object : 
+
+* String partnerId : Partner Identifier provided by Orange Partner
+* Statistic[] Statistics : List of Statistic associated to the partner
+
+###### Statistic
+
+The Statistic Object contains some information of contract associated to the partner.
+The Statistic Object contains two Object :
+
+* String service : Technical name of the subscribed service
+* ServiceStatistic[] serviceStatistics : List of statistics associated to the service
+
+###### ServiceStatistic
+
+The ServiceStatistic Object contains some information statistics associated to the service
+The ServiceStatistic Object contains two Object : 
+
+* String country : ISO 3166-1 alpha 3 country code 
+* CountyStatistic[] countryStatistics : List of statistics associated to the country
+
+###### CountyStatistic
+
+The CountyStatistic Object contains some information statistics associated to the country
+The CountyStatistic Object contains two Object : 
+
+* String applicationId : Application identifier of the partner provided by Orange Partner
+* int usage : Number of units consumed by the application 
+
 
 #### How consulted the historic purchase (DEPRECATED! Don't Use) :
 
