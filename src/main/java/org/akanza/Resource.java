@@ -16,8 +16,8 @@ public interface Resource
     String HOST = "api.orange.com";
     String SCHEME = "http";
 
-    MediaType jsonMedia = MediaType.parse("application/json;charset=utf-8");
+    MediaType JSON_MEDIA = MediaType.parse("application/json;charset=utf-8");
 
-    OkHttpClient httpClient = new OkHttpClient.Builder()
+    OkHttpClient HTTP_CLIENT = new OkHttpClient.Builder()
             .build();
 }

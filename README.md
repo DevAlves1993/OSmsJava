@@ -109,10 +109,6 @@ Example with **`FactoryToken.getFutureToken(String id,String secretCode)`** :
     }
 
 
-#### The Callback
-
-
-
 #### How Send a SMS : 
 
 The SMS object it is the representation object of your SMS have send.

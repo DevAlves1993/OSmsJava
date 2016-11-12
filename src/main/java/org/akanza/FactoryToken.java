@@ -51,7 +51,7 @@ public class FactoryToken
                 .post(formBody)
                 .build();
         Response response = null;
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         try
         {
             response =  call.execute();
@@ -117,7 +117,7 @@ public class FactoryToken
                 .post(formBody)
                 .build();
         Response response = null;
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         try
         {
             response =  call.execute();
@@ -178,7 +178,7 @@ public class FactoryToken
                 .post(formBody)
                 .build();
         Response response = null;
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         response = call.execute();
         if(response.isSuccessful())
             return gson.fromJson(response.body().charStream(),Token.class);

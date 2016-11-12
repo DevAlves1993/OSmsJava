@@ -55,9 +55,9 @@ public class RxServiceSMS
                 .url(url)
                 .addHeader("Authorization",token.getAccessToken())
                 .addHeader("Content-Type","application/json")
-                .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
+                .post(RequestBody.create(JSON_MEDIA,gson.toJson(sms)))
                 .build();
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         return Observable.just(call)
                 .observeOn(Schedulers.io())
                 .flatMap(new Func1<Call, Observable<ResponseSMS>>()
@@ -115,7 +115,7 @@ public class RxServiceSMS
         Request request = new Request.Builder()
                 .url(httpUrl)
                 .build();
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         return Observable.just(call)
                 .observeOn(Schedulers.io())
                 .flatMap(new Func1<Call, Observable<ResponseSubscription>>()
@@ -174,7 +174,7 @@ public class RxServiceSMS
                 .addHeader("Authorization",token.getAccessToken())
                 .get()
                 .build();
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         return Observable.just(call)
                 .observeOn(Schedulers.io())
                 .flatMap(new Func1<Call, Observable<StatisticSMS>>()
@@ -232,7 +232,7 @@ public class RxServiceSMS
                 .addHeader("Authorization",token.getAccessToken())
                 .get()
                 .build();
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         return Observable.just(call)
                 .observeOn(Schedulers.io())
                 .flatMap(new Func1<Call, Observable<ContractsSMS>>()
@@ -290,7 +290,7 @@ public class RxServiceSMS
                 .addHeader("Authorization",token.getAccessToken())
                 .get()
                 .build();
-        Call call = httpClient.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
         return Observable.just(call)
                 .observeOn(Schedulers.io())
                 .flatMap(new Func1<Call, Observable<HistoricPurchase>>()

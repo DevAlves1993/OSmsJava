@@ -121,10 +121,10 @@ public class ServiceSMSAsync
                     .url(url)
                     .addHeader("Authorization",token.getAccessToken())
                     .addHeader("Content-Type","application/json")
-                    .post(RequestBody.create(jsonMedia,gson.toJson(sms)))
+                    .post(RequestBody.create(JSON_MEDIA,gson.toJson(sms)))
                     .build();
             Response response;
-            Call call = httpClient.newCall(request);
+            Call call = HTTP_CLIENT.newCall(request);
             response = call.execute();
             if(response.isSuccessful())
             {
@@ -153,7 +153,7 @@ public class ServiceSMSAsync
                     .url(httpUrl)
                     .build();
             Response response;
-            Call call = httpClient.newCall(request);
+            Call call = HTTP_CLIENT.newCall(request);
             response = call.execute();
             if(response.isSuccessful())
             {
@@ -183,7 +183,7 @@ public class ServiceSMSAsync
                     .get()
                     .build();
             Response response;
-            Call call = httpClient.newCall(request);
+            Call call = HTTP_CLIENT.newCall(request);
             response = call.execute();
             if(response.isSuccessful())
             {
@@ -213,7 +213,7 @@ public class ServiceSMSAsync
                     .get()
                     .build();
             Response response;
-            Call call = httpClient.newCall(request);
+            Call call = HTTP_CLIENT.newCall(request);
             response = call.execute();
             if(response.isSuccessful())
             {
@@ -243,7 +243,7 @@ public class ServiceSMSAsync
                     .get()
                     .build();
             Response response;
-            Call call = httpClient.newCall(request);
+            Call call = HTTP_CLIENT.newCall(request);
             response = call.execute();
             if(response.isSuccessful())
             {
