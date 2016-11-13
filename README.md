@@ -151,7 +151,7 @@ For example:
             String message = smsContent.getMessage();
             
             System.out.println("My out bound SMS message request is : "+message);
-            System.out.println('The sender address is : "+senderAddress);
+            System.out.println("The sender address is : "+senderAddress);
             System.out.println("My url resource is : "+senderName);
             ResponseHeader responseHeader = (ResponseHeader) r;
             ....................................................
@@ -485,8 +485,6 @@ For example :
 
 ```java
     public static void main(String... args)
-    {
-        public static void main(String... args)
     {
         // Action which perform if response return successful
         OnSuccess onSuccess = (b,r,i) -> {
