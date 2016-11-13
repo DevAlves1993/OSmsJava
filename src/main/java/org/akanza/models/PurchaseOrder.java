@@ -13,6 +13,9 @@ public class PurchaseOrder
     private Input[] inputs;
     private OrderExecutionInformation orderExecutionInformation;
 
+    public PurchaseOrder()
+    {}
+
     public PurchaseOrder(String purchaseOrderId,
                           String mode,
                           String bundleId,
@@ -34,9 +37,19 @@ public class PurchaseOrder
         return purchaseOrderId;
     }
 
+    public void setPurchaseOrderId(String purchaseOrderId)
+    {
+        this.purchaseOrderId = purchaseOrderId;
+    }
+
     public String getMode()
     {
         return mode;
+    }
+
+    public void setMode(String mode)
+    {
+        this.mode = mode;
     }
 
     public String getBundleId()
@@ -44,9 +57,19 @@ public class PurchaseOrder
         return bundleId;
     }
 
+    public void setBundleId(String bundleId)
+    {
+        this.bundleId = bundleId;
+    }
+
     public String getBundleDescription()
     {
         return bundleDescription;
+    }
+
+    public void setBundleDescription(String bundleDescription)
+    {
+        this.bundleDescription = bundleDescription;
     }
 
     public String getPartnerId()
@@ -54,9 +77,19 @@ public class PurchaseOrder
         return partnerId;
     }
 
+    public void setPartnerId(String partnerId)
+    {
+        this.partnerId = partnerId;
+    }
+
     public Input[] getInputs()
     {
         return inputs;
+    }
+
+    public void setInputs(Input[] inputs)
+    {
+        this.inputs = inputs;
     }
 
     public OrderExecutionInformation getOrderExecutionInformation()
@@ -64,8 +97,13 @@ public class PurchaseOrder
         return orderExecutionInformation;
     }
 
+    public void setOrderExecutionInformation(OrderExecutionInformation orderExecutionInformation)
+    {
+        this.orderExecutionInformation = orderExecutionInformation;
+    }
 
-    public class Input
+
+    public static class Input
     {
         private String type;
         private String value;
@@ -76,18 +114,29 @@ public class PurchaseOrder
             this.value = value;
         }
 
+
         public String getType()
         {
             return type;
+        }
+
+        public void setType(String type)
+        {
+            this.type = type;
         }
 
         public String getValue()
         {
             return value;
         }
+
+        public void setValue(String value)
+        {
+            this.value = value;
+        }
     }
 
-    public class OrderExecutionInformation
+    public static class OrderExecutionInformation
     {
         private String date;
         private int amount;
@@ -95,6 +144,9 @@ public class PurchaseOrder
         private String service;
         private String country;
         private String contractId;
+
+        public OrderExecutionInformation()
+        {}
 
         public OrderExecutionInformation(String date,
                                          int amount,
@@ -110,9 +162,15 @@ public class PurchaseOrder
             this.contractId = contractId;
         }
 
+
         public String getDate()
         {
             return date;
+        }
+
+        public void setDate(String date)
+        {
+            this.date = date;
         }
 
         public int getAmount()
@@ -120,9 +178,19 @@ public class PurchaseOrder
             return amount;
         }
 
+        public void setAmount(int amount)
+        {
+            this.amount = amount;
+        }
+
         public String getCurrency()
         {
             return currency;
+        }
+
+        public void setCurrency(String currency)
+        {
+            this.currency = currency;
         }
 
         public String getService()
@@ -130,14 +198,29 @@ public class PurchaseOrder
             return service;
         }
 
+        public void setService(String service)
+        {
+            this.service = service;
+        }
+
         public String getCountry()
         {
             return country;
         }
 
+        public void setCountry(String country)
+        {
+            this.country = country;
+        }
+
         public String getContractId()
         {
             return contractId;
+        }
+
+        public void setContractId(String contractId)
+        {
+            this.contractId = contractId;
         }
     }
 }

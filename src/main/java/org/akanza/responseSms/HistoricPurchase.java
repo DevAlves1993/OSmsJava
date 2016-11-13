@@ -9,6 +9,9 @@ public class HistoricPurchase extends BaseResponse
 {
     private PurchaseOrder[] purchaseOrders;
 
+    public HistoricPurchase()
+    {}
+
     public HistoricPurchase(PurchaseOrder[] purchaseOrders)
     {
         this.purchaseOrders = purchaseOrders;
@@ -17,5 +20,10 @@ public class HistoricPurchase extends BaseResponse
     public PurchaseOrder[] getPurchaseOrders()
     {
         return purchaseOrders;
+    }
+
+    public void setPurchaseOrders(PurchaseOrder[] purchaseOrders)
+    {
+        this.purchaseOrders = purchaseOrders;
     }
 }

@@ -8,6 +8,9 @@ public class ServiceStatistic
     private String country;
     private  CountyStatistic[] countryStatistics;
 
+    public ServiceStatistic()
+    {}
+
     public ServiceStatistic(String country, CountyStatistic[] countryStatistics)
     {
         this.country = country;
@@ -18,19 +21,44 @@ public class ServiceStatistic
     {
         return country;
     }
-    public CountyStatistic[] getCountyStatistics()
+
+    public void setCountry(String country)
+    {
+        this.country = country;
+    }
+
+    public CountyStatistic[] getCountryStatistics()
     {
         return countryStatistics;
     }
 
-    public class CountyStatistic
+    public void setCountryStatistics(CountyStatistic[] countryStatistics)
+    {
+        this.countryStatistics = countryStatistics;
+    }
+
+
+    public static class CountyStatistic
     {
         private  String applicationId; // TODO : verify name later.
         private int usage;
 
+        public CountyStatistic()
+        {}
+
         public CountyStatistic(String applicationId, int usage)
         {
             this.applicationId = applicationId;
+            this.usage = usage;
+        }
+
+        public void setApplicationId(String applicationId)
+        {
+            this.applicationId = applicationId;
+        }
+
+        public void setUsage(int usage)
+        {
             this.usage = usage;
         }
 

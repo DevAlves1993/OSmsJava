@@ -9,14 +9,23 @@ public class ContractsSMS extends BaseResponse
 {
     private PartnerContracts partnerContracts;
 
+    public ContractsSMS()
+    {}
+
     public ContractsSMS(PartnerContracts partnerContracts)
     {
         this.partnerContracts = partnerContracts;
     }
 
+
     public PartnerContracts getPartnerContracts()
     {
         return partnerContracts;
+    }
+
+    public void setPartnerContracts(PartnerContracts partnerContracts)
+    {
+        this.partnerContracts = partnerContracts;
     }
 }
 

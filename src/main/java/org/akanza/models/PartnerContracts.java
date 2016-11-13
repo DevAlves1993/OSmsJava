@@ -8,15 +8,13 @@ public class PartnerContracts
     private String partnerId;
     private Contract[] contracts;
 
+    public PartnerContracts()
+    {}
+
     public PartnerContracts(String partnerId, Contract[] contracts)
     {
         this.partnerId = partnerId;
         this.contracts = contracts;
-    }
-
-    public Contract[] getContracts()
-    {
-        return contracts;
     }
 
     public String getPartnerId()
@@ -24,11 +22,30 @@ public class PartnerContracts
         return partnerId;
     }
 
-    public class Contract
+    public void setPartnerId(String partnerId)
+    {
+        this.partnerId = partnerId;
+    }
+
+    public Contract[] getContracts()
+    {
+        return contracts;
+    }
+
+    public void setContracts(Contract[] contracts)
+    {
+        this.contracts = contracts;
+    }
+
+
+    public static class Contract
     {
         private String service;
         private String contractDescription;
         private ServiceContracts[] serviceContracts;
+
+        public Contract()
+        {}
 
         public Contract(String service, String contractDescription, ServiceContracts[] serviceContracts)
         {
@@ -37,9 +54,15 @@ public class PartnerContracts
             this.serviceContracts = serviceContracts;
         }
 
-        public ServiceContracts[] getServiceContracts()
+
+        public String getService()
         {
-            return serviceContracts;
+            return service;
+        }
+
+        public void setService(String service)
+        {
+            this.service = service;
         }
 
         public String getContractDescription()
@@ -47,9 +70,19 @@ public class PartnerContracts
             return contractDescription;
         }
 
-        public String getService()
+        public void setContractDescription(String contractDescription)
         {
-            return service;
+            this.contractDescription = contractDescription;
+        }
+
+        public ServiceContracts[] getServiceContracts()
+        {
+            return serviceContracts;
+        }
+
+        public void setServiceContracts(ServiceContracts[] serviceContracts)
+        {
+            this.serviceContracts = serviceContracts;
         }
     }
 }

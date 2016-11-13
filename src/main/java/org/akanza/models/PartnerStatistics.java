@@ -8,6 +8,9 @@ public class PartnerStatistics
     private String partnerId;
     private Statistic[] statistics;
 
+    public PartnerStatistics()
+    {}
+
     public PartnerStatistics(String partnerId, Statistic[] statistics)
     {
         this.partnerId = partnerId;
@@ -18,15 +21,30 @@ public class PartnerStatistics
     {
         return partnerId;
     }
-    public  Statistic[] getStatistics()
+
+    public void setPartnerId(String partnerId)
+    {
+        this.partnerId = partnerId;
+    }
+
+    public Statistic[] getStatistics()
     {
         return statistics;
     }
 
-    public class Statistic
+    public void setStatistics(Statistic[] statistics)
+    {
+        this.statistics = statistics;
+    }
+
+
+    public static class Statistic
     {
         private String service;
         private ServiceStatistic[] serviceStatistics;
+
+        public Statistic()
+        {}
 
         public Statistic(String service, ServiceStatistic[] serviceStatistics)
         {
@@ -34,13 +52,25 @@ public class PartnerStatistics
             this.serviceStatistics = serviceStatistics;
         }
 
+
         public String getService()
         {
             return service;
         }
-        public ServiceStatistic[]  getServiceStatistics()
+
+        public void setService(String service)
+        {
+            this.service = service;
+        }
+
+        public ServiceStatistic[] getServiceStatistics()
         {
             return serviceStatistics;
+        }
+
+        public void setServiceStatistics(ServiceStatistic[] serviceStatistics)
+        {
+            this.serviceStatistics = serviceStatistics;
         }
     }
 }

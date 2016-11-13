@@ -7,6 +7,9 @@ public class ResponseSMS extends BaseResponse
 {
     private SMSResponse outBoundSMSMessageRequest;
 
+    public ResponseSMS()
+    {}
+
     public ResponseSMS(SMSResponse outBoundSMSMessageRequest)
     {
         this.outBoundSMSMessageRequest = outBoundSMSMessageRequest;
@@ -17,21 +20,40 @@ public class ResponseSMS extends BaseResponse
         return outBoundSMSMessageRequest;
     }
 
-    public class SMSResponse
+    public void setOutBoundSMSMessageRequest(SMSResponse outBoundSMSMessageRequest)
+    {
+        this.outBoundSMSMessageRequest = outBoundSMSMessageRequest;
+    }
+
+
+    public static class SMSResponse
     {
         private String address;
         private SMSContent outboundSMSTextMessage;
         private String senderAddress;
         private String senderName;
 
+        public SMSResponse()
+        {}
+
         public String getAddress()
         {
             return address;
         }
 
-        public String getOutboundSMSTextMessage()
+        public void setAddress(String address)
         {
-            return outboundSMSTextMessage.getMessage();
+            this.address = address;
+        }
+
+        public SMSContent getOutboundSMSTextMessage()
+        {
+            return outboundSMSTextMessage;
+        }
+
+        public void setOutboundSMSTextMessage(SMSContent outboundSMSTextMessage)
+        {
+            this.outboundSMSTextMessage = outboundSMSTextMessage;
         }
 
         public String getSenderAddress()
@@ -39,14 +61,32 @@ public class ResponseSMS extends BaseResponse
             return senderAddress;
         }
 
+        public void setSenderAddress(String senderAddress)
+        {
+            this.senderAddress = senderAddress;
+        }
+
         public String getSenderName()
         {
             return senderName;
         }
 
-        private class SMSContent
+        public void setSenderName(String senderName)
+        {
+            this.senderName = senderName;
+        }
+
+        private static class SMSContent
         {
             private String message;
+
+            public SMSContent()
+            {}
+
+            public void setMessage(String message)
+            {
+                this.message = message;
+            }
 
             public String getMessage()
             {
