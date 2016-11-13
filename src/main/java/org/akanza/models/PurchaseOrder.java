@@ -3,22 +3,22 @@ package org.akanza.models;
 /**
  * Created by Christian Amani on 15/12/2015.
  */
-public class PurchaseOrders
+public class PurchaseOrder
 {
     private String purchaseOrderId;
     private String mode;
     private String bundleId;
     private String bundleDescription;
     private String partnerId;
-    private Inputs[] inputs;
+    private Input[] inputs;
     private OrderExecutionInformation orderExecutionInformation;
 
-    public PurchaseOrders(String purchaseOrderId,
+    public PurchaseOrder(String purchaseOrderId,
                           String mode,
                           String bundleId,
                           String bundleDescription,
                           String partnerId,
-                          Inputs[] inputs, OrderExecutionInformation orderExecutionInformation)
+                          Input[] inputs, OrderExecutionInformation orderExecutionInformation)
     {
         this.purchaseOrderId = purchaseOrderId;
         this.mode = mode;
@@ -54,7 +54,7 @@ public class PurchaseOrders
         return partnerId;
     }
 
-    public Inputs[] getInputs()
+    public Input[] getInputs()
     {
         return inputs;
     }
@@ -65,12 +65,12 @@ public class PurchaseOrders
     }
 
 
-    public class Inputs
+    public class Input
     {
         private String type;
         private String value;
 
-        public Inputs(String type, String value)
+        public Input(String type, String value)
         {
             this.type = type;
             this.value = value;
@@ -90,14 +90,14 @@ public class PurchaseOrders
     public class OrderExecutionInformation
     {
         private String date;
-        private String amount;
+        private int amount;
         private String currency;
         private String service;
         private String country;
         private String contractId;
 
         public OrderExecutionInformation(String date,
-                                         String amount,
+                                         int amount,
                                          String currency,
                                          String service,
                                          String country, String contractId)
@@ -115,7 +115,7 @@ public class PurchaseOrders
             return date;
         }
 
-        public String getAmount()
+        public int getAmount()
         {
             return amount;
         }

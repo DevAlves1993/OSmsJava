@@ -30,7 +30,7 @@ For generate a Token object, used one of the static methods of Class abstract **
 
 Example with **`FactoryToken.getToken()`** :
 
-    
+```java   
     String secretCode = "secretCode";
     String id = "id";
     public static void main(String... args)
@@ -47,10 +47,11 @@ Example with **`FactoryToken.getToken()`** :
             e.printStackTrace();
         }
     }
-
+```
 
 Example with **`FactoryToken.setToken(String id,String secretCode,Callback callback)`** :
 
+```java
     String secretCode = "secretCode";
     String id = "id";
     Token token = null;
@@ -71,10 +72,11 @@ Example with **`FactoryToken.setToken(String id,String secretCode,Callback callb
             ..........................................
         }
     }
-
+```
 
 Example with **`FactoryToken.getFutureToken(String id,String secretCode)`** :
 
+```java
     String secretCode = "secretCode";
     String id = "id";
     public static void main(String... args)
@@ -107,7 +109,7 @@ Example with **`FactoryToken.getFutureToken(String id,String secretCode)`** :
             e.printStackTrace();
         }
     }
-
+```
 
 #### How Send a SMS : 
 
@@ -127,6 +129,7 @@ For send a sms Call method `sendSMS(Token token, SMS sms, Callback callback)` of
 
 For example:
 
+```java
     public static void main(String... args)
     {
         // Action which perform if response return successful
@@ -199,6 +202,7 @@ For example:
         serviceSMS.sendSMS(token,sms,callback);
 
     }
+```
 
 ##### ResponseSMS
 
@@ -232,6 +236,7 @@ At first you have to be interested in the object PartnerContracts. I invite you 
 
 For example :
 
+```java
     public static void main(String... args)
     {
         // Action which perform if response return successful
@@ -302,6 +307,7 @@ For example :
         serviceSMS.obtainsContractsSMS(token,callback);
     }
 
+```
 ##### PartnerContracts
 
 The PartnerContracts Object contains some information. 
@@ -344,7 +350,8 @@ For obtain statistics sms, call method `obtainStatisticSMS(Token token, Callback
 At first you have to be interested in the object PartnerStatistics. I invite you to glance on the source code.
 
 For example :
-
+ 
+```java
     public static void main(String... args)
     {
         // Action which perform if response return successful
@@ -429,6 +436,7 @@ For example :
         ServiceSMS serviceSMS = new Service();
         serviceSMS.obtainStatisticSMS(token,callback); 
     }
+```
 
 ##### PartnerStatistics
 
@@ -463,33 +471,156 @@ The CountyStatistic Object contains two Object :
 * int usage : Number of units consumed by the application 
 
 
-#### How consulted the historic purchase (DEPRECATED! Don't Use) :
+#### How consulted the historic purchase :
 
 The HistoricPurchase object it is the representation object of JSon response returned by orange smsAPI having sent a request of consultation of purchase historic.
+For obtain historic purchase, call method `obtainHistoricSMS(Token token, Callback callback)` of object ServiceSMS.
+
+* The parameter token it is your Token
+* The parameter callback contains the action in executed after the reception of http response
+
 At first you have to be interested in the object PurchaseOrders. I invite you to glance on the source code.
 
 For example :
 
+```java
     public static void main(String... args)
     {
-        try
-        {
-            HistoricPurchase historic;
-            GenerateService service = new GenerateService("5454656","secret code");
-            Token token = service.generatedToken();
-            historic = service.historicPurchase(token);
-            PurchaseOrders[] purchaseOrders = historic.getPurchaseOrders();
+        public static void main(String... args)
+    {
+        // Action which perform if response return successful
+        OnSuccess onSuccess = (b,r,i) -> {
+            // get HistoricPurchase
+            HistoricPurchase historicPurchase = (HistoricPurchase) b;
+             
+            // get array of purchase orders
+            PurchaseOrder[] purchaseOrders = historicPurchase.getPurchaseOrders();
+            
+            // get first element of array
+            PurchaseOrder purchaseOrder = purchaseOrders[0];
+             
+            // get id of purchase order
+            String purchaseOrderId = purchaseOrder.getPurchaseOrderId();
+            
+            // get mode
+            String mode = purchaseOrder.getMode();
+            
+            // get id bundle
+            String bundleId = purchaseOrder.getBundleId();
+            
+            // get description bundle
+            String bundleDescription = purchaseOrder.getBundleDescription();
+            
+            // get id partner 
+            String partnerId = purchaseOrder.getPartnerId();
+            
+            // get array of input
+            Input[] inputs = purchaseOrder.getInputs();
+            
+            // obtains first element array of inputs
+            Input input = inputs[0];
+            
+            // obtain input type
+            String type = input.getType();
+            
+            // obtain input value
+            String value = input.getValue();
+            
+            // get information order execution
+            OrderExecutionInformation orderExecutionInformation = purchaseOrder.getOrderExecutionInformation();
+            
+            // obtain date of orderExecutionInformation
+            String date = orderExecutionInformation.getDate();
+            
+            // obtain amount of orderExecutionInformation
+            int amont = orderExecutionInformation.getAmount();
+            
+            // obtain currency of orderExecutionInformation
+            String currency = orderExecutionInformation.getCurrency();
+            
+            // obtain service of orderExecutionInformation
+            String service = orderExecutionInformation.getService();
+            
+            // obrain country of orderExecutionInformation
+            String country = orderExecutionInformation.getContry();
+            
+            // get id contract of orderExecutionInformation
+            String contractId = orderExecutionInformation.getContractId();
         }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+                
+        // Action which perform if response failed
+        OnFailure onFailure = (r,m,i,) -> {
+            // get message error
+            String message = r.getMessage();
+            
+            // get description error
+            String description = r.getDescription();
+            
+            // get status code error
+            int code = r.getCode();
+            System.out.println("Error message is : "+message);
+            System.out.println("Error description is : "+description);
+            System.out.println("The status code is : "+code):
         }
-        catch (ServiceException e)
-        {
-            e.printStackTrace();
+        
+        // Action which perform if execution throw exception
+        OnThrowable onThrowable = (t) -> {
+            // get message of throwable
+            String message = t.getMessage();
+            ................................
+            ................................
+            ................................
         }
+        
+        String id = "";
+        String secretCode = "";
+        
+        // create a callback
+        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
+        
+        // obtain a token
+        Token token = FactoryToken.getToken(id,secretCode);
+        
+        // create a Service SMS
+        ServiceSMS serviceSMS = new Service();
+        serviceSMS.obtainHistoricSMS(token,callback);  
     }
-the method `getPurchaseOrders()` return a table of PurchaseOrders.
+```
+
+##### PurchaseOrder
+
+The PartnerStatistics Object contains some information. 
+The PartnerStatistics Object contains several Objects : 
+
+* String purchaseOrderId : Purchase Order Identifier
+* String mode : Payment mode
+* String bundleId : Identifier of the purchased bundle
+* String bundleDescription : Full description of the purchased bundle
+* String partnerId : Partner identifier provided by Orange Partner
+* Input[] inputs : JSON structure containing all the necessary inputs to perform the purchase (depends on the method used)
+* OrderExecutionInformation orderExecutionInformation : detailed information about the purchase
+
+###### Input
+
+The Input Object contains some information.
+The Input Object contains two Objects :
+
+* String type : input type
+* String vale : input value
+
+###### OrderExecutionInformation
+
+The OrderExecutionInformation Object contains some information.
+The OrderExecutionInformation Object several Objects : 
+
+* String date : Purchase date an ISO 3166 format
+* int amount :  Charged amount
+* String currency : Currency used
+* String service : Technical name of the subscribed service
+* String country : ISO 3166-1 alpha 3 country code
+* String contractId : Associated service contract identifier
+
+
 
 ## Authors and Contributors
 In 2015, Amani Christian Cyrille Alves (@DevAlves1993) founded OSmsJava.
