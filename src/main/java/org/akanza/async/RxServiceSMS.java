@@ -6,7 +6,7 @@ import okhttp3.*;
 import org.akanza.SMS;
 import org.akanza.error.ResponseError;
 import org.akanza.error.ServiceException;
-import org.akanza.responseSms.*;
+import org.akanza.responsesms.*;
 import org.akanza.Callback;
 
 import rx.Observable;

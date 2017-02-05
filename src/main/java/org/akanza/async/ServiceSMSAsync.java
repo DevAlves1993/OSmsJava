@@ -6,7 +6,7 @@ import okhttp3.*;
 import org.akanza.Callback;
 import org.akanza.SMS;
 import org.akanza.ServiceSMS;
-import org.akanza.responseSms.*;
+import org.akanza.responsesms.*;
 
 import java.io.IOException;
 import java.util.concurrent.*;

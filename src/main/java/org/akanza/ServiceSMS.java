@@ -5,7 +5,7 @@ import com.google.gson.*;
 import okhttp3.*;
 import org.akanza.error.ResponseError;
 import org.akanza.models.ResponseHeader;
-import org.akanza.responseSms.*;
+import org.akanza.responsesms.*;
 
 import static org.akanza.Resource.*;
 

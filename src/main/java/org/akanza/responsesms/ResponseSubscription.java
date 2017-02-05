@@ -1,4 +1,4 @@
-package org.akanza.responseSms;
+package org.akanza.responsesms;
 
 /**
  * Created by Christian Amani on 25/08/2016.

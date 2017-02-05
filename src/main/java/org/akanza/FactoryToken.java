@@ -5,7 +5,7 @@ import okhttp3.*;
 import org.akanza.error.ResponseError;
 import org.akanza.error.ServiceException;
 import org.akanza.models.ResponseHeader;
-import org.akanza.responseSms.Token;
+import org.akanza.responsesms.Token;
 import static org.akanza.Resource.*;
 
 import java.io.IOException;

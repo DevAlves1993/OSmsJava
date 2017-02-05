@@ -5,7 +5,7 @@ import org.akanza.handler.OnFailure;
 import org.akanza.handler.OnSuccess;
 import org.akanza.handler.OnThrowable;
 import org.akanza.models.ResponseHeader;
-import org.akanza.responseSms.BaseResponse;
+import org.akanza.responsesms.BaseResponse;
 
 
 /**

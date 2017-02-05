@@ -1,4 +1,4 @@
-package org.akanza.responseSms;
+package org.akanza.responsesms;
 
 import org.akanza.models.PurchaseOrder;
 

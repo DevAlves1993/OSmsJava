@@ -1,7 +1,7 @@
 package org.akanza.handler;
 
 import org.akanza.models.ResponseHeader;
-import org.akanza.responseSms.BaseResponse;
+import org.akanza.responsesms.BaseResponse;
 
 /**
  * Created by Christian Amani on 25/08/2016.
