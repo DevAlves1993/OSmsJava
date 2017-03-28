@@ -10,5 +10,8 @@
 *.ear
 
 # foldier
-.idea
+.idea/
 target/
+
+# file
+.gitignore
