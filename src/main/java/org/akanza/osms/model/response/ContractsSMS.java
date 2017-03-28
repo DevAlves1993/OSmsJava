@@ -1,11 +1,11 @@
-package org.akanza.responsesms;
+package org.akanza.osms.model.response;
 
-import org.akanza.models.PartnerContracts;
+import org.akanza.osms.model.PartnerContracts;
 
 /**
  * Created by Christian Amani on 15/12/2015.
  */
-public class ContractsSMS extends BaseResponse
+public class ContractsSMS
 {
     private PartnerContracts partnerContracts;
 

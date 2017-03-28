@@ -1,4 +1,4 @@
-package org.akanza.error;
+package org.akanza.osms.model.response;
 
 /**
  * Created by Christian Amani on 10/08/2016.

@@ -1,11 +1,11 @@
-package org.akanza.responsesms;
+package org.akanza.osms.model.response;
 
-import org.akanza.models.PurchaseOrder;
+import org.akanza.osms.model.PurchaseOrder;
 
 /**
  * Created by Christian Amani on 15/12/2015.
  */
-public class HistoricPurchase extends BaseResponse
+public class HistoricPurchase
 {
     private PurchaseOrder[] purchaseOrders;
 

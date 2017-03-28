@@ -1,54 +1,55 @@
-package org.akanza;
+package org.akanza.osms.model;
 
 /**
- * Created by Christian Amani on 15/12/2015.
- * <p>A Class which contain the information of SMS</p>
+ * Created by user on 05/02/2017.
  */
-public class SMS
+public class OrangeSMS
 {
-    private SMSMessage outBoundSMSMessageRequest;
+    private SMSMessage outboundSMSMessageRequest;
 
 
     /**
      * @param address The Sender address
      * @param senderAddress The current address
-     * @param content The content of SMS
+     * @param content The content of OrangeSMS
      */
-    public SMS(String address , String senderAddress,String content)
+    public OrangeSMS(String address , String senderAddress, String content)
     {
-        outBoundSMSMessageRequest = new SMSMessage(address,senderAddress,content);
+        outboundSMSMessageRequest = new SMSMessage(address,senderAddress,content);
     }
 
-    public SMSMessage getOutBoundSMSMessageRequest()
+    public SMSMessage getOutboundSMSMessageRequest()
     {
-        return outBoundSMSMessageRequest;
+        return outboundSMSMessageRequest;
     }
 
-    public void setOutBoundSMSMessageRequest(SMSMessage outBoundSMSMessageRequest)
+    public void setOutboundSMSMessageRequest(SMSMessage outboundSMSMessageRequest)
     {
-        this.outBoundSMSMessageRequest = outBoundSMSMessageRequest;
+        this.outboundSMSMessageRequest = outboundSMSMessageRequest;
     }
 
 
     /**
-     * <p>Class which contains a elements a base of SMS</p>
+     * <p>Class which contains a elements a base of OrangeSMS</p>
      */
-    public class SMSMessage
+    public static class SMSMessage
     {
         private String address;
         private String senderAddress;
-        private SMSContent message;
+        private String senderName; // TODO verify serialisation
+        private SMSContent outboundSMSTextMessage;
+        private String resourceURL; // TODO : verify serialisation
 
         public SMSMessage(String address,String senderAddress,String content)
         {
             this.address ="tel:"+address;
             this.senderAddress ="tel:"+ senderAddress;
-            this.message = new SMSContent(content);
+            this.outboundSMSTextMessage = new SMSContent(content);
         }
 
-        public String getMessage()
+        public String getOutboundSMSTextMessage()
         {
-            return message.getMessage();
+            return outboundSMSTextMessage.getMessage();
         }
 
         public void setAddress(String address)
@@ -66,9 +67,9 @@ public class SMS
             this.senderAddress = senderAddress;
         }
 
-        public void setMessage(String content)
+        public void setOutboundSMSTextMessage(String content)
         {
-            message.setMessage(content);
+            outboundSMSTextMessage.setMessage(content);
         }
 
         public String getAddress()
@@ -76,7 +77,7 @@ public class SMS
             return address;
         }
 
-        private class SMSContent
+        public static class SMSContent
         {
             private String message;
             public SMSContent(String message)
@@ -96,4 +97,3 @@ public class SMS
         }
     }
 }
-

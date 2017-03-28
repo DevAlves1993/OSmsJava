@@ -1,13 +1,19 @@
-package org.akanza.responsesms;
+package org.akanza.osms.model.response;
 
 /**
  * Created by Christian Amani on 25/08/2016.
  */
-public class ResponseSubscription extends BaseResponse
+public class ResponseSubscription
 {
     private ReceiptSubscription deliveryReceiptSubscription;
     public ResponseSubscription()
     {}
+
+    public ResponseSubscription(String partnerHost)
+    {
+        ReceiptSubscription.CallbackRef callbackRef = new ReceiptSubscription
+                .CallbackRef(partnerHost);
+    }
 
     public ReceiptSubscription getDeliveryReceiptSubscription()
     {
@@ -51,6 +57,11 @@ public class ResponseSubscription extends BaseResponse
             private String notifyURL;
             public CallbackRef()
             {}
+
+            public CallbackRef(String partnerHost)
+            {
+                notifyURL = "https://"+partnerHost+"/orange/smsdr.php";
+            }
 
             public void setNotifyURL(String notifyURL)
             {

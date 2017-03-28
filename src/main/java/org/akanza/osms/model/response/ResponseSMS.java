@@ -1,9 +1,9 @@
-package org.akanza.responsesms;
+package org.akanza.osms.model.response;
 
 /**
  * Created by Christian Amani on 15/12/2015.
  */
-public class ResponseSMS extends BaseResponse
+public class ResponseSMS
 {
     private SMSResponse outBoundSMSMessageRequest;
 

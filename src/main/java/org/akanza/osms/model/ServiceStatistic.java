@@ -1,4 +1,4 @@
-package org.akanza.models;
+package org.akanza.osms.model;
 
 /**
  * Created by Christian Amani on 15/12/2015.
@@ -6,7 +6,7 @@ package org.akanza.models;
 public class ServiceStatistic
 {
     private String country;
-    private  CountyStatistic[] countryStatistics;
+    private CountyStatistic[] countryStatistics;
 
     public ServiceStatistic()
     {}
