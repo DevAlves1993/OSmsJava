@@ -19,7 +19,7 @@ import okhttp3.MediaType;
 
 public interface HttpApiOrange
 {
-    String SCHEME = "http";
+    String SCHEME = "https";
     String HOST = "api.orange.com";
     String VERSION_API = "v1";
     String HEADER_AUTHORISATION = "Authorization";

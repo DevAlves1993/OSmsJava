@@ -7,14 +7,12 @@ import com.squareup.moshi.Moshi;
 
 import org.akanza.osms.core.exception.HttpApiOrangeException;
 import org.akanza.osms.model.Token;
-import org.akanza.osms.model.response.ResponseError;
+import org.akanza.osms.model.response.error.ResponseError;
 
 import java.io.IOException;
-import java.util.concurrent.Executors;
 
 import okhttp3.Call;
 import okhttp3.Credentials;
-import okhttp3.Dispatcher;
 import okhttp3.FormBody;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -104,7 +102,6 @@ public abstract class Builder
     private static OkHttpClient initHttpClient()
     {
         return new OkHttpClient.Builder()
-                .dispatcher(new Dispatcher(Executors.newSingleThreadExecutor()))
                 .build();
     }
 

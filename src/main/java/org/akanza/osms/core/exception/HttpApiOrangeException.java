@@ -1,12 +1,12 @@
 package org.akanza.osms.core.exception;
 
-import org.akanza.osms.model.response.ResponseError;
+import org.akanza.osms.model.response.error.ResponseError;
 
 /**
  * Created by user on 05/02/2017.
  */
 
-public class HttpApiOrangeException extends Exception
+public class HttpApiOrangeException extends RuntimeException
 {
     private ResponseError error;
 

@@ -1,11 +1,15 @@
 package org.akanza.osms.model;
 
+import com.squareup.moshi.Json;
+import org.akanza.osms.core.CountryCode;
+
 /**
  * Created by user on 05/02/2017.
  */
 public class OrangeSMS
 {
-    private SMSMessage outboundSMSMessageRequest;
+    @Json(name = "outboundSMSMessageRequest")
+    private SMSMessage message;
 
 
     /**
@@ -13,19 +17,19 @@ public class OrangeSMS
      * @param senderAddress The current address
      * @param content The content of OrangeSMS
      */
-    public OrangeSMS(String address , String senderAddress, String content)
+    public OrangeSMS(String address , String senderAddress, String content,CountryCode code)
     {
-        outboundSMSMessageRequest = new SMSMessage(address,senderAddress,content);
+        message = new SMSMessage(address,senderAddress,content,code);
     }
 
-    public SMSMessage getOutboundSMSMessageRequest()
+    public SMSMessage getMessage()
     {
-        return outboundSMSMessageRequest;
+        return message;
     }
 
-    public void setOutboundSMSMessageRequest(SMSMessage outboundSMSMessageRequest)
+    public void setMessage(SMSMessage message)
     {
-        this.outboundSMSMessageRequest = outboundSMSMessageRequest;
+        this.message = message;
     }
 
 
@@ -35,21 +39,31 @@ public class OrangeSMS
     public static class SMSMessage
     {
         private String address;
+        @Json(name = "outboundSMSTextMessage")
+        private SMSContent content;
         private String senderAddress;
         private String senderName; // TODO verify serialisation
-        private SMSContent outboundSMSTextMessage;
-        private String resourceURL; // TODO : verify serialisation
 
-        public SMSMessage(String address,String senderAddress,String content)
+        public SMSMessage(String address,String senderAddress,String content,CountryCode countryCode)
         {
-            this.address ="tel:"+address;
-            this.senderAddress ="tel:"+ senderAddress;
-            this.outboundSMSTextMessage = new SMSContent(content);
+            String code = countryCode.getCode();
+            this.address ="tel:"+code+address;
+            this.senderAddress ="tel:"+code+senderAddress;
+            this.content = new SMSContent(content);
+            this.senderName = null;
         }
 
-        public String getOutboundSMSTextMessage()
+        public SMSMessage(String address,String senderAddress,String content,String senderName)
         {
-            return outboundSMSTextMessage.getMessage();
+            this.address = address;
+            this.senderAddress = senderAddress;
+            this.content = new SMSContent(content);
+            this.senderName = senderName;
+        }
+
+        public String getContent()
+        {
+            return content.getMessage();
         }
 
         public void setAddress(String address)
@@ -67,14 +81,24 @@ public class OrangeSMS
             this.senderAddress = senderAddress;
         }
 
-        public void setOutboundSMSTextMessage(String content)
+        public void setContent(String content)
         {
-            outboundSMSTextMessage.setMessage(content);
+            this.content.setMessage(content);
         }
 
         public String getAddress()
         {
             return address;
+        }
+
+        public String getSenderName()
+        {
+            return senderName;
+        }
+
+        public void setSenderName(String senderName)
+        {
+            this.senderName = senderName;
         }
 
         public static class SMSContent

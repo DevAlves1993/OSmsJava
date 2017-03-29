@@ -10,7 +10,7 @@ import org.akanza.osms.model.OrangeSMS;
 import org.akanza.osms.model.Token;
 import org.akanza.osms.model.response.ContractsSMS;
 import org.akanza.osms.model.response.HistoricPurchase;
-import org.akanza.osms.model.response.ResponseError;
+import org.akanza.osms.model.response.error.ResponseError;
 import org.akanza.osms.model.response.ResponseSMS;
 import org.akanza.osms.model.response.ResponseSubscription;
 import org.akanza.osms.model.response.StatisticSMS;
@@ -24,6 +24,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.BufferedSource;
+import org.akanza.osms.model.response.error.ServiceError;
 
 
 /**
@@ -58,7 +59,7 @@ public class OSms implements HttpApiOrange
                 .addPathSegment("smsmessaging")
                 .addPathSegment(VERSION_API)
                 .addPathSegment("outbound")
-                .addEncodedPathSegment(sms.getOutboundSMSMessageRequest().getSenderAddress())
+                .addEncodedPathSegment(sms.getMessage().getSenderAddress())
                 .addPathSegment("requests")
                 .build();
         JsonAdapter<OrangeSMS> adapter = moshi.adapter(OrangeSMS.class);
@@ -259,6 +260,12 @@ public class OSms implements HttpApiOrange
                 .source();
         JsonAdapter<ResponseError> responseErrorJsonAdapter = moshi.adapter(ResponseError.class);
         return responseErrorJsonAdapter.fromJson(source);
+    }
+
+    private ServiceError jsonToServiceError(Response response)
+    {
+        // TODO : implement later
+        return null;
     }
 
     public static class BuilderOSms extends Builder
