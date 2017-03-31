@@ -3,7 +3,7 @@ package org.akanza.osms.model.response;
 import org.akanza.osms.model.PartnerContracts;
 
 /**
- * Created by Christian Amani on 15/12/2015.
+ * @author Christian Amani
  */
 public class ContractsSMS
 {

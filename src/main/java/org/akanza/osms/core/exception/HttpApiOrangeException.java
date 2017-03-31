@@ -5,7 +5,7 @@ import org.akanza.osms.model.response.error.ServiceError;
 import org.akanza.osms.model.response.error.ServiceException;
 
 /**
- * Created by user on 05/02/2017.
+ * @author Christian Amani
  */
 
 public class HttpApiOrangeException extends RuntimeException

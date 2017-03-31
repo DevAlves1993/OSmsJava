@@ -14,7 +14,7 @@ import okhttp3.MediaType;
 
 
 /**
- * Created by user on 05/02/2017.
+ * @author Christian Amani
  */
 
 public interface HttpApiOrange

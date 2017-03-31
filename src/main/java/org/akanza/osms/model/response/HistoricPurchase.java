@@ -3,7 +3,7 @@ package org.akanza.osms.model.response;
 import org.akanza.osms.model.PurchaseOrder;
 
 /**
- * Created by Christian Amani on 15/12/2015.
+ * @author Christian Amani
  */
 public class HistoricPurchase
 {

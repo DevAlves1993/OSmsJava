@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Christian Amani on 29/03/2017.
+ * @author Christian Amani
  */
 public class ServiceError
 {

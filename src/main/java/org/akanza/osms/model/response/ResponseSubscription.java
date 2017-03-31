@@ -1,7 +1,7 @@
 package org.akanza.osms.model.response;
 
 /**
- * Created by Christian Amani on 25/08/2016.
+ * @author Christian Amani
  */
 public class ResponseSubscription
 {

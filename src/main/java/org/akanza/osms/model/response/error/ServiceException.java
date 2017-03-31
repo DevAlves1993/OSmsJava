@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Christian Amani on 31/03/2017.
+ * @author Christian Amani
  */
 public class ServiceException
 {

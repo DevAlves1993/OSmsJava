@@ -3,7 +3,7 @@ package org.akanza.osms.model;
 import com.squareup.moshi.Json;
 
 /**
- * Created by user on 02/02/2017.
+ * @author Christian Amani
  */
 
 public class Token

@@ -4,7 +4,7 @@ import com.squareup.moshi.Json;
 import org.akanza.osms.core.CountryCode;
 
 /**
- * Created by user on 05/02/2017.
+ * @author Christian Amani
  */
 public class OrangeSMS
 {
@@ -16,6 +16,7 @@ public class OrangeSMS
      * @param address The Sender address
      * @param senderAddress The current address
      * @param content The content of OrangeSMS
+     * @param code Country code
      */
     public OrangeSMS(String address , String senderAddress, String content,CountryCode code)
     {

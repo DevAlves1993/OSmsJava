@@ -1,7 +1,7 @@
 package org.akanza.osms.model.response;
 
 /**
- * Created by Christian Amani on 15/12/2015.
+ * @author Christian Amani
  */
 public class ResponseSMS
 {

@@ -6,7 +6,7 @@
 
     <groupId>org.akanza</groupId>
     <artifactId>osms-java</artifactId>
-    <version>0.1.9</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>OSMSJava</name>

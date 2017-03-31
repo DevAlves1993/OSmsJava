@@ -30,7 +30,7 @@ import org.akanza.osms.model.response.error.ServiceException;
 
 
 /**
- * Created by user on 02/02/2017.
+ * @author Christian Amani
  */
 
 public class OSms implements HttpApiOrange
@@ -52,6 +52,12 @@ public class OSms implements HttpApiOrange
         return this.token;
     }
 
+    /**
+     * @param sms
+     * @return ResponseSMS
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public ResponseSMS sendSms(OrangeSMS sms) throws IOException, HttpApiOrangeException
     {
@@ -84,6 +90,13 @@ public class OSms implements HttpApiOrange
         }
     }
 
+    /**
+     * @param senderAddress
+     * @param subscription
+     * @return ResponseSubscription
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public ResponseSubscription subscriptionApi(String senderAddress
             ,ResponseSubscription subscription) throws IOException, HttpApiOrangeException
@@ -116,6 +129,13 @@ public class OSms implements HttpApiOrange
         }
     }
 
+    /**
+     * <p>Not use this method because in not implemented.</p>
+     * @param subId
+     * @return ResponseSubscription
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public ResponseSubscription checkSubscriptionApi(String subId) throws IOException, HttpApiOrangeException
     {
@@ -123,12 +143,24 @@ public class OSms implements HttpApiOrange
         return null;
     }
 
+    /**
+     * <p>Not use this method because in not implemented.</p>
+     * @param senderAddress
+     * @param subId
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public void unSubscriptionApi(String senderAddress, String subId) throws IOException, HttpApiOrangeException
     {
         // TODO : implement later
     }
 
+    /**
+     * @return StatisticSMS
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public StatisticSMS obtainStatisticSMS() throws IOException, HttpApiOrangeException
     {
@@ -158,6 +190,11 @@ public class OSms implements HttpApiOrange
         }
     }
 
+    /**
+     * @return ContractsSMS
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public ContractsSMS obtainsContractsSMS() throws IOException, HttpApiOrangeException
     {
@@ -187,6 +224,11 @@ public class OSms implements HttpApiOrange
         }
     }
 
+    /**
+     * @return HistoricPurchase
+     * @throws IOException
+     * @throws HttpApiOrangeException
+     */
     @Override
     public HistoricPurchase obtainHistoricSMS() throws IOException, HttpApiOrangeException
     {

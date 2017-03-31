@@ -1,7 +1,7 @@
 package org.akanza.osms.core;
 
 /**
- * Created by Christian Amani on 29/03/2017.
+ * @author Christian Amani
  */
 public enum CountryCode
 {
