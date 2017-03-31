@@ -1,6 +1,7 @@
 package org.akanza.osms;
 
 import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.JsonReader;
 import com.squareup.moshi.Moshi;
 
 import org.akanza.osms.core.Builder;
@@ -25,6 +26,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.BufferedSource;
 import org.akanza.osms.model.response.error.ServiceError;
+import org.akanza.osms.model.response.error.ServiceException;
 
 
 /**
@@ -77,7 +79,7 @@ public class OSms implements HttpApiOrange
         }
         else
         {
-            ResponseError error = jsonToResponseError(response);
+            ServiceError error = jsonToServiceError(response);
             throw new HttpApiOrangeException(error);
         }
     }
@@ -264,8 +266,87 @@ public class OSms implements HttpApiOrange
 
     private ServiceError jsonToServiceError(Response response)
     {
-        // TODO : implement later
-        return null;
+        ServiceError serviceError = null;
+        BufferedSource source = response.body()
+                .source();
+        JsonReader reader = JsonReader.of(source);
+        try
+        {
+            reader.beginObject();
+            while(reader.hasNext())
+            {
+                String name = reader.nextName();
+                if(name.equals("requestError"))
+                {
+                    ServiceException serviceException = getServiceException(reader);
+                    serviceError = initServiceError(serviceError, serviceException);
+                }
+            }
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        return serviceError;
+    }
+
+    private ServiceError initServiceError(ServiceError serviceError, ServiceException serviceException)
+    {
+        ServiceError.RequestError requestError =  new ServiceError.RequestError();
+        requestError.setException(serviceException);
+        serviceError = new ServiceError();
+        serviceError.setRequestError(requestError);
+        return serviceError;
+    }
+
+    private ServiceException getServiceException(JsonReader reader)
+    {
+        ServiceException serviceException = new ServiceException();
+        try
+        {
+            reader.beginObject();
+            while(reader.hasNext())
+            {
+                String exception = reader.nextName();
+                if(exception.equals("serviceException") || exception.equals("policyException"))
+                {
+                    reader.beginObject();
+                    while(reader.hasNext())
+                    {
+                        String name = reader.nextName();
+                        if(name.equals("messageId"))
+                        {
+                            String messageId = reader.nextString();
+                            serviceException.setMessageId(messageId);
+                        }
+                        else if(name.equals("text"))
+                        {
+                            String text = reader.nextString();
+                            serviceException.setText(text);
+                        }
+                        else if(name.equals("variables"))
+                        {
+                            readVariableArray(reader, serviceException);
+                        }
+                    }
+                }
+            }
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        return serviceException;
+    }
+
+    private void readVariableArray(JsonReader reader, ServiceException serviceException) throws IOException
+    {
+        reader.beginArray();
+        while(reader.hasNext())
+        {
+            String variable = reader.nextString();
+            serviceException.addVariable(variable);
+        }
     }
 
     public static class BuilderOSms extends Builder

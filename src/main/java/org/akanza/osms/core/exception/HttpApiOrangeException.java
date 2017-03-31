@@ -1,6 +1,8 @@
 package org.akanza.osms.core.exception;
 
 import org.akanza.osms.model.response.error.ResponseError;
+import org.akanza.osms.model.response.error.ServiceError;
+import org.akanza.osms.model.response.error.ServiceException;
 
 /**
  * Created by user on 05/02/2017.
@@ -8,21 +10,41 @@ import org.akanza.osms.model.response.error.ResponseError;
 
 public class HttpApiOrangeException extends RuntimeException
 {
-    private ResponseError error;
+    private ResponseError responseError;
+    private ServiceError serviceError;
 
-    public HttpApiOrangeException(ResponseError error)
+    public HttpApiOrangeException(ResponseError responseError)
     {
-        this.error = error;
+        this.responseError = responseError;
+        this.serviceError = null;
     }
 
-    public ResponseError getError()
+    public HttpApiOrangeException(ServiceError serviceError)
     {
-        return error;
+        this.serviceError = serviceError;
+        this.responseError = null;
+    }
+
+    public ResponseError getResponseError()
+    {
+        return responseError;
     }
 
     @Override
     public String getMessage()
     {
-        return error.getMessage();
+        if(responseError != null)
+            return responseError.getMessage();
+        return "Service exception";
+    }
+
+    public ServiceException getServiceException()
+    {
+        return serviceError.getServiceException();
+    }
+
+    public boolean errorIsService()
+    {
+        return serviceError != null;
     }
 }

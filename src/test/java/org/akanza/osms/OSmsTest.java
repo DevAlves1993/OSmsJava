@@ -9,6 +9,7 @@ import org.akanza.osms.model.response.ContractsSMS;
 import org.akanza.osms.model.response.HistoricPurchase;
 import org.akanza.osms.model.response.ResponseSMS;
 import org.akanza.osms.model.response.StatisticSMS;
+import org.akanza.osms.model.response.error.ServiceException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -62,12 +64,30 @@ public class OSmsTest
             e.printStackTrace();
             if(e instanceof HttpApiOrangeException)
             {
-                String message = e.getMessage();
-                System.out.println(message);
+                if(((HttpApiOrangeException) e).errorIsService())
+                {
+                    ServiceException serviceException = ((HttpApiOrangeException) e).getServiceException();
+                    printServiceException(serviceException);
+                }
+                else
+                {
+                    String message = e.getMessage();
+                    System.out.println(message);
+                }
             }
         }
         assertNotNull(responseSMS);
         printResponseSMS(responseSMS);
+    }
+
+    private void printServiceException(ServiceException serviceException)
+    {
+        String messageId = serviceException.getMessageId();
+        System.out.println("Error Message Id : "+messageId);
+        String text = serviceException.getText();
+        System.out.println("Text is : "+text);
+        List<String> variables = serviceException.getVariables();
+        variables.forEach(System.out::println);
     }
 
     @Test

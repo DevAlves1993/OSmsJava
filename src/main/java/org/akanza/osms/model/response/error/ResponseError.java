@@ -12,6 +12,21 @@ public class ResponseError
     public ResponseError()
     {}
 
+    public String getCode()
+    {
+        return error.getCode();
+    }
+
+    public String getMessage()
+    {
+        return error.getMessage();
+    }
+
+    public String getDescription()
+    {
+        return error.getDescription();
+    }
+
     public static class Error
     {
         /** Code error */

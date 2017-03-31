@@ -29,10 +29,20 @@ public class ServiceError
 
     public List<String> getVariables()
     {
-        String[] var = requestError
+        return requestError
                 .getException()
                 .getVariables();
-        return Arrays.asList(var);
+    }
+
+    public ServiceException getServiceException()
+    {
+        return requestError.getException();
+    }
+
+
+    public void setRequestError(RequestError requestError)
+    {
+        this.requestError = requestError;
     }
 
     public static class RequestError
@@ -46,29 +56,9 @@ public class ServiceError
             return exception;
         }
 
-        public static class ServiceException
+        public void setException(ServiceException exception)
         {
-            private String messageId;
-            private String text;
-            private String[] variables;
-
-            public ServiceException()
-            {}
-
-            public String getMessageId()
-            {
-                return messageId;
-            }
-
-            public String getText()
-            {
-                return text;
-            }
-
-            public String[] getVariables()
-            {
-                return variables;
-            }
+            this.exception = exception;
         }
     }
 }
