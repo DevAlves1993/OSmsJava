@@ -10,106 +10,17 @@ Do not use this library in production. It is under development. It will be avail
 Download via Maven
 
     <dependency>
-        <groupId>org.Akanza</groupId>
-        <artifactId>OSmsJava</artifactId>
-        <version>0.1.9</version>
+        <groupId>org.akanza</groupId>
+        <artifactId>osms-java</artifactId>
+        <version>1.0.0</version>
     </dependency>
 
 or Gradle
 
-    compile 'org.Akanza:OSmsJava:0.1.9
+    compile 'org.akanza:osms-java:1.0.0
 
-#### How generate a token
+#### OSms
 
-The Token object it is the representation object of the Json response returned by the orange smsAPI.
-For generate a Token object, used one of the static methods of Class abstract **`FactoryToken`**.
-
-* **`FactoryToken.getToken(String id,String secretCode)`** : return a simple Token object
-* **`FactoryToken.setToken(String id,String secretCode,Callback callback)`** : Instantiate an Token object
-* **`FactoryToken.getFutureToken(String id,String secretCode)`** : return a Token Future.
-
-Example with **`FactoryToken.getToken()`** :
-
-```java   
-    String secretCode = "secretCode";
-    String id = "id";
-    public static void main(String... args)
-    {
-        try
-        {
-            Token token  = FactoryToken.getToken();
-        }
-        catch (ServiceException e)
-        {
-            ResponseError responseError = e.getResponseError();
-            ...................................................
-            ...................................................
-            e.printStackTrace();
-        }
-    }
-```
-
-Example with **`FactoryToken.setToken(String id,String secretCode,Callback callback)`** :
-
-```java
-    String secretCode = "secretCode";
-    String id = "id";
-    Token token = null;
-    public static void main(String... args)
-    {
-        Callback callback = new Callback((baseResponse, responseHeader, statusCode) ->
-            {
-                token = (Token) baseResponse;
-                ............
-                ............
-            });
-        Token token = null;
-        FactoryToken.setToken(id,secretCode,callback);
-        if(token != null)
-        {
-            String accessToken = token.getAccessToken();
-            String tokenType = token.getTokenType();
-            ..........................................
-        }
-    }
-```
-
-Example with **`FactoryToken.getFutureToken(String id,String secretCode)`** :
-
-```java
-    String secretCode = "secretCode";
-    String id = "id";
-    public static void main(String... args)
-    {
-        try
-        {
-            Future<Token>  futureToken =  FactoryToken.getFutureToken(id,secretCode);
-            ..........................................................................
-            ..........................................................................
-            ..........................................................................
-            Token token = futureToken.get();
-            if(token != null)
-            {
-                String accessToken = token.getAccessToken();
-                String tokenType = token.getTokenType();
-                ........................................
-            }
-            ..........................................................................
-            ..........................................................................
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        catch(ServiceException es)
-        {
-            ResponseError responseError = e.getResponseError();
-            ...................................................
-            ...................................................
-            e.printStackTrace();
-        }
-    }
-```
 
 #### How Send a SMS : 
 
@@ -132,75 +43,7 @@ For example:
 ```java
     public static void main(String... args)
     {
-        // Action which perform if response return successful
-        OnSuccess onSuccess = (b,r,i) -> {
-            ResponseSMS responseSMS = (ResponseSMS) b;
-            
-            // get out bound sms message request
-            SMSResponse outBoundSMSMessageRequest = responseSMS.getOutBoundSMSMessageRequest();
-            
-            // get sender address
-            String senderAddress = outBoundSMSMessageRequest.getSenderAddress();
-            
-            // get resource Url
-            String senderName = outBoundSMSMessageRequest.senderName();
-            
-            SMSContent smsContent = outBoundSMSMessageRequest.getOutboundSMSTextMessage();
-            
-            // get sms content
-            String message = smsContent.getMessage();
-            
-            System.out.println("My out bound SMS message request is : "+message);
-            System.out.println("The sender address is : "+senderAddress);
-            System.out.println("My url resource is : "+senderName);
-            ResponseHeader responseHeader = (ResponseHeader) r;
-            ....................................................
-            ....................................................
-            System.out.println("The status code is : "+i);
-        }
-        
-        // Action which perform if response failed
-        OnFailure onFailure = (r,m,i,) -> {
-            // get message error
-            String message = r.getMessage();
-            
-            // get description error
-            String description = r.getDescription();
-            
-            // get status code error
-            int code = r.getCode();
-            System.out.println("Error message is : "+message);
-            System.out.println("Error description is : "+description);
-            System.out.println("The status code is : "+code):
-        }
-        
-        // Action which perform if execution throw exception
-        OnThrowable onThrowable = (t) -> {
-            // get message of throwable
-            String message = t.getMessage();
-            ................................
-            ................................
-            ................................
-        }
-        
-        String id = "";
-        String secretCode = "";
-        
-        // create a callback
-        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
-        
-        // obtain a token
-        Token token = FactoryToken.getToken(id,secretCode);
-        
-        // create a Service SMS
-        ServiceSMS serviceSMS = new Service();
-        
-        // Create a SMS
-        SMS sms = new SMS("Your number phone","Number phone of recipient","Your message");
-        
-        // Send a SMS
-        serviceSMS.sendSMS(token,sms,callback);
-
+          
     }
 ```
 
@@ -239,74 +82,8 @@ For example :
 ```java
     public static void main(String... args)
     {
-        // Action which perform if response return successful
-        OnSuccess onSuccess = (b,r,i) -> {
-            // get ContractsSMS
-            ContractsSMS contractSMS = (ContractsSMS) b;
-            // get Partner Contract
-            PartnerContracts partnerContracts = contractSMS.getPartnerContracts();
-            // get array of Contract
-            Contract[] contracts = partnerContracts.getContracts();
-            // obtain first element of Contract array
-            Contract contract = contracts[0];
             
-            // get Service
-            String service = contract.getService();
-            // get contract description
-            String contractDescription = contract.getContractDescription();
-            // get array of contract service
-            ServiceContracts[] serviceContracts = contract.getServiceContracts();
-            // get first element of ServiceContracts array
-            ServiceContracts  serviceContract = ServiceContracts[0];
-            
-            // get country 
-            String country = serviceContract.getCountry();
-            // get service
-            String service = serviceContract.getService();
-            ..............................................
-            ..............................................
-            ..............................................
-            
-        }
-        
-        // Action which perform if response failed
-        OnFailure onFailure = (r,m,i,) -> {
-            // get message error
-            String message = r.getMessage();
-            
-            // get description error
-            String description = r.getDescription();
-            
-            // get status code error
-            int code = r.getCode();
-            System.out.println("Error message is : "+message);
-            System.out.println("Error description is : "+description);
-            System.out.println("The status code is : "+code):
-        }
-        
-        // Action which perform if execution throw exception
-        OnThrowable onThrowable = (t) -> {
-            // get message of throwable
-            String message = t.getMessage();
-            ................................
-            ................................
-            ................................
-        }
-        
-        String id = "";
-        String secretCode = "";
-        
-        // create a callback
-        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
-        
-        // obtain a token
-        Token token = FactoryToken.getToken(id,secretCode);
-        
-        // create a Service SMS
-        ServiceSMS serviceSMS = new Service();
-        serviceSMS.obtainsContractsSMS(token,callback);
     }
-
 ```
 ##### PartnerContracts
 
@@ -354,87 +131,7 @@ For example :
 ```java
     public static void main(String... args)
     {
-        // Action which perform if response return successful
-        OnSuccess onSuccess = (b,r,i) -> {
-            // get StatisticSMS
-            StatisticSMS statisticSMS = (StatisticSMS) b;
-             
-            // get Partner Statistics
-            PartnerStatistics partnerStatistics = statisticSMS.getPartnerStatistics();
-            
-            // get partner id
-            String partnerId = partnerStatistics.getPartnerId();
-            
-            // get array of Statistic
-            Statistic[] statistics = partnerStatistics.getStatistics();
-            // obtain first element of Contract array
-            Statistic statistic = statistics[0];
-            
-            // get Service
-            String service = statistic.getService();
-            
-            // get array of Statistic service
-            ServiceStatistic[] serviceStatistics = statistic.getServiceStatistics();
-            
-            // get first element of ServiceStatistic array
-            ServiceStatistic  serviceStatistic = serviceStatistics[0];
-            
-            // get country 
-            String country = serviceStatistic.getCountry();
-            
-            // get array of County Statistic
-            CountyStatistic[] countyStatistics = serviceStatistic.getCountyStatistics();
-            
-            // get first element of Statistic country
-            CountyStatistic countyStatistic = CountyStatistic[0];
-            
-            // get application id
-            String applicationId = countyStatistic.getApplicationId();
-            
-            // get usage
-            int usage = countryStatistic.getUsage();
-            ..............................................
-            ..............................................
-            ..............................................
-            
-        }
-                
-        // Action which perform if response failed
-        OnFailure onFailure = (r,m,i,) -> {
-            // get message error
-            String message = r.getMessage();
-            
-            // get description error
-            String description = r.getDescription();
-            
-            // get status code error
-            int code = r.getCode();
-            System.out.println("Error message is : "+message);
-            System.out.println("Error description is : "+description);
-            System.out.println("The status code is : "+code):
-        }
         
-        // Action which perform if execution throw exception
-        OnThrowable onThrowable = (t) -> {
-            // get message of throwable
-            String message = t.getMessage();
-            ................................
-            ................................
-            ................................
-        }
-        
-        String id = "";
-        String secretCode = "";
-        
-        // create a callback
-        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
-        
-        // obtain a token
-        Token token = FactoryToken.getToken(id,secretCode);
-        
-        // create a Service SMS
-        ServiceSMS serviceSMS = new Service();
-        serviceSMS.obtainStatisticSMS(token,callback); 
     }
 ```
 
@@ -486,102 +183,7 @@ For example :
 ```java
     public static void main(String... args)
     {
-        // Action which perform if response return successful
-        OnSuccess onSuccess = (b,r,i) -> {
-            // get HistoricPurchase
-            HistoricPurchase historicPurchase = (HistoricPurchase) b;
-             
-            // get array of purchase orders
-            PurchaseOrder[] purchaseOrders = historicPurchase.getPurchaseOrders();
-            
-            // get first element of array
-            PurchaseOrder purchaseOrder = purchaseOrders[0];
-             
-            // get id of purchase order
-            String purchaseOrderId = purchaseOrder.getPurchaseOrderId();
-            
-            // get mode
-            String mode = purchaseOrder.getMode();
-            
-            // get id bundle
-            String bundleId = purchaseOrder.getBundleId();
-            
-            // get description bundle
-            String bundleDescription = purchaseOrder.getBundleDescription();
-            
-            // get id partner 
-            String partnerId = purchaseOrder.getPartnerId();
-            
-            // get array of input
-            Input[] inputs = purchaseOrder.getInputs();
-            
-            // obtains first element array of inputs
-            Input input = inputs[0];
-            
-            // obtain input type
-            String type = input.getType();
-            
-            // obtain input value
-            String value = input.getValue();
-            
-            // get information order execution
-            OrderExecutionInformation orderExecutionInformation = purchaseOrder.getOrderExecutionInformation();
-            
-            // obtain date of orderExecutionInformation
-            String date = orderExecutionInformation.getDate();
-            
-            // obtain amount of orderExecutionInformation
-            int amont = orderExecutionInformation.getAmount();
-            
-            // obtain currency of orderExecutionInformation
-            String currency = orderExecutionInformation.getCurrency();
-            
-            // obtain service of orderExecutionInformation
-            String service = orderExecutionInformation.getService();
-            
-            // obrain country of orderExecutionInformation
-            String country = orderExecutionInformation.getContry();
-            
-            // get id contract of orderExecutionInformation
-            String contractId = orderExecutionInformation.getContractId();
-        }
-                
-        // Action which perform if response failed
-        OnFailure onFailure = (r,m,i,) -> {
-            // get message error
-            String message = r.getMessage();
-            
-            // get description error
-            String description = r.getDescription();
-            
-            // get status code error
-            int code = r.getCode();
-            System.out.println("Error message is : "+message);
-            System.out.println("Error description is : "+description);
-            System.out.println("The status code is : "+code):
-        }
         
-        // Action which perform if execution throw exception
-        OnThrowable onThrowable = (t) -> {
-            // get message of throwable
-            String message = t.getMessage();
-            ................................
-            ................................
-            ................................
-        }
-        
-        String id = "";
-        String secretCode = "";
-        
-        // create a callback
-        Callback callback = new Callback(onSuccess,onFailure,onThrowable);
-        
-        // obtain a token
-        Token token = FactoryToken.getToken(id,secretCode);
-        
-        // create a Service SMS
-        ServiceSMS serviceSMS = new Service();
-        serviceSMS.obtainHistoricSMS(token,callback);  
     }
 ```
 
