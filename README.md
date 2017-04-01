@@ -21,29 +21,37 @@ or Gradle
 
 #### OSms
 
+OSms is a central object that allows you to use the different services of Orange API SMS.
 
 #### How Send a SMS : 
 
-The SMS object it is the representation object of your SMS have send.
-It is composed of three fields (`String address`, `String senderAddress`,`String content`).
+The OrangeSMS object it is the representation object of your SMS have send.
+It is composed of four fields (`String address`, `String senderAddress`,`String content`,`CountryCode code`).
 
-* the field address it is your number phone.
-* the field senderAddress it is the number phone recipient
-* the field content it is content of message
+* the field address it is the number phone recipient.
+* the field senderAddress it is your number phone.
+* the field content it is content of message.
+* the field code it is country code
 
 The ResponseSMS object it is the representation of the Json response returned by  orange smsAPI after having sent a message.
-For send a sms Call method `sendSMS(Token token, SMS sms, Callback callback)` of object ServiceSMS.
+For send a sms Call method `sendSMS(OrangeSMS orangeSms)` of object OSms.
 
-* The parameter token it is your Token
-* The parameter sms it is your sms
-* The parameter callback contains the action in executed after the reception of http response
+* The parameter orangeSms it is your Orange Sms
 
 For example:
 
 ```java
-    public static void main(String... args)
+    public static void main(String... args) throws Exception
     {
-          
+        OSms serviceO = new OSms.BuilderOSms()
+                            .id("your secret id client")
+                            .secretCode("yout secret code client")
+                            .build();
+        String address = "07111111"; // number phone of recipient
+        String senderAddress = "07000000"; // number phone of sender address
+        String content = "Your content";
+        OrangeSMS sms = new OrangeSMS(address ,senderAddress,content,CountryCode.ivoryCoast);
+        serviceO.sendSms(sms);
     }
 ```
 
@@ -66,6 +74,21 @@ SMSResponse contains the four Objects :
 * SMSContent smsContent : SMSContent contains the Object String which of sms content
     * String message : The content message
     
+```java
+    public static void main(String... args) throws Exception
+    {
+        OSms serviceO = new OSms.BuilderOSms()
+                            .id("your secret id client")
+                            .secretCode("yout secret code client")
+                            .build();
+        String address = "07111111"; // number phone of recipient
+        String senderAddress = "07000000"; // number phone of sender address
+        String content = "Your content";
+        OrangeSMS sms = new OrangeSMS(address ,senderAddress,content,CountryCode.ivoryCoast);
+        ResponseSMS responseSMS = serviceO.sendSms(sms);
+        // processing on ResponseSMS
+    }
+```
 
 #### How consulted numbers sms remainder :
 
@@ -80,9 +103,17 @@ At first you have to be interested in the object PartnerContracts. I invite you 
 For example :
 
 ```java
-    public static void main(String... args)
+    public static void main(String... args) throws Exception
     {
-            
+        OSms serviceO = new OSms.BuilderOSms()
+                            .id("your secret id client")
+                            .secretCode("yout secret code client")
+                            .build();
+        ContractsSMS contractSMS = serviceO.obtainsContractsSMS();
+        PartnerContracts partnerContracts = contractSMS.getPartnerContracts();
+        PartnerContracts.Contract[] contracts = partnerContracts.getContracts();
+        PartnerContracts.Contract contract = contracts[0];
+        ServiceContracts[] serviceContract = firstContract.getServiceContracts();
     }
 ```
 ##### PartnerContracts
@@ -129,9 +160,20 @@ At first you have to be interested in the object PartnerStatistics. I invite you
 For example :
  
 ```java
-    public static void main(String... args)
+    public static void main(String... args) throws Exception
     {
-        
+        OSms serviceO = new OSms.BuilderOSms()
+                            .id("your secret id client")
+                            .secretCode("yout secret code client")
+                            .build();   
+        StatisticSMS statisticSMS = serviceO.obtainStatisticSMS();
+        PartnerStatistics partnerStatistic = statisticSMS.getPartnerStatistics();
+        PartnerStatistics.Statistic[] statistics = partnerStatistic.getStatistics();
+        PartnerStatistics.Statistic statistic = statistics[0];
+        ServiceStatistic[] serviceStatistics = statistic.getServiceStatistics();
+        ServiceStatistic serviceStatistic = serviceStatistics[0];
+        ServiceStatistic.CountyStatistic[] countryStatistics = serviceStatistic.getCountryStatistics();
+        ServiceStatistic.CountyStatistic contryStatistic = countryStatistics[0];
     }
 ```
 
@@ -181,9 +223,18 @@ At first you have to be interested in the object PurchaseOrders. I invite you to
 For example :
 
 ```java
-    public static void main(String... args)
+    public static void main(String... args) throws Exception
     {
-        
+        OSms serviceO = new OSms.BuilderOSms()
+                    .id("your secret id client")
+                    .secretCode("yout secret code client")
+                    .build();
+        HistoricPurchase historicPurchase = serviceO.obtainHistoricSMS();
+        PurchaseOrder[] purchaseOrders = historicPurchase.getPurchaseOrders();
+        PurchaseOrder purchaseOrder = purchaseOrders[0];
+        PurchaseOrder.Input[] inputs = purchaseOrder.getInputs();
+        PurchaseOrder.Input input = inputs[0];
+        PurchaseOrder.OrderExecutionInformation orderExecutionInformation = purchaseOrder.getOrderExecutionInformation();
     }
 ```
 
@@ -221,6 +272,10 @@ The OrderExecutionInformation Object several Objects :
 * String contractId : Associated service contract identifier
 
 
+### How Manage HttpApiOrangeException
+
+
+
 
 ## Authors and Contributors
 In 2015, Amani Christian Cyrille Alves (@DevAlves1993) founded OSmsJava.
@@ -244,3 +299,4 @@ The list of the contributions which would be welcome.
 * Documentation : Participated in the writing of the documentation.
 * Example : Creating several examples showing the use of the library.
 * Bugs : Report bugs with of issues.
+* Feature : New Feature.

@@ -2,7 +2,6 @@ package org.akanza.osms;
 
 import okhttp3.OkHttpClient;
 import org.akanza.osms.core.CountryCode;
-import org.akanza.osms.core.HttpApiOrange;
 import org.akanza.osms.core.exception.HttpApiOrangeException;
 import org.akanza.osms.model.*;
 import org.akanza.osms.model.response.ContractsSMS;
@@ -14,8 +13,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -93,7 +90,7 @@ public class OSmsTest
     @Test
     public void checkSubscriptionApi() throws Exception
     {
-
+        // TODO : implement later
     }
 
     @Test
