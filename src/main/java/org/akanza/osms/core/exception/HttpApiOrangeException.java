@@ -35,7 +35,7 @@ public class HttpApiOrangeException extends RuntimeException
     {
         if(responseError != null)
             return responseError.getMessage();
-        return "Service exception";
+        return serviceError.getMessage();
     }
 
     public ServiceException getServiceException()

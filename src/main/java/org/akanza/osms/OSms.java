@@ -6,6 +6,7 @@ import com.squareup.moshi.Moshi;
 
 import org.akanza.osms.core.Builder;
 import org.akanza.osms.core.HttpApiOrange;
+import org.akanza.osms.core.exception.HttpApiOAuthOrange;
 import org.akanza.osms.core.exception.HttpApiOrangeException;
 import org.akanza.osms.model.OrangeSMS;
 import org.akanza.osms.model.Token;
@@ -394,7 +395,7 @@ public class OSms implements HttpApiOrange
     public static class BuilderOSms extends Builder
     {
         @Override
-        public OSms build() throws IOException, HttpApiOrangeException
+        public OSms build() throws IOException, HttpApiOAuthOrange
         {
             if(id != null && secretCode != null)
             {

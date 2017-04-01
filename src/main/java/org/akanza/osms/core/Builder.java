@@ -5,8 +5,10 @@ import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.JsonReader;
 import com.squareup.moshi.Moshi;
 
+import org.akanza.osms.core.exception.HttpApiOAuthOrange;
 import org.akanza.osms.core.exception.HttpApiOrangeException;
 import org.akanza.osms.model.Token;
+import org.akanza.osms.model.response.error.OAuthError;
 import org.akanza.osms.model.response.error.ResponseError;
 
 import java.io.IOException;
@@ -49,7 +51,7 @@ public abstract class Builder
         return this;
     }
 
-    protected Token obtainsToken() throws IOException, HttpApiOrangeException
+    protected Token obtainsToken() throws IOException, HttpApiOAuthOrange
     {
         String basic = Credentials.basic(id, secretCode);
         HttpUrl url = new HttpUrl.Builder()
@@ -76,16 +78,16 @@ public abstract class Builder
         }
         else
         {
-            ResponseError error = jsonToResponseError(response);
-            throw new HttpApiOrangeException(error);
+            OAuthError error = jsonToResponseError(response);
+            throw new HttpApiOAuthOrange(error);
         }
     }
 
-    private ResponseError jsonToResponseError(Response response) throws IOException
+    private OAuthError jsonToResponseError(Response response) throws IOException
     {
         Moshi moshi = new Moshi.Builder()
                 .build();
-        JsonAdapter<ResponseError> adapter = moshi.adapter(ResponseError.class);
+        JsonAdapter<OAuthError> adapter = moshi.adapter(OAuthError.class);
         JsonReader reader = JsonReader.of(response.body().source());
         return adapter.fromJson(reader);
     }
