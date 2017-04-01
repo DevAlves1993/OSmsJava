@@ -5,11 +5,11 @@ import org.akanza.osms.model.response.error.OAuthError;
 /**
  * Created by Christian Amani on 01/04/2017.
  */
-public class HttpApiOAuthOrange extends RuntimeException
+public class HttpApiOAuthOrangeException extends RuntimeException
 {
     private OAuthError error;
 
-    public HttpApiOAuthOrange(OAuthError error)
+    public HttpApiOAuthOrangeException(OAuthError error)
     {
         this.error = error;
     }

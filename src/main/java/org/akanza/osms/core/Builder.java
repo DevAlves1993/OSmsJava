@@ -5,11 +5,10 @@ import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.JsonReader;
 import com.squareup.moshi.Moshi;
 
-import org.akanza.osms.core.exception.HttpApiOAuthOrange;
+import org.akanza.osms.core.exception.HttpApiOAuthOrangeException;
 import org.akanza.osms.core.exception.HttpApiOrangeException;
 import org.akanza.osms.model.Token;
 import org.akanza.osms.model.response.error.OAuthError;
-import org.akanza.osms.model.response.error.ResponseError;
 
 import java.io.IOException;
 
@@ -51,7 +50,7 @@ public abstract class Builder
         return this;
     }
 
-    protected Token obtainsToken() throws IOException, HttpApiOAuthOrange
+    protected Token obtainsToken() throws IOException, HttpApiOAuthOrangeException
     {
         String basic = Credentials.basic(id, secretCode);
         HttpUrl url = new HttpUrl.Builder()
@@ -79,7 +78,7 @@ public abstract class Builder
         else
         {
             OAuthError error = jsonToResponseError(response);
-            throw new HttpApiOAuthOrange(error);
+            throw new HttpApiOAuthOrangeException(error);
         }
     }
 
