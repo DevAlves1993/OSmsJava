@@ -2,7 +2,6 @@ package org.akanza.osms;
 
 import okhttp3.OkHttpClient;
 import org.akanza.osms.core.CountryCode;
-import org.akanza.osms.core.exception.HttpApiOAuthOrange;
 import org.akanza.osms.core.exception.HttpApiOrangeException;
 import org.akanza.osms.model.*;
 import org.akanza.osms.model.response.ContractsSMS;

@@ -23,6 +23,11 @@ public class OrangeSMS
         message = new SMSMessage(address,senderAddress,content,code);
     }
 
+    public OrangeSMS(String address , String senderAddress,String senderName, String content, CountryCode code)
+    {
+        message = new SMSMessage(address,senderAddress,senderName,content,code);
+    }
+
     public SMSMessage getMessage()
     {
         return message;
@@ -54,10 +59,11 @@ public class OrangeSMS
             this.senderName = null;
         }
 
-        public SMSMessage(String address,String senderAddress,String content,String senderName)
+        public SMSMessage(String address,String senderAddress,String senderName,String content, CountryCode countryCode)
         {
-            this.address = address;
-            this.senderAddress = senderAddress;
+            String code = countryCode.getCode();
+            this.address ="tel:"+code+address;
+            this.senderAddress ="tel:"+code+senderAddress;
             this.content = new SMSContent(content);
             this.senderName = senderName;
         }
