@@ -6,7 +6,7 @@
 
     <groupId>org.akanza</groupId>
     <artifactId>osms-java</artifactId>
-    <version>0.1.9</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>OSMSJava</name>
@@ -97,7 +97,12 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>3.3.1</version>
+            <version>3.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.moshi</groupId>
+            <artifactId>moshi</artifactId>
+            <version>1.4.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -105,16 +110,7 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.7</version>
-        </dependency>
-        <dependency>
-            <groupId>io.reactivex</groupId>
-            <artifactId>rxjava</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+
     </dependencies>
 
 </project>
