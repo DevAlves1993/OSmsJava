@@ -31,8 +31,8 @@ public class OSmsTest
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
         oSms = new OSms.BuilderOSms()
-                .id("wcyuIqWa3Wj9S8kAZf9ALlHMZmVm34YL")
-                .secretCode("8FCqRkFbPm6uiENY")
+                .id("Your Id")
+                .secretCode("Your Secret Code")
                 .okHttpClient(client)
                 .build();
         Token token = oSms.getToken();
