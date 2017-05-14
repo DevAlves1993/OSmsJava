@@ -2,9 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a781e48a-67e5-4c4f-8aba-344923127c5e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ServiceError.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/OSms.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/OSms.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/Builder.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/Builder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/CountryCode.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/CountryCode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/HttpApiOrange.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/HttpApiOrange.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOAuthOrangeException.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOAuthOrangeException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOrangeException.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOrangeException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/OrangeSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/OrangeSMS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PartnerContracts.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerContracts.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PartnerStatistics.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerStatistics.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PurchaseOrder.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PurchaseOrder.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ResponseHeader.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ResponseHeader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceContracts.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceContracts.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceStatistic.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceStatistic.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/Token.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/Token.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ContractsSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ContractsSMS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/HistoricPurchase.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/HistoricPurchase.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ResponseSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ResponseSMS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ResponseSubscription.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ResponseSubscription.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/StatisticSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/StatisticSMS.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/OAuthError.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/OAuthError.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ResponseError.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ResponseError.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ServiceException.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ServiceException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java" afterPath="$PROJECT_DIR$/src/test/java/io/github/devalves/osms/OSmsTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java" afterPath="$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java" />
     </list>
     <ignored path="OSmsJava.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,45 +57,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Builder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/Builder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpApiOAuthOrangeException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOAuthOrangeException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-              <folding>
-                <element signature="e#311#312#0" expanded="false" />
-                <element signature="e#345#346#0" expanded="false" />
-                <element signature="e#397#398#0" expanded="false" />
-                <element signature="e#436#437#0" expanded="false" />
-                <element signature="e#478#479#0" expanded="false" />
-                <element signature="e#528#529#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OAuthError.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/OAuthError.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/OAuthError.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
               <folding>
-                <element signature="e#326#327#0" expanded="false" />
-                <element signature="e#354#355#0" expanded="false" />
-                <element signature="e#401#402#0" expanded="false" />
-                <element signature="e#440#441#0" expanded="false" />
+                <element signature="e#334#335#0" expanded="false" />
+                <element signature="e#362#363#0" expanded="false" />
+                <element signature="e#409#410#0" expanded="false" />
+                <element signature="e#448#449#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,8 +76,24 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="15">
-                <caret line="1" column="53" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="146" />
+              <first_editor relative-caret-position="-825">
+                <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README-FR.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README-FR.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -94,65 +105,65 @@
         </entry>
       </file>
       <file leaf-file-name="StatisticSMS.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/StatisticSMS.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/StatisticSMS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="19" column="49" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="49" />
               <folding>
-                <element signature="e#302#303#0" expanded="false" />
-                <element signature="e#360#361#0" expanded="false" />
-                <element signature="e#419#420#0" expanded="false" />
-                <element signature="e#459#460#0" expanded="false" />
+                <element signature="e#318#319#0" expanded="false" />
+                <element signature="e#376#377#0" expanded="false" />
+                <element signature="e#435#436#0" expanded="false" />
+                <element signature="e#475#476#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="HttpApiOrangeException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOrangeException.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOrangeException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="480">
               <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#754#755#0" expanded="false" />
-                <element signature="e#790#791#0" expanded="false" />
-                <element signature="e#1028#1029#0" expanded="false" />
-                <element signature="e#1085#1086#0" expanded="false" />
-                <element signature="e#1128#1129#0" expanded="false" />
-                <element signature="e#1171#1172#0" expanded="false" />
+                <element signature="e#786#787#0" expanded="false" />
+                <element signature="e#822#823#0" expanded="false" />
+                <element signature="e#1060#1061#0" expanded="false" />
+                <element signature="e#1117#1118#0" expanded="false" />
+                <element signature="e#1160#1161#0" expanded="false" />
+                <element signature="e#1203#1204#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ServiceStatistic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceStatistic.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceStatistic.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="465">
               <caret line="40" column="39" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="39" />
               <folding>
-                <element signature="e#428#429#0" expanded="false" />
-                <element signature="e#458#459#0" expanded="false" />
-                <element signature="e#508#509#0" expanded="false" />
-                <element signature="e#546#547#0" expanded="false" />
-                <element signature="e#605#606#0" expanded="false" />
-                <element signature="e#645#646#0" expanded="false" />
-                <element signature="e#1207#1208#0" expanded="false" />
-                <element signature="e#1265#1266#0" expanded="false" />
-                <element signature="e#1316#1317#0" expanded="false" />
-                <element signature="e#1358#1359#0" expanded="false" />
-                <element signature="e#1410#1411#0" expanded="false" />
-                <element signature="e#1459#1460#0" expanded="false" />
-                <element signature="e#1499#1500#0" expanded="false" />
-                <element signature="e#1540#1541#0" expanded="false" />
+                <element signature="e#436#437#0" expanded="false" />
+                <element signature="e#466#467#0" expanded="false" />
+                <element signature="e#516#517#0" expanded="false" />
+                <element signature="e#554#555#0" expanded="false" />
+                <element signature="e#613#614#0" expanded="false" />
+                <element signature="e#653#654#0" expanded="false" />
+                <element signature="e#1215#1216#0" expanded="false" />
+                <element signature="e#1273#1274#0" expanded="false" />
+                <element signature="e#1324#1325#0" expanded="false" />
+                <element signature="e#1366#1367#0" expanded="false" />
+                <element signature="e#1418#1419#0" expanded="false" />
+                <element signature="e#1467#1468#0" expanded="false" />
+                <element signature="e#1507#1508#0" expanded="false" />
+                <element signature="e#1548#1549#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OSmsTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java">
+      <file leaf-file-name="OSmsTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/io/github/devalves/osms/OSmsTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1568">
               <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
@@ -163,11 +174,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="240">
+              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartnerContracts.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerContracts.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="77" column="53" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="53" />
+              <folding>
+                <element signature="e#1704#1705#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PurchaseOrder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PurchaseOrder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -252,7 +286,6 @@
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ResponseError.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/HttpApiOrange.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/CountryCode.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/OAuthError.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/Builder.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/OSms.java" />
@@ -260,8 +293,9 @@
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/OrangeSMS.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOAuthOrange.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOAuthOrangeException.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -366,10 +400,6 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -412,6 +442,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="osms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OSmsJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OSmsJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="osms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,40 +502,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="exception" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1173,7 +1199,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36833602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32670453" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78267044" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2940341" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23505655" sideWeight="0.36647728" order="0" side_tool="false" content_ui="combo" />
@@ -1347,132 +1373,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ResponseHeader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ResponseHeader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/Token.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ResponseSubscription.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ResponseSubscription.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ServiceException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ServiceException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ServiceError.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ServiceError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ResponseSMS.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ResponseSMS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ResponseError.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ResponseError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/HttpApiOrange.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/HttpApiOrange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/CountryCode.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/CountryCode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ContractsSMS.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ContractsSMS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceContracts.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceContracts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="29" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PartnerContracts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="77" column="53" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README-FR.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PartnerStatistics.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="43" column="32" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/HistoricPurchase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/HistoricPurchase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PurchaseOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/OSms.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/OSms.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5520">
           <caret line="398" column="9" selection-start-line="398" selection-start-column="9" selection-end-line="398" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/OrangeSMS.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/OrangeSMS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
@@ -1480,7 +1479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/Builder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/Builder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
           <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
@@ -1490,98 +1489,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOAuthOrangeException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOAuthOrangeException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
           <folding>
-            <element signature="e#311#312#0" expanded="false" />
-            <element signature="e#345#346#0" expanded="false" />
-            <element signature="e#397#398#0" expanded="false" />
-            <element signature="e#436#437#0" expanded="false" />
-            <element signature="e#478#479#0" expanded="false" />
-            <element signature="e#528#529#0" expanded="false" />
+            <element signature="e#327#328#0" expanded="false" />
+            <element signature="e#361#362#0" expanded="false" />
+            <element signature="e#413#414#0" expanded="false" />
+            <element signature="e#452#453#0" expanded="false" />
+            <element signature="e#494#495#0" expanded="false" />
+            <element signature="e#544#545#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/OAuthError.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/OAuthError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
           <folding>
-            <element signature="e#326#327#0" expanded="false" />
-            <element signature="e#354#355#0" expanded="false" />
-            <element signature="e#401#402#0" expanded="false" />
-            <element signature="e#440#441#0" expanded="false" />
+            <element signature="e#334#335#0" expanded="false" />
+            <element signature="e#362#363#0" expanded="false" />
+            <element signature="e#409#410#0" expanded="false" />
+            <element signature="e#448#449#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/StatisticSMS.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/StatisticSMS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="19" column="49" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="49" />
           <folding>
-            <element signature="e#302#303#0" expanded="false" />
-            <element signature="e#360#361#0" expanded="false" />
-            <element signature="e#419#420#0" expanded="false" />
-            <element signature="e#459#460#0" expanded="false" />
+            <element signature="e#318#319#0" expanded="false" />
+            <element signature="e#376#377#0" expanded="false" />
+            <element signature="e#435#436#0" expanded="false" />
+            <element signature="e#475#476#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOrangeException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOrangeException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#754#755#0" expanded="false" />
-            <element signature="e#790#791#0" expanded="false" />
-            <element signature="e#1028#1029#0" expanded="false" />
-            <element signature="e#1085#1086#0" expanded="false" />
-            <element signature="e#1128#1129#0" expanded="false" />
-            <element signature="e#1171#1172#0" expanded="false" />
+            <element signature="e#786#787#0" expanded="false" />
+            <element signature="e#822#823#0" expanded="false" />
+            <element signature="e#1060#1061#0" expanded="false" />
+            <element signature="e#1117#1118#0" expanded="false" />
+            <element signature="e#1160#1161#0" expanded="false" />
+            <element signature="e#1203#1204#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceStatistic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceStatistic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="40" column="39" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="39" />
           <folding>
-            <element signature="e#428#429#0" expanded="false" />
-            <element signature="e#458#459#0" expanded="false" />
-            <element signature="e#508#509#0" expanded="false" />
-            <element signature="e#546#547#0" expanded="false" />
-            <element signature="e#605#606#0" expanded="false" />
-            <element signature="e#645#646#0" expanded="false" />
-            <element signature="e#1207#1208#0" expanded="false" />
-            <element signature="e#1265#1266#0" expanded="false" />
-            <element signature="e#1316#1317#0" expanded="false" />
-            <element signature="e#1358#1359#0" expanded="false" />
-            <element signature="e#1410#1411#0" expanded="false" />
-            <element signature="e#1459#1460#0" expanded="false" />
-            <element signature="e#1499#1500#0" expanded="false" />
-            <element signature="e#1540#1541#0" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#466#467#0" expanded="false" />
+            <element signature="e#516#517#0" expanded="false" />
+            <element signature="e#554#555#0" expanded="false" />
+            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#653#654#0" expanded="false" />
+            <element signature="e#1215#1216#0" expanded="false" />
+            <element signature="e#1273#1274#0" expanded="false" />
+            <element signature="e#1324#1325#0" expanded="false" />
+            <element signature="e#1366#1367#0" expanded="false" />
+            <element signature="e#1418#1419#0" expanded="false" />
+            <element signature="e#1467#1468#0" expanded="false" />
+            <element signature="e#1507#1508#0" expanded="false" />
+            <element signature="e#1548#1549#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="15">
-            <caret line="1" column="53" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="146" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target/nexus-staging/staging/7edbe315063867/org/akanza/osms-java/maven-metadata-nexus.xml">
@@ -1600,21 +1585,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/io/github/devalves/osms/OSmsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1568">
           <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README-FR.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerContracts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="77" column="53" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="53" />
+          <folding>
+            <element signature="e#1704#1705#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PurchaseOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-825">
+            <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
