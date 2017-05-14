@@ -10,14 +10,14 @@ Do not use this library in production. It is under development. It will be avail
 Download via Maven
 
     <dependency>
-        <groupId>org.akanza</groupId>
+        <groupId>io.github.devalves</groupId>
         <artifactId>osms-java</artifactId>
         <version>1.0.0</version>
     </dependency>
 
 or Gradle
 
-    compile 'org.akanza:osms-java:1.0.0
+    compile 'io.github.devalves:osms-java:1.0.0
 
 #### OSms
 
