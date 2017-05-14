@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a781e48a-67e5-4c4f-8aba-344923127c5e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ServiceError.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/OSms.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/OSms.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/Builder.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/Builder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/CountryCode.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/CountryCode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/HttpApiOrange.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/HttpApiOrange.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOAuthOrangeException.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOAuthOrangeException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/exception/HttpApiOrangeException.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/core/exception/HttpApiOrangeException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/OrangeSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/OrangeSMS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PartnerContracts.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerContracts.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PartnerStatistics.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PartnerStatistics.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/PurchaseOrder.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/PurchaseOrder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ResponseHeader.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ResponseHeader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceContracts.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceContracts.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/ServiceStatistic.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/ServiceStatistic.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/Token.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/Token.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ContractsSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ContractsSMS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/HistoricPurchase.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/HistoricPurchase.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ResponseSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ResponseSMS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/ResponseSubscription.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/ResponseSubscription.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/StatisticSMS.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/StatisticSMS.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/OAuthError.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/OAuthError.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ResponseError.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ResponseError.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/error/ServiceException.java" afterPath="$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/ServiceException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java" afterPath="$PROJECT_DIR$/src/test/java/io/github/devalves/osms/OSmsTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="OSmsJava.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,21 +32,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OAuthError.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/github/devalves/osms/model/response/error/OAuthError.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding>
-                <element signature="e#334#335#0" expanded="false" />
-                <element signature="e#362#363#0" expanded="false" />
-                <element signature="e#409#410#0" expanded="false" />
-                <element signature="e#448#449#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
@@ -174,11 +134,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="270">
+              <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -261,7 +231,6 @@
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/ResponseSubscription.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/responseSms/StatisticSMS.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/apiorangeresponse/Token.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/model/apiorangeresponse/HistoricPurchase.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/akanza/osms/core/OSms.java" />
@@ -296,13 +265,16 @@
         <option value="$PROJECT_DIR$/src/test/java/org/akanza/osms/OSmsTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="/usr/local/apache-maven-3.3.9" />
+        <option name="localRepository" value="$MAVEN_REPOSITORY$" />
+        <option name="mavenHome" value="/usr/local/apache-maven" />
+        <option name="userSettingsFile" value="/usr/local/apache-maven/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -365,146 +337,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="OSmsJava" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="osms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -526,17 +358,18 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.19885057" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="FullScreen" value="true" />
+    <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -1195,9 +1028,9 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39726028" sideWeight="0.5025707" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36833602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32670453" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3963068" sideWeight="0.5025707" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21567044" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252841" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.78267044" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2940341" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1339,7 +1172,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/responsesms/Token.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/ServiceSMS.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/SMS.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/akanza/osms/model/response/Token.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.6.0/okhttp-3.6.0.jar!/okhttp3/Credentials.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -1644,8 +1476,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="270">
+          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1656,7 +1496,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>unnamed</last-edited>
+          <last-edited>OSmsJava:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
