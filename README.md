@@ -10,7 +10,7 @@ Do not use this library in production. It is under development. It will be avail
 Download via Maven
 
     <dependency>
-        <groupId>io.github.devalves</groupId>
+        <groupId> io.github.devalves1993</groupId>
         <artifactId>osms-java</artifactId>
         <version>1.0.0</version>
     </dependency>
