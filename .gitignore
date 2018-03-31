@@ -1,6 +1,6 @@
 #IDEA
 .idea/
-OSmsJava.iml
+*.iml
 
 #Java
 target/
