@@ -12,19 +12,16 @@ public class ContractsSMS
     public ContractsSMS()
     {}
 
-    public ContractsSMS(PartnerContracts partnerContracts)
-    {
+    public ContractsSMS(PartnerContracts partnerContracts) {
         this.partnerContracts = partnerContracts;
     }
 
 
-    public PartnerContracts getPartnerContracts()
-    {
+    public PartnerContracts getPartnerContracts() {
         return partnerContracts;
     }
 
-    public void setPartnerContracts(PartnerContracts partnerContracts)
-    {
+    public void setPartnerContracts(PartnerContracts partnerContracts) {
         this.partnerContracts = partnerContracts;
     }
 }

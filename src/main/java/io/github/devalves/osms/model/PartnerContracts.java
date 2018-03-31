@@ -3,43 +3,36 @@ package io.github.devalves.osms.model;
 /**
  * @author Christian Amani
  */
-public class PartnerContracts
-{
+public class PartnerContracts {
     private String partnerId;
     private Contract[] contracts;
 
     public PartnerContracts()
     {}
 
-    public PartnerContracts(String partnerId, Contract[] contracts)
-    {
+    public PartnerContracts(String partnerId, Contract[] contracts) {
         this.partnerId = partnerId;
         this.contracts = contracts;
     }
 
-    public String getPartnerId()
-    {
+    public String getPartnerId() {
         return partnerId;
     }
 
-    public void setPartnerId(String partnerId)
-    {
+    public void setPartnerId(String partnerId) {
         this.partnerId = partnerId;
     }
 
-    public Contract[] getContracts()
-    {
+    public Contract[] getContracts() {
         return contracts;
     }
 
-    public void setContracts(Contract[] contracts)
-    {
+    public void setContracts(Contract[] contracts) {
         this.contracts = contracts;
     }
 
 
-    public static class Contract
-    {
+    public static class Contract {
         private String service;
         private String contractDescription;
         private ServiceContracts[] serviceContracts;
@@ -47,41 +40,35 @@ public class PartnerContracts
         public Contract()
         {}
 
-        public Contract(String service, String contractDescription, ServiceContracts[] serviceContracts)
-        {
+        public Contract(String service, String contractDescription
+                , ServiceContracts[] serviceContracts) {
             this.service = service;
             this.contractDescription = contractDescription;
             this.serviceContracts = serviceContracts;
         }
 
 
-        public String getService()
-        {
+        public String getService() {
             return service;
         }
 
-        public void setService(String service)
-        {
+        public void setService(String service) {
             this.service = service;
         }
 
-        public String getContractDescription()
-        {
+        public String getContractDescription() {
             return contractDescription;
         }
 
-        public void setContractDescription(String contractDescription)
-        {
+        public void setContractDescription(String contractDescription) {
             this.contractDescription = contractDescription;
         }
 
-        public ServiceContracts[] getServiceContracts()
-        {
+        public ServiceContracts[] getServiceContracts() {
             return serviceContracts;
         }
 
-        public void setServiceContracts(ServiceContracts[] serviceContracts)
-        {
+        public void setServiceContracts(ServiceContracts[] serviceContracts) {
             this.serviceContracts = serviceContracts;
         }
     }

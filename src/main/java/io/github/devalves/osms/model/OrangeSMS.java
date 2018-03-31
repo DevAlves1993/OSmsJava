@@ -18,23 +18,19 @@ public class OrangeSMS
      * @param content The content of OrangeSMS
      * @param code Country code
      */
-    public OrangeSMS(String address , String senderAddress, String content,CountryCode code)
-    {
+    public OrangeSMS(String address, String senderAddress, String content, CountryCode code) {
         message = new SMSMessage(address,senderAddress,content,code);
     }
 
-    public OrangeSMS(String address , String senderAddress,String senderName, String content, CountryCode code)
-    {
+    public OrangeSMS(String address, String senderAddress, String senderName, String content, CountryCode code) {
         message = new SMSMessage(address,senderAddress,senderName,content,code);
     }
 
-    public SMSMessage getMessage()
-    {
+    public SMSMessage getMessage() {
         return message;
     }
 
-    public void setMessage(SMSMessage message)
-    {
+    public void setMessage(SMSMessage message) {
         this.message = message;
     }
 
@@ -42,16 +38,14 @@ public class OrangeSMS
     /**
      * <p>Class which contains a elements a base of OrangeSMS</p>
      */
-    public static class SMSMessage
-    {
+    public static class SMSMessage {
         private String address;
         @Json(name = "outboundSMSTextMessage")
         private SMSContent content;
         private String senderAddress;
         private String senderName; // TODO verify serialisation
 
-        public SMSMessage(String address,String senderAddress,String content,CountryCode countryCode)
-        {
+        public SMSMessage(String address, String senderAddress, String content, CountryCode countryCode) {
             String code = countryCode.getCode();
             this.address ="tel:"+code+address;
             this.senderAddress ="tel:"+code+senderAddress;
@@ -59,57 +53,48 @@ public class OrangeSMS
             this.senderName = null;
         }
 
-        public SMSMessage(String address,String senderAddress,String senderName,String content, CountryCode countryCode)
-        {
+        public SMSMessage(String address, String senderAddress, String senderName, String content
+                , CountryCode countryCode) {
             String code = countryCode.getCode();
-            this.address ="tel:"+code+address;
+            this.address = "tel:" + code + address;
             this.senderAddress ="tel:"+code+senderAddress;
             this.content = new SMSContent(content);
             this.senderName = senderName;
         }
 
-        public String getContent()
-        {
+        public String getContent() {
             return content.getMessage();
         }
 
-        public void setAddress(String address)
-        {
+        public void setAddress(String address) {
             this.address = address;
         }
 
-        public String getSenderAddress()
-        {
+        public String getSenderAddress() {
             return senderAddress;
         }
 
-        public void setSenderAddress(String senderAddress)
-        {
+        public void setSenderAddress(String senderAddress) {
             this.senderAddress = senderAddress;
         }
 
-        public void setContent(String content)
-        {
+        public void setContent(String content) {
             this.content.setMessage(content);
         }
 
-        public String getAddress()
-        {
+        public String getAddress() {
             return address;
         }
 
-        public String getSenderName()
-        {
+        public String getSenderName() {
             return senderName;
         }
 
-        public void setSenderName(String senderName)
-        {
+        public void setSenderName(String senderName) {
             this.senderName = senderName;
         }
 
-        public static class SMSContent
-        {
+        public static class SMSContent {
             private String message;
             public SMSContent(String message)
             {

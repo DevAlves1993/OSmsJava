@@ -24,34 +24,29 @@ import okhttp3.Response;
  * @author Christian Amani
  */
 
-public abstract class Builder
-{
+public abstract class Builder {
     protected static OkHttpClient client = initHttpClient();
 
     protected String id;
     protected String secretCode;
 
-    public Builder id(String id)
-    {
+    public Builder id(String id) {
         this.id = id;
         return this;
     }
 
-    public Builder secretCode(String secretCode)
-    {
+    public Builder secretCode(String secretCode) {
         this.secretCode = secretCode;
         return this;
     }
 
-    public Builder okHttpClient(OkHttpClient client)
-    {
+    public Builder okHttpClient(OkHttpClient client) {
         Builder.client = null;
         Builder.client = client;
         return this;
     }
 
-    protected Token obtainsToken() throws IOException, HttpApiOAuthOrangeException
-    {
+    protected Token obtainsToken() throws IOException, HttpApiOAuthOrangeException {
         String basic = Credentials.basic(id, secretCode);
         HttpUrl url = new HttpUrl.Builder()
                 .scheme("https")
@@ -71,19 +66,15 @@ public abstract class Builder
         Response response;
         Call call = client.newCall(request);
         response = call.execute();
-        if(response.isSuccessful())
-        {
+        if (response.isSuccessful()) {
             return jsonToToken(response);
-        }
-        else
-        {
+        } else {
             OAuthError error = jsonToResponseError(response);
             throw new HttpApiOAuthOrangeException(error);
         }
     }
 
-    private OAuthError jsonToResponseError(Response response) throws IOException
-    {
+    private OAuthError jsonToResponseError(Response response) throws IOException {
         Moshi moshi = new Moshi.Builder()
                 .build();
         JsonAdapter<OAuthError> adapter = moshi.adapter(OAuthError.class);
@@ -91,8 +82,7 @@ public abstract class Builder
         return adapter.fromJson(reader);
     }
 
-    private Token jsonToToken(Response response) throws IOException
-    {
+    private Token jsonToToken(Response response) throws IOException {
         Moshi moshi = new Moshi.Builder()
                 .build();
         JsonAdapter<Token> adapter = moshi.adapter(Token.class);
@@ -100,8 +90,7 @@ public abstract class Builder
         return adapter.fromJson(reader);
     }
 
-    private static OkHttpClient initHttpClient()
-    {
+    private static OkHttpClient initHttpClient() {
         return new OkHttpClient.Builder()
                 .build();
     }

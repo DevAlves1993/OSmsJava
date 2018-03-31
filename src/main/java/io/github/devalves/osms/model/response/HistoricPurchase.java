@@ -12,18 +12,15 @@ public class HistoricPurchase
     public HistoricPurchase()
     {}
 
-    public HistoricPurchase(PurchaseOrder[] purchaseOrders)
-    {
+    public HistoricPurchase(PurchaseOrder[] purchaseOrders) {
         this.purchaseOrders = purchaseOrders;
     }
 
-    public PurchaseOrder[] getPurchaseOrders()
-    {
+    public PurchaseOrder[] getPurchaseOrders() {
         return purchaseOrders;
     }
 
-    public void setPurchaseOrders(PurchaseOrder[] purchaseOrders)
-    {
+    public void setPurchaseOrders(PurchaseOrder[] purchaseOrders) {
         this.purchaseOrders = purchaseOrders;
     }
 }

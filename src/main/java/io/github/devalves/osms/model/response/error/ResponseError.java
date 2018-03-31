@@ -12,23 +12,19 @@ public class ResponseError
     public ResponseError()
     {}
 
-    public String getCode()
-    {
+    public String getCode() {
         return error.getCode();
     }
 
-    public String getMessage()
-    {
+    public String getMessage() {
         return error.getMessage();
     }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return error.getDescription();
     }
 
-    public static class Error
-    {
+    public static class Error {
         /** Code error */
         private String code;
         /** Message error*/

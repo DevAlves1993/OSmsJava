@@ -15,38 +15,31 @@ public class ServiceException
     public ServiceException()
     {}
 
-    public String getMessageId()
-    {
+    public String getMessageId() {
         return messageId;
     }
 
-    public String getText()
-    {
+    public String getText() {
         return text;
     }
 
-    public List<String> getVariables()
-    {
+    public List<String> getVariables() {
         return variables;
     }
 
-    public void setMessageId(String messageId)
-    {
+    public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
 
-    public void setText(String text)
-    {
+    public void setText(String text) {
         this.text = text;
     }
 
-    public void setVariables(List<String> variables)
-    {
+    public void setVariables(List<String> variables) {
         this.variables = variables;
     }
 
-    public void addVariable(String variable)
-    {
+    public void addVariable(String variable) {
         if(variable != null)
             variables.add(variable);
     }

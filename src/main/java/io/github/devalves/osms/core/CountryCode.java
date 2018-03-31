@@ -3,8 +3,7 @@ package io.github.devalves.osms.core;
 /**
  * @author Christian Amani
  */
-public enum CountryCode
-{
+public enum CountryCode {
     botswana("+267","Botswana"),
     cameroon("+237","Cameroon"),
     ivoryCoast("+225","Ivory Coast"),
@@ -17,36 +16,31 @@ public enum CountryCode
 
     private String code;
     private String country;
-    CountryCode(String code,String country)
-    {
+
+    CountryCode(String code, String country) {
         this.code = code;
         this.country = country;
     }
 
 
-    public String getCode()
-    {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(String code)
-    {
+    public void setCode(String code) {
         this.code = code;
     }
 
-    public String getCountry()
-    {
+    public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country)
-    {
+    public void setCountry(String country) {
         this.country = country;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Country : "+country+";Code : "+code;
     }
 }

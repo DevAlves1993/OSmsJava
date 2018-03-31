@@ -12,51 +12,43 @@ public class ServiceError
     public ServiceError()
     {}
 
-    public String getMessage()
-    {
+    public String getMessage() {
         return requestError
                 .getException()
                 .getMessageId();
     }
 
-    public String getText()
-    {
+    public String getText() {
         return requestError
                 .getException()
                 .getText();
     }
 
-    public List<String> getVariables()
-    {
+    public List<String> getVariables() {
         return requestError
                 .getException()
                 .getVariables();
     }
 
-    public ServiceException getServiceException()
-    {
+    public ServiceException getServiceException() {
         return requestError.getException();
     }
 
 
-    public void setRequestError(RequestError requestError)
-    {
+    public void setRequestError(RequestError requestError) {
         this.requestError = requestError;
     }
 
-    public static class RequestError
-    {
+    public static class RequestError {
         private ServiceException exception;
         public RequestError()
         {}
 
-        public ServiceException getException()
-        {
+        public ServiceException getException() {
             return exception;
         }
 
-        public void setException(ServiceException exception)
-        {
+        public void setException(ServiceException exception) {
             this.exception = exception;
         }
     }

@@ -20,30 +20,25 @@ public class Token
     @Json(name = "expires_in")
     private long expiresIn;
 
-    public Token(String tokenType, String accessToken, long expiresIn)
-    {
+    public Token(String tokenType, String accessToken, long expiresIn) {
         this.tokenType = tokenType;
         this.accessToken = accessToken;
         this.expiresIn = expiresIn;
     }
 
-    public String getTokenType()
-    {
+    public String getTokenType() {
         return tokenType;
     }
 
-    public String getAccessToken()
-    {
+    public String getAccessToken() {
         return accessToken;
     }
 
-    public long getExpiresIn()
-    {
+    public long getExpiresIn() {
         return expiresIn;
     }
 
-    public String createAccess()
-    {
+    public String createAccess() {
         return tokenType +" "+ accessToken;
         // TODO: see a doc concerning Access
     }

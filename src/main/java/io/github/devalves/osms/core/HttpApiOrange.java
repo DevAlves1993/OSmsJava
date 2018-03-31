@@ -17,8 +17,7 @@ import okhttp3.MediaType;
  * @author Christian Amani
  */
 
-public interface HttpApiOrange
-{
+public interface HttpApiOrange {
     String SCHEME = "https";
     String HOST = "api.orange.com";
     String VERSION_API = "v1";

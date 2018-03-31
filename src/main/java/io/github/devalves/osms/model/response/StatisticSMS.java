@@ -12,18 +12,15 @@ public class StatisticSMS
     public StatisticSMS()
     {}
 
-    public StatisticSMS(PartnerStatistics partnerStatistics)
-    {
+    public StatisticSMS(PartnerStatistics partnerStatistics) {
         this.partnerStatistics = partnerStatistics;
     }
 
-    public PartnerStatistics getPartnerStatistics()
-    {
+    public PartnerStatistics getPartnerStatistics() {
         return partnerStatistics;
     }
 
-    public void setPartnerStatistics(PartnerStatistics partnerStatistics)
-    {
+    public void setPartnerStatistics(PartnerStatistics partnerStatistics) {
         this.partnerStatistics = partnerStatistics;
     }
 }

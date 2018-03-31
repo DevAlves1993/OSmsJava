@@ -40,16 +40,14 @@ public class OSms implements HttpApiOrange
     private Token token;
     private Moshi moshi;
 
-    private OSms(Token token,OkHttpClient client)
-    {
+    private OSms(Token token, OkHttpClient client) {
         this.token = token;
         this.client = client;
         moshi = new Moshi.Builder()
                 .build();
     }
 
-    public Token getToken()
-    {
+    public Token getToken() {
         return this.token;
     }
 
@@ -60,8 +58,7 @@ public class OSms implements HttpApiOrange
      * @throws HttpApiOrangeException
      */
     @Override
-    public ResponseSMS sendSms(OrangeSMS sms) throws IOException, HttpApiOrangeException
-    {
+    public ResponseSMS sendSms(OrangeSMS sms) throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
@@ -80,12 +77,9 @@ public class OSms implements HttpApiOrange
                 .build();
         Call call = client.newCall(request);
         Response response = call.execute();
-        if(response.isSuccessful())
-        {
+        if (response.isSuccessful()) {
             return jsonToResponseSMS(response);
-        }
-        else
-        {
+        } else {
             ServiceError error = jsonToServiceError(response);
             throw new HttpApiOrangeException(error);
         }
@@ -100,8 +94,7 @@ public class OSms implements HttpApiOrange
      */
     @Override
     public ResponseSubscription subscriptionApi(String senderAddress
-            ,ResponseSubscription subscription) throws IOException, HttpApiOrangeException
-    {
+            , ResponseSubscription subscription) throws IOException, HttpApiOrangeException {
         HttpUrl httpUrl = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
@@ -119,12 +112,9 @@ public class OSms implements HttpApiOrange
                 .build();
         Call call = client.newCall(request);
         Response response = call.execute();
-        if(response.isSuccessful())
-        {
+        if (response.isSuccessful()) {
             return jsonToResponseSubscription(response);
-        }
-        else
-        {
+        } else {
             ResponseError error = jsonToResponseError(response);
             throw new HttpApiOrangeException(error);
         }
@@ -138,8 +128,7 @@ public class OSms implements HttpApiOrange
      * @throws HttpApiOrangeException
      */
     @Override
-    public ResponseSubscription checkSubscriptionApi(String subId) throws IOException, HttpApiOrangeException
-    {
+    public ResponseSubscription checkSubscriptionApi(String subId) throws HttpApiOrangeException {
         // TODO : implement later
         return null;
     }
@@ -152,8 +141,7 @@ public class OSms implements HttpApiOrange
      * @throws HttpApiOrangeException
      */
     @Override
-    public void unSubscriptionApi(String senderAddress, String subId) throws IOException, HttpApiOrangeException
-    {
+    public void unSubscriptionApi(String senderAddress, String subId) throws HttpApiOrangeException {
         // TODO : implement later
     }
 
@@ -163,8 +151,7 @@ public class OSms implements HttpApiOrange
      * @throws HttpApiOrangeException
      */
     @Override
-    public StatisticSMS obtainStatisticSMS() throws IOException, HttpApiOrangeException
-    {
+    public StatisticSMS obtainStatisticSMS() throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
@@ -180,12 +167,9 @@ public class OSms implements HttpApiOrange
                 .build();
         Call call = client.newCall(request);
         Response response = call.execute();
-        if(response.isSuccessful())
-        {
+        if (response.isSuccessful()) {
             return jsonToStatisticSMS(response);
-        }
-        else
-        {
+        } else {
             ResponseError error = jsonToResponseError(response);
             throw new HttpApiOrangeException(error);
         }
@@ -197,8 +181,7 @@ public class OSms implements HttpApiOrange
      * @throws HttpApiOrangeException
      */
     @Override
-    public ContractsSMS obtainsContractsSMS() throws IOException, HttpApiOrangeException
-    {
+    public ContractsSMS obtainsContractsSMS() throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
@@ -214,12 +197,9 @@ public class OSms implements HttpApiOrange
                 .build();
         Call call = client.newCall(request);
         Response response = call.execute();
-        if(response.isSuccessful())
-        {
+        if (response.isSuccessful()) {
             return jsonToContractsSMS(response);
-        }
-        else
-        {
+        } else {
             ResponseError error = jsonToResponseError(response);
             throw new HttpApiOrangeException(error);
         }
@@ -231,8 +211,7 @@ public class OSms implements HttpApiOrange
      * @throws HttpApiOrangeException
      */
     @Override
-    public HistoricPurchase obtainHistoricSMS() throws IOException, HttpApiOrangeException
-    {
+    public HistoricPurchase obtainHistoricSMS() throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
@@ -248,93 +227,77 @@ public class OSms implements HttpApiOrange
                 .build();
         Call call = client.newCall(request);
         Response response = call.execute();
-        if(response.isSuccessful())
-        {
+        if (response.isSuccessful()) {
             return jsonToHistoricPurchase(response);
-        }
-        else
-        {
+        } else {
             ResponseError error = jsonToResponseError(response);
             throw new HttpApiOrangeException(error);
         }
     }
 
-    private HistoricPurchase jsonToHistoricPurchase(Response response) throws IOException
-    {
+    private HistoricPurchase jsonToHistoricPurchase(Response response) throws IOException {
         BufferedSource source = response.body()
                 .source();
         JsonAdapter<HistoricPurchase> historicPurchaseJsonAdapter = moshi.adapter(HistoricPurchase.class);
         return historicPurchaseJsonAdapter.fromJson(source);
     }
 
-    private ResponseSMS jsonToResponseSMS(Response response) throws IOException
-    {
+    private ResponseSMS jsonToResponseSMS(Response response) throws IOException {
         BufferedSource source = response.body()
                 .source();
         JsonAdapter<ResponseSMS> responseSMSJsonAdapter = moshi.adapter(ResponseSMS.class);
         return responseSMSJsonAdapter.fromJson(source);
     }
 
-    private ResponseSubscription jsonToResponseSubscription(Response response) throws IOException
-    {
+    private ResponseSubscription jsonToResponseSubscription(Response response) throws IOException {
         BufferedSource source = response.body()
                 .source();
         JsonAdapter<ResponseSubscription> responseSubscriptionJsonAdapter = moshi.adapter(ResponseSubscription.class);
         return responseSubscriptionJsonAdapter.fromJson(source);
     }
 
-    private StatisticSMS jsonToStatisticSMS(Response response) throws IOException
-    {
+    private StatisticSMS jsonToStatisticSMS(Response response) throws IOException {
         BufferedSource source = response.body()
                 .source();
         JsonAdapter<StatisticSMS> statisticSMSJsonAdapter = moshi.adapter(StatisticSMS.class);
         return statisticSMSJsonAdapter.fromJson(source);
     }
 
-    private ContractsSMS jsonToContractsSMS(Response response) throws IOException
-    {
+    private ContractsSMS jsonToContractsSMS(Response response) throws IOException {
         BufferedSource source = response.body()
                 .source();
         JsonAdapter<ContractsSMS> contractsSMSJsonAdapter = moshi.adapter(ContractsSMS.class);
         return contractsSMSJsonAdapter.fromJson(source);
     }
 
-    private ResponseError jsonToResponseError(Response response) throws IOException
-    {
+    private ResponseError jsonToResponseError(Response response) throws IOException {
         BufferedSource source = response.body()
                 .source();
         JsonAdapter<ResponseError> responseErrorJsonAdapter = moshi.adapter(ResponseError.class);
         return responseErrorJsonAdapter.fromJson(source);
     }
 
-    private ServiceError jsonToServiceError(Response response)
-    {
+    private ServiceError jsonToServiceError(Response response) {
         ServiceError serviceError = null;
         BufferedSource source = response.body()
                 .source();
         JsonReader reader = JsonReader.of(source);
-        try
-        {
+        try {
             reader.beginObject();
-            while(reader.hasNext())
-            {
+            while (reader.hasNext()) {
                 String name = reader.nextName();
-                if(name.equals("requestError"))
-                {
+                if (name.equals("requestError")) {
                     ServiceException serviceException = getServiceException(reader);
                     serviceError = initServiceError(serviceError, serviceException);
                 }
             }
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return serviceError;
     }
 
-    private ServiceError initServiceError(ServiceError serviceError, ServiceException serviceException)
-    {
+    private ServiceError initServiceError(ServiceError serviceError, ServiceException serviceException) {
         ServiceError.RequestError requestError =  new ServiceError.RequestError();
         requestError.setException(serviceException);
         serviceError = new ServiceError();
@@ -342,63 +305,46 @@ public class OSms implements HttpApiOrange
         return serviceError;
     }
 
-    private ServiceException getServiceException(JsonReader reader)
-    {
+    private ServiceException getServiceException(JsonReader reader) {
         ServiceException serviceException = new ServiceException();
-        try
-        {
+        try {
             reader.beginObject();
-            while(reader.hasNext())
-            {
+            while (reader.hasNext()) {
                 String exception = reader.nextName();
-                if(exception.equals("serviceException") || exception.equals("policyException"))
-                {
+                if (exception.equals("serviceException") || exception.equals("policyException")) {
                     reader.beginObject();
-                    while(reader.hasNext())
-                    {
+                    while (reader.hasNext()) {
                         String name = reader.nextName();
-                        if(name.equals("messageId"))
-                        {
+                        if (name.equals("messageId")) {
                             String messageId = reader.nextString();
                             serviceException.setMessageId(messageId);
-                        }
-                        else if(name.equals("text"))
-                        {
+                        } else if (name.equals("text")) {
                             String text = reader.nextString();
                             serviceException.setText(text);
-                        }
-                        else if(name.equals("variables"))
-                        {
+                        } else if (name.equals("variables")) {
                             readVariableArray(reader, serviceException);
                         }
                     }
                 }
             }
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return serviceException;
     }
 
-    private void readVariableArray(JsonReader reader, ServiceException serviceException) throws IOException
-    {
+    private void readVariableArray(JsonReader reader, ServiceException serviceException) throws IOException {
         reader.beginArray();
-        while(reader.hasNext())
-        {
+        while (reader.hasNext()) {
             String variable = reader.nextString();
             serviceException.addVariable(variable);
         }
     }
 
-    public static class BuilderOSms extends Builder
-    {
+    public static class BuilderOSms extends Builder {
         @Override
-        public OSms build() throws IOException, HttpApiOAuthOrangeException
-        {
-            if(id != null && secretCode != null)
-            {
+        public OSms build() throws IOException, HttpApiOAuthOrangeException {
+            if (id != null && secretCode != null) {
                 Token token = obtainsToken();
                 return new OSms(token,Builder.client);
             }
@@ -406,22 +352,19 @@ public class OSms implements HttpApiOrange
         }
 
         @Override
-        public BuilderOSms id(String id)
-        {
+        public BuilderOSms id(String id) {
             this.id = id;
             return this;
         }
 
         @Override
-        public BuilderOSms secretCode(String secretCode)
-        {
+        public BuilderOSms secretCode(String secretCode) {
             this.secretCode = secretCode;
             return this;
         }
 
         @Override
-        public BuilderOSms okHttpClient(OkHttpClient client)
-        {
+        public BuilderOSms okHttpClient(OkHttpClient client) {
             Builder.client = null;
             Builder.client = client;
             return this;
