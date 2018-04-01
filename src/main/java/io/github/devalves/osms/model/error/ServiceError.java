@@ -39,18 +39,4 @@ public class ServiceError
     public void setRequestError(RequestError requestError) {
         this.requestError = requestError;
     }
-
-    public static class RequestError {
-        private ServiceException exception;
-        public RequestError()
-        {}
-
-        public ServiceException getException() {
-            return exception;
-        }
-
-        public void setException(ServiceException exception) {
-            this.exception = exception;
-        }
-    }
 }

@@ -7,6 +7,7 @@ import com.squareup.moshi.Moshi;
 import io.github.devalves.osms.core.HttpApiOrange;
 import io.github.devalves.osms.core.exception.HttpApiOAuthOrangeException;
 import io.github.devalves.osms.core.exception.HttpApiOrangeException;
+import io.github.devalves.osms.model.error.RequestError;
 import io.github.devalves.osms.model.sms.OrangeSMS;
 import io.github.devalves.osms.model.Token;
 import io.github.devalves.osms.model.historic.HistoricPurchase;
@@ -20,6 +21,7 @@ import io.github.devalves.osms.model.subscription.ResponseSubscription;
 import io.github.devalves.osms.model.statistic.StatisticSMS;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.HttpUrl;
@@ -33,9 +35,9 @@ import okio.BufferedSource;
 
 public class OSms implements HttpApiOrange
 {
-    private OkHttpClient client;
-    private Token token;
-    private Moshi moshi;
+    private final OkHttpClient client;
+    private final Token token;
+    private final Moshi moshi;
 
     private OSms(Token token, OkHttpClient client) {
         this.token = token;
@@ -191,42 +193,42 @@ public class OSms implements HttpApiOrange
     }
 
     private HistoricPurchase jsonToHistoricPurchase(Response response) throws IOException {
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonAdapter<HistoricPurchase> historicPurchaseJsonAdapter = moshi.adapter(HistoricPurchase.class);
         return historicPurchaseJsonAdapter.fromJson(source);
     }
 
     private ResponseSMS jsonToResponseSMS(Response response) throws IOException {
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonAdapter<ResponseSMS> responseSMSJsonAdapter = moshi.adapter(ResponseSMS.class);
         return responseSMSJsonAdapter.fromJson(source);
     }
 
     private ResponseSubscription jsonToResponseSubscription(Response response) throws IOException {
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonAdapter<ResponseSubscription> responseSubscriptionJsonAdapter = moshi.adapter(ResponseSubscription.class);
         return responseSubscriptionJsonAdapter.fromJson(source);
     }
 
     private StatisticSMS jsonToStatisticSMS(Response response) throws IOException {
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonAdapter<StatisticSMS> statisticSMSJsonAdapter = moshi.adapter(StatisticSMS.class);
         return statisticSMSJsonAdapter.fromJson(source);
     }
 
     private ContractsSMS jsonToContractsSMS(Response response) throws IOException {
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonAdapter<ContractsSMS> contractsSMSJsonAdapter = moshi.adapter(ContractsSMS.class);
         return contractsSMSJsonAdapter.fromJson(source);
     }
 
     private ResponseError jsonToResponseError(Response response) throws IOException {
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonAdapter<ResponseError> responseErrorJsonAdapter = moshi.adapter(ResponseError.class);
         return responseErrorJsonAdapter.fromJson(source);
@@ -234,7 +236,7 @@ public class OSms implements HttpApiOrange
 
     private ServiceError jsonToServiceError(Response response) {
         ServiceError serviceError = null;
-        BufferedSource source = response.body()
+        BufferedSource source = Objects.requireNonNull(response.body())
                 .source();
         JsonReader reader = JsonReader.of(source);
         try {
@@ -243,7 +245,7 @@ public class OSms implements HttpApiOrange
                 String name = reader.nextName();
                 if (name.equals("requestError")) {
                     ServiceException serviceException = getServiceException(reader);
-                    serviceError = initServiceError(serviceError, serviceException);
+                    serviceError = initServiceError(serviceException);
                 }
             }
         } catch (IOException e) {
@@ -252,10 +254,10 @@ public class OSms implements HttpApiOrange
         return serviceError;
     }
 
-    private ServiceError initServiceError(ServiceError serviceError, ServiceException serviceException) {
-        ServiceError.RequestError requestError =  new ServiceError.RequestError();
+    private ServiceError initServiceError(ServiceException serviceException) {
+        RequestError requestError =  new RequestError();
         requestError.setException(serviceException);
-        serviceError = new ServiceError();
+        ServiceError serviceError = new ServiceError();
         serviceError.setRequestError(requestError);
         return serviceError;
     }
