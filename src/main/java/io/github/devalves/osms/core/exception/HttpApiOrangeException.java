@@ -1,8 +1,8 @@
 package io.github.devalves.osms.core.exception;
 
-import io.github.devalves.osms.model.response.error.ResponseError;
-import io.github.devalves.osms.model.response.error.ServiceError;
-import io.github.devalves.osms.model.response.error.ServiceException;
+import io.github.devalves.osms.model.error.ResponseError;
+import io.github.devalves.osms.model.error.ServiceError;
+import io.github.devalves.osms.model.error.ServiceException;
 
 /**
  *

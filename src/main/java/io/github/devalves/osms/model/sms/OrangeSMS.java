@@ -1,4 +1,4 @@
-package io.github.devalves.osms.model;
+package io.github.devalves.osms.model.sms;
 
 import com.squareup.moshi.Json;
 import io.github.devalves.osms.core.CountryCode;

@@ -1,12 +1,12 @@
 package io.github.devalves.osms.core;
 
 import io.github.devalves.osms.core.exception.HttpApiOrangeException;
-import io.github.devalves.osms.model.response.ResponseSMS;
-import io.github.devalves.osms.model.OrangeSMS;
-import io.github.devalves.osms.model.response.ContractsSMS;
-import io.github.devalves.osms.model.response.HistoricPurchase;
-import io.github.devalves.osms.model.response.ResponseSubscription;
-import io.github.devalves.osms.model.response.StatisticSMS;
+import io.github.devalves.osms.model.sms.ResponseSMS;
+import io.github.devalves.osms.model.sms.OrangeSMS;
+import io.github.devalves.osms.model.partnercontract.ContractsSMS;
+import io.github.devalves.osms.model.historic.HistoricPurchase;
+import io.github.devalves.osms.model.subscription.ResponseSubscription;
+import io.github.devalves.osms.model.statistic.StatisticSMS;
 
 import java.io.IOException;
 

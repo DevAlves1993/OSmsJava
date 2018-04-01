@@ -1,4 +1,4 @@
-package io.github.devalves.osms.model.response.error;
+package io.github.devalves.osms.model.error;
 
 import com.squareup.moshi.Json;
 

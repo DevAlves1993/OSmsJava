@@ -1,6 +1,4 @@
-package io.github.devalves.osms.model.response;
-
-import io.github.devalves.osms.model.PurchaseOrder;
+package io.github.devalves.osms.model.historic;
 
 /**
  *

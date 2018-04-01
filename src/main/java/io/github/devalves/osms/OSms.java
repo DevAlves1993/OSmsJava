@@ -7,17 +7,17 @@ import com.squareup.moshi.Moshi;
 import io.github.devalves.osms.core.HttpApiOrange;
 import io.github.devalves.osms.core.exception.HttpApiOAuthOrangeException;
 import io.github.devalves.osms.core.exception.HttpApiOrangeException;
-import io.github.devalves.osms.model.OrangeSMS;
+import io.github.devalves.osms.model.sms.OrangeSMS;
 import io.github.devalves.osms.model.Token;
-import io.github.devalves.osms.model.response.HistoricPurchase;
-import io.github.devalves.osms.model.response.ResponseSMS;
-import io.github.devalves.osms.model.response.error.ResponseError;
-import io.github.devalves.osms.model.response.error.ServiceError;
-import io.github.devalves.osms.model.response.error.ServiceException;
+import io.github.devalves.osms.model.historic.HistoricPurchase;
+import io.github.devalves.osms.model.sms.ResponseSMS;
+import io.github.devalves.osms.model.error.ResponseError;
+import io.github.devalves.osms.model.error.ServiceError;
+import io.github.devalves.osms.model.error.ServiceException;
 import io.github.devalves.osms.core.Builder;
-import io.github.devalves.osms.model.response.ContractsSMS;
-import io.github.devalves.osms.model.response.ResponseSubscription;
-import io.github.devalves.osms.model.response.StatisticSMS;
+import io.github.devalves.osms.model.partnercontract.ContractsSMS;
+import io.github.devalves.osms.model.subscription.ResponseSubscription;
+import io.github.devalves.osms.model.statistic.StatisticSMS;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package io.github.devalves.osms.model;
+package io.github.devalves.osms.model.statistic;
 
 /**
  *

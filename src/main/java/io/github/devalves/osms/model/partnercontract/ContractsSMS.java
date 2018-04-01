@@ -1,17 +1,14 @@
-package io.github.devalves.osms.model.response;
+package io.github.devalves.osms.model.partnercontract;
 
-import io.github.devalves.osms.model.PartnerContracts;
 
 /**
- *
  * @author Amani Christian Cyrille Alves
  */
-public class ContractsSMS
-{
+public class ContractsSMS {
     private PartnerContracts partnerContracts;
 
-    public ContractsSMS()
-    {}
+    public ContractsSMS() {
+    }
 
     public ContractsSMS(PartnerContracts partnerContracts) {
         this.partnerContracts = partnerContracts;

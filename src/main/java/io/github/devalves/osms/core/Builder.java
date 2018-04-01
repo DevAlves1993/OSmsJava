@@ -8,7 +8,7 @@ import com.squareup.moshi.Moshi;
 import io.github.devalves.osms.core.exception.HttpApiOAuthOrangeException;
 import io.github.devalves.osms.core.exception.HttpApiOrangeException;
 import io.github.devalves.osms.model.Token;
-import io.github.devalves.osms.model.response.error.OAuthError;
+import io.github.devalves.osms.model.error.OAuthError;
 
 import java.io.IOException;
 

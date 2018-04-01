@@ -3,12 +3,18 @@ package io.github.devalves.osms;
 import io.github.devalves.osms.core.CountryCode;
 import io.github.devalves.osms.core.exception.HttpApiOrangeException;
 import io.github.devalves.osms.model.*;
-import io.github.devalves.osms.model.response.ResponseSMS;
+import io.github.devalves.osms.model.historic.PurchaseOrder;
+import io.github.devalves.osms.model.partnercontract.Contract;
+import io.github.devalves.osms.model.partnercontract.PartnerContracts;
+import io.github.devalves.osms.model.sms.OrangeSMS;
+import io.github.devalves.osms.model.sms.ResponseSMS;
+import io.github.devalves.osms.model.sms.SMSResponse;
+import io.github.devalves.osms.model.statistic.PartnerStatistics;
 import okhttp3.OkHttpClient;
-import io.github.devalves.osms.model.response.ContractsSMS;
-import io.github.devalves.osms.model.response.HistoricPurchase;
-import io.github.devalves.osms.model.response.StatisticSMS;
-import io.github.devalves.osms.model.response.error.ServiceException;
+import io.github.devalves.osms.model.partnercontract.ContractsSMS;
+import io.github.devalves.osms.model.historic.HistoricPurchase;
+import io.github.devalves.osms.model.statistic.StatisticSMS;
+import io.github.devalves.osms.model.error.ServiceException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -151,12 +157,12 @@ public class OSmsTest
 
     private void printPartnerContract(PartnerContracts partnerContracts)
     {
-        PartnerContracts.Contract[] contracts = partnerContracts.getContracts();
+        Contract[] contracts = partnerContracts.getContracts();
         Arrays.asList(contracts)
                 .forEach(this::printContracts);
     }
 
-    private void printContracts(PartnerContracts.Contract contract)
+    private void printContracts(Contract contract)
     {
         String contractDescription = contract.getContractDescription();
         System.out.println(contractDescription);
@@ -166,7 +172,7 @@ public class OSmsTest
 
     private void printResponseSMS(ResponseSMS responseSMS)
     {
-        ResponseSMS.SMSResponse response = responseSMS.getOutBoundSMSMessageRequest();
+        SMSResponse response = responseSMS.getOutBoundSMSMessageRequest();
         String address = response.getAddress();
         System.out.println(address);
         String senderAddress = response.getSenderAddress();

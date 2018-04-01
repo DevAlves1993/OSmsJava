@@ -1,6 +1,6 @@
-package io.github.devalves.osms.model.response;
+package io.github.devalves.osms.model.statistic;
 
-import io.github.devalves.osms.model.PartnerStatistics;
+import io.github.devalves.osms.model.statistic.PartnerStatistics;
 
 /**
  *

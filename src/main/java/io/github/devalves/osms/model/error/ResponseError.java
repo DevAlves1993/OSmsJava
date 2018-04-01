@@ -1,4 +1,4 @@
-package io.github.devalves.osms.model.response.error;
+package io.github.devalves.osms.model.error;
 
 /**
  *

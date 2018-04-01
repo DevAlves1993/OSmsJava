@@ -1,7 +1,6 @@
-package io.github.devalves.osms.model;
+package io.github.devalves.osms.model.partnercontract;
 
 /**
- *
  * @author Amani Christian Cyrille Alves
  */
 public class ServiceContracts

@@ -1,6 +1,6 @@
 package io.github.devalves.osms.core.exception;
 
-import io.github.devalves.osms.model.response.error.OAuthError;
+import io.github.devalves.osms.model.error.OAuthError;
 
 /**
  *
