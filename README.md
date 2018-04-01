@@ -12,12 +12,12 @@ Download via Maven
     <dependency>
         <groupId> io.github.devalves1993</groupId>
         <artifactId>osms-java</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </dependency>
 
 or Gradle
 
-    compile 'io.github.devalves:osms-java:1.0.0
+    compile 'io.github.devalves:osms-java:1.0.0-SNAPSHOT
 
 #### OSms
 
