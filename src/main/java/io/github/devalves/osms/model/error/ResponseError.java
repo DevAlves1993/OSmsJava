@@ -12,6 +12,14 @@ public class ResponseError
     public ResponseError()
     {}
 
+    public Error getError() {
+        return error;
+    }
+
+    public void setError(Error error) {
+        this.error = error;
+    }
+
     public String getCode() {
         return error.getCode();
     }
@@ -35,6 +43,12 @@ public class ResponseError
         public Error()
         {}
 
+        public Error(String code,String message,String description) {
+            this.code = code;
+            this.message = message;
+            this.description = description;
+        }
+
         public String getCode()
         {
             return code;
@@ -48,6 +62,18 @@ public class ResponseError
         public String getDescription()
         {
             return description;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
         }
     }
 }
