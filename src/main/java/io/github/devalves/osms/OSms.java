@@ -17,6 +17,7 @@ import io.github.devalves.osms.model.error.ServiceError;
 import io.github.devalves.osms.model.error.ServiceException;
 import io.github.devalves.osms.core.Builder;
 import io.github.devalves.osms.model.partnercontract.ContractsSMS;
+import io.github.devalves.osms.model.sms.SMSMessage;
 import io.github.devalves.osms.model.subscription.ResponseSubscription;
 import io.github.devalves.osms.model.statistic.StatisticSMS;
 
@@ -52,13 +53,14 @@ public class OSms implements HttpApiOrange
 
     @Override
     public ResponseSMS sendSms(OrangeSMS sms) throws IOException, HttpApiOrangeException {
+        SMSMessage smsMessage = Objects.requireNonNull(sms.getMessage());
         HttpUrl url = new HttpUrl.Builder()
                 .scheme(SCHEME)
                 .host(HOST)
                 .addPathSegment("smsmessaging")
                 .addPathSegment(VERSION_API)
                 .addPathSegment("outbound")
-                .addEncodedPathSegment(sms.getMessage().getSenderAddress())
+                .addEncodedPathSegment(smsMessage.getSenderAddress())
                 .addPathSegment("requests")
                 .build();
         JsonAdapter<OrangeSMS> adapter = moshi.adapter(OrangeSMS.class);

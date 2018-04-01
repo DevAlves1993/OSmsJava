@@ -9,6 +9,10 @@ public class SMSContent {
     public SMSContent() {
     }
 
+    public SMSContent(String message) {
+        this.message = message;
+    }
+
     public void setMessage(String message) {
         this.message = message;
     }
