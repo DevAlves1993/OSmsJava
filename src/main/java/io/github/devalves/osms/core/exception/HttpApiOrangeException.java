@@ -5,7 +5,8 @@ import io.github.devalves.osms.model.response.error.ServiceError;
 import io.github.devalves.osms.model.response.error.ServiceException;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 
 public class HttpApiOrangeException extends RuntimeException {

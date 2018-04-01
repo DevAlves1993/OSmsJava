@@ -3,7 +3,7 @@ package io.github.devalves.osms.model.response.error;
 /**
  *
  * <p>Represent an error which can arise during calls it of the SMS API.</p>
- * @author Amani Christian
+ * @author Amani Christian Cyrille Alves
  */
 public class ResponseError
 {

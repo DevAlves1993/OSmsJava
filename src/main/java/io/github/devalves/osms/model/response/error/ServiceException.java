@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class ServiceException
 {

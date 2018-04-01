@@ -4,7 +4,8 @@ import com.squareup.moshi.Json;
 import io.github.devalves.osms.core.CountryCode;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class OrangeSMS
 {

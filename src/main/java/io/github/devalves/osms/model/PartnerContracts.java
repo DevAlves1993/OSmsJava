@@ -1,7 +1,8 @@
 package io.github.devalves.osms.model;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class PartnerContracts {
     private String partnerId;

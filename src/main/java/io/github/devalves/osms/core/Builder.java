@@ -21,7 +21,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 
 public abstract class Builder {

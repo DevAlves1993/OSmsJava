@@ -1,7 +1,8 @@
 package io.github.devalves.osms.model.response;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class ResponseSubscription {
     private ReceiptSubscription deliveryReceiptSubscription;

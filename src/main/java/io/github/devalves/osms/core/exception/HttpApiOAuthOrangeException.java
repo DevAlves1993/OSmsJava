@@ -3,7 +3,9 @@ package io.github.devalves.osms.core.exception;
 import io.github.devalves.osms.model.response.error.OAuthError;
 
 /**
- * Created by Christian Amani on 01/04/2017.
+ *
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class HttpApiOAuthOrangeException extends RuntimeException {
     private OAuthError error;

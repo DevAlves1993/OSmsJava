@@ -3,7 +3,8 @@ package io.github.devalves.osms.model.response.error;
 import com.squareup.moshi.Json;
 
 /**
- * Created by Christian Amani on 01/04/2017.
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class OAuthError {
     private String error;

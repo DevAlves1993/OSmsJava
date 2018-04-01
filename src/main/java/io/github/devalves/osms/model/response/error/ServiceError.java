@@ -3,7 +3,8 @@ package io.github.devalves.osms.model.response.error;
 import java.util.List;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class ServiceError
 {

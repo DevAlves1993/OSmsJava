@@ -19,7 +19,8 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * Created by Christian Amani on 29/03/2017.
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class OSmsTest
 {

@@ -30,9 +30,6 @@ import okhttp3.Response;
 import okio.BufferedSource;
 
 
-/**
- * @author Christian Amani
- */
 
 public class OSms implements HttpApiOrange
 {
@@ -51,12 +48,6 @@ public class OSms implements HttpApiOrange
         return this.token;
     }
 
-    /**
-     * @param sms
-     * @return ResponseSMS
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public ResponseSMS sendSms(OrangeSMS sms) throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
@@ -85,13 +76,6 @@ public class OSms implements HttpApiOrange
         }
     }
 
-    /**
-     * @param senderAddress
-     * @param subscription
-     * @return ResponseSubscription
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public ResponseSubscription subscriptionApi(String senderAddress
             , ResponseSubscription subscription) throws IOException, HttpApiOrangeException {
@@ -120,36 +104,17 @@ public class OSms implements HttpApiOrange
         }
     }
 
-    /**
-     * <p>Not use this method because in not implemented.</p>
-     * @param subId
-     * @return ResponseSubscription
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public ResponseSubscription checkSubscriptionApi(String subId) throws HttpApiOrangeException {
         // TODO : implement later
         return null;
     }
 
-    /**
-     * <p>Not use this method because in not implemented.</p>
-     * @param senderAddress
-     * @param subId
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public void unSubscriptionApi(String senderAddress, String subId) throws HttpApiOrangeException {
         // TODO : implement later
     }
 
-    /**
-     * @return StatisticSMS
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public StatisticSMS obtainStatisticSMS() throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
@@ -175,11 +140,6 @@ public class OSms implements HttpApiOrange
         }
     }
 
-    /**
-     * @return ContractsSMS
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public ContractsSMS obtainsContractsSMS() throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()
@@ -205,11 +165,6 @@ public class OSms implements HttpApiOrange
         }
     }
 
-    /**
-     * @return HistoricPurchase
-     * @throws IOException
-     * @throws HttpApiOrangeException
-     */
     @Override
     public HistoricPurchase obtainHistoricSMS() throws IOException, HttpApiOrangeException {
         HttpUrl url = new HttpUrl.Builder()

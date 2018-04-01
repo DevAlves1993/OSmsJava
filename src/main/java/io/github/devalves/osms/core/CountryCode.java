@@ -1,7 +1,9 @@
 package io.github.devalves.osms.core;
 
 /**
- * @author Christian Amani
+ * <p>List the countries that have access to the Orange SMS API</p>
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public enum CountryCode {
     botswana("+267","Botswana"),
@@ -23,6 +25,9 @@ public enum CountryCode {
     }
 
 
+    /**
+     * <p>Get the country code</p>
+     */
     public String getCode() {
         return code;
     }
@@ -31,6 +36,9 @@ public enum CountryCode {
         this.code = code;
     }
 
+    /**
+     * <p>Get the country name</p>
+     */
     public String getCountry() {
         return country;
     }

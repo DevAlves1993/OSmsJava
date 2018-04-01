@@ -3,7 +3,8 @@ package io.github.devalves.osms.model.response;
 import io.github.devalves.osms.model.PartnerContracts;
 
 /**
- * @author Christian Amani
+ *
+ * @author Amani Christian Cyrille Alves
  */
 public class ContractsSMS
 {
